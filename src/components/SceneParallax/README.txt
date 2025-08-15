@@ -1,0 +1,1 @@
+SceneParallax component placeholder. Implementation lands with final assets/logic pack.

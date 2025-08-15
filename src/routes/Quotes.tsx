@@ -1,0 +1,1 @@
+import React from 'react'; export default function Quotes(){ return (<section className='card'><h2>Quotes</h2><p>Quote → Context → Reflection appears once content is present.</p></section>);}

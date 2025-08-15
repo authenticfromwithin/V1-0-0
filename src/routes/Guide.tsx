@@ -1,0 +1,1 @@
+import React from 'react'; export default function Guide(){ return (<section className='card'><h2>First-Time Guide</h2><p>Guide content attaches with the content pack.</p></section>);}

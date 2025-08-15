@@ -1,0 +1,127 @@
+{
+  "when": "2025-08-15T11:07:53.646Z",
+  "cwd": "C:\\Users\\FAMSA\\Documents\\AFW-v1.0.0\\frontend-project",
+  "results": [
+    {
+      "label": "public exists",
+      "ok": true
+    },
+    {
+      "label": "index.html exists",
+      "ok": true
+    },
+    {
+      "label": "404.html exists",
+      "ok": true
+    },
+    {
+      "label": "vercel.json exists",
+      "ok": true
+    },
+    {
+      "label": "assets.manifest.json exists",
+      "ok": true
+    },
+    {
+      "label": "avatars.manifest.json exists",
+      "ok": true
+    },
+    {
+      "label": "audio.manifest.json exists",
+      "ok": true
+    },
+    {
+      "label": "narration.manifest.json exists",
+      "ok": true
+    },
+    {
+      "label": "quotes.manifest.json exists",
+      "ok": true
+    },
+    {
+      "label": "devotionals.manifest.json exists",
+      "ok": true
+    },
+    {
+      "label": "assets.manifest has all scenes",
+      "ok": true
+    },
+    {
+      "label": "avatars.manifest has healing + journey",
+      "ok": true
+    },
+    {
+      "label": "audio.manifest has all ambience themes",
+      "ok": true
+    },
+    {
+      "label": "narration.manifest has tracks",
+      "ok": true
+    },
+    {
+      "label": "quotes.manifest has expected categories",
+      "ok": true
+    },
+    {
+      "label": "devotionals.manifest has 2025-08 month",
+      "ok": true
+    },
+    {
+      "label": "scenes/forest has plates/depth/atmos",
+      "ok": true
+    },
+    {
+      "label": "scenes/ocean has plates/depth/atmos",
+      "ok": true
+    },
+    {
+      "label": "scenes/mountain has plates/depth/atmos",
+      "ok": true
+    },
+    {
+      "label": "scenes/autumn has plates/depth/atmos",
+      "ok": true
+    },
+    {
+      "label": "scenes/snow has plates/depth/atmos",
+      "ok": true
+    },
+    {
+      "label": "avatars/healing idle has codec dirs",
+      "ok": true
+    },
+    {
+      "label": "avatars/journey idle has codec dirs",
+      "ok": true
+    },
+    {
+      "label": "audio/forest/stems dir exists",
+      "ok": true
+    },
+    {
+      "label": "audio/ocean/stems dir exists",
+      "ok": true
+    },
+    {
+      "label": "audio/mountain/stems dir exists",
+      "ok": true
+    },
+    {
+      "label": "audio/autumn/stems dir exists",
+      "ok": true
+    },
+    {
+      "label": "audio/snow/stems dir exists",
+      "ok": true
+    },
+    {
+      "label": "vercel.json has rewrites or cleanUrls",
+      "ok": true
+    }
+  ],
+  "summary": {
+    "ok": 29,
+    "fail": 0,
+    "total": 29
+  }
+}

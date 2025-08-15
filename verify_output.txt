@@ -1,0 +1,7 @@
+
+===============================
+AFW Verify — 29/29 PASS, 0 FAIL
+Report: scripts\verify\last-report.json
+Run path: C:\Users\FAMSA\Documents\AFW-v1.0.0\frontend-project
+===============================
+

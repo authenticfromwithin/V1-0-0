@@ -1,21 +1,38 @@
-/* AFW Fonts — load variable fonts if provided */
+/* Place .woff2 files in public/assets/fonts/{ui,latin,greek,hebrew}/
+   Then reference them here. Keep paths EXACT (case-sensitive). Example stubs below. */
+
+/* UI font */
 @font-face {
-  font-family: 'AFW Inter';
-  src: url('/assets/fonts/ui/Inter-Variable.woff2') format('woff2-variations'),
-       url('/assets/fonts/sans/Inter-Variable.woff2') format('woff2-variations');
-  font-weight: 100 900;
-  font-stretch: 75% 125%;
+  font-family: 'AFW-UI';
+  src: url('/assets/fonts/ui/YourUIFont.woff2') format('woff2');
+  font-weight: 400 700;
   font-style: normal;
   font-display: swap;
 }
+
+/* Greek */
 @font-face {
-  font-family: 'AFW Crimson';
-  src: url('/assets/fonts/serif/CrimsonPro-Variable.woff2') format('woff2-variations');
-  font-weight: 200 900;
+  font-family: 'AFW-Greek';
+  src: url('/assets/fonts/greek/YourGreekFont.woff2') format('woff2');
+  font-weight: 400 700;
   font-style: normal;
   font-display: swap;
 }
-:root {
-  --font-ui: 'AFW Inter', system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial, sans-serif;
-  --font-serif: 'AFW Crimson', Georgia, 'Times New Roman', serif;
+
+/* Hebrew */
+@font-face {
+  font-family: 'AFW-Hebrew';
+  src: url('/assets/fonts/hebrew/YourHebrewFont.woff2') format('woff2');
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Latin body */
+@font-face {
+  font-family: 'AFW-Latin';
+  src: url('/assets/fonts/latin/YourLatinFont.woff2') format('woff2');
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
 }

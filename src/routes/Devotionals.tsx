@@ -1,0 +1,1 @@
+import React from 'react'; export default function Devotionals(){ return (<section className='card'><h2>Transfiguration (Devotionals)</h2><p>Daily devotionals render when content pack is present.</p></section>);}

@@ -1,0 +1,1 @@
+import React from 'react'; export default function Journey(){ return (<section className='card'><h2>My Journey Avatar</h2><p>Photoreal avatar & scene interactions load once assets/manifests are added.</p></section>);}

@@ -1,0 +1,1 @@
+import React from 'react'; export default function Healing(){ return (<section className='card'><h2>Healing From Within</h2><p>Selections and animations attach when assets & logic arrive.</p></section>);}
