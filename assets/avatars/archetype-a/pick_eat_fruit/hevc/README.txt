@@ -1,0 +1,1 @@
+Place archetype-a/pick_eat_fruit/hevc files here. Keep names exact.

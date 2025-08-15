@@ -1,0 +1,1 @@
+Place archetype-a/walk/hevc files here. Keep names exact.

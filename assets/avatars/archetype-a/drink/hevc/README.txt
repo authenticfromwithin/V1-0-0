@@ -1,0 +1,1 @@
+Place archetype-a/drink/hevc files here. Keep names exact.

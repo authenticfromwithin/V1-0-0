@@ -1,0 +1,23 @@
+{
+  "version": "1.0.0",
+  "avatars": {
+    "healing": {
+      "poses": {
+        "idle": {
+          "webm": [],
+          "hevc": [],
+          "stills": []
+        }
+      }
+    },
+    "journey": {
+      "poses": {
+        "idle": {
+          "webm": [],
+          "hevc": [],
+          "stills": []
+        }
+      }
+    }
+  }
+}

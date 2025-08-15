@@ -1,0 +1,13 @@
+{
+  "version": "1.0.0",
+  "tracks": [
+    {
+      "id": "intro_welcome_en",
+      "title": "Welcome to Authentic From Within",
+      "lang": "en",
+      "webm": "narration/tracks/intro_welcome_en.webm",
+      "m4a": "narration/tracks/intro_welcome_en.m4a",
+      "vtt": "narration/captions/intro_welcome_en.vtt"
+    }
+  ]
+}

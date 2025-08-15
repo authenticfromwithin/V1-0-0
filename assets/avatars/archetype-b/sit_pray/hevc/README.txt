@@ -1,0 +1,1 @@
+Place archetype-b/sit_pray/hevc files here. Keep names exact.

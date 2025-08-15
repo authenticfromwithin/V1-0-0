@@ -1,0 +1,1 @@
+Place archetype-a/walk/stills files here. Keep names exact.

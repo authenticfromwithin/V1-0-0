@@ -1,0 +1,13 @@
+AUDIO & NARRATION — FILE MAP (placement only; add real files later)
+
+Ambience stems per theme (both .m4a and .ogg):
+  public/assets/audio/{forest|ocean|mountain|autumn|snow}/stems/
+
+Narration:
+  public/assets/narration/tracks/    (*.m4a, *.ogg)
+  public/assets/narration/captions/  (*.vtt) — match filenames to tracks
+
+Manifests:
+  public/assets/manifests/audio.manifest.json
+
+Loudness target: -16 LUFS, True Peak: -1 dB

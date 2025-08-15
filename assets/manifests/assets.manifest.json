@@ -1,0 +1,30 @@
+{
+  "version": "1.0.0",
+  "scenes": {
+    "forest": {
+      "plates": [],
+      "depth": [],
+      "atmos": []
+    },
+    "ocean": {
+      "plates": [],
+      "depth": [],
+      "atmos": []
+    },
+    "mountain": {
+      "plates": [],
+      "depth": [],
+      "atmos": []
+    },
+    "autumn": {
+      "plates": [],
+      "depth": [],
+      "atmos": []
+    },
+    "snow": {
+      "plates": [],
+      "depth": [],
+      "atmos": []
+    }
+  }
+}

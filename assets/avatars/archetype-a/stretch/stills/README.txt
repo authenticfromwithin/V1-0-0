@@ -1,0 +1,1 @@
+Place archetype-a/stretch/stills files here. Keep names exact.

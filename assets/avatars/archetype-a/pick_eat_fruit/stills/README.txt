@@ -1,0 +1,1 @@
+Place archetype-a/pick_eat_fruit/stills files here. Keep names exact.

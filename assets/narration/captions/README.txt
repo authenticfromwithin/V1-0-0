@@ -1,0 +1,1 @@
+Place WebVTT caption files here (.vtt) matching narration.manifest.json.

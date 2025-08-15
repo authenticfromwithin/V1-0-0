@@ -1,0 +1,1 @@
+Place snow/atmos files here. Keep folder names exact (case-sensitive).

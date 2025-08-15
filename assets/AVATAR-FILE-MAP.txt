@@ -1,0 +1,24 @@
+AVATARS — FILE MAP (placement only; add real files later)
+
+Root for avatars:
+  AFW-v1.0.0/frontend-project/AFW-v1.0.0-frontend-project/public/assets/avatars/
+
+Structure per archetype and state:
+  avatars/{archetype}/{state}/{codec}/
+
+Where:
+  {archetype} = archetype-a, archetype-b
+  {state}     = walk, idle, sit_pray, stretch, drink, pick_eat_fruit
+  {codec}     = webm (VP9+alpha), hevc (HEVC+alpha), stills (PNG frame for reduced motion)
+
+Example path:
+  public/assets/avatars/archetype-a/walk/webm/yourfile.webm
+
+Manifest:
+  public/assets/manifests/avatars.manifest.json
+  - Fill with file names, durations, fps after placing assets.
+
+IMPORTANT:
+- Paths are CASE-SENSITIVE. Keep exact names as above.
+- Do not rename folders (e.g., 'sit_pray' must stay 'sit_pray').
+- README.txt files are placeholders and are ignored by deploy (via .vercelignore).

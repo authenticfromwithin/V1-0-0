@@ -1,0 +1,1 @@
+Place snow/depth files here. Keep folder names exact (case-sensitive).

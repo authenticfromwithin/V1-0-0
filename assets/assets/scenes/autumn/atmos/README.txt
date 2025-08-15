@@ -1,0 +1,1 @@
+Place autumn/atmos files here. Keep folder names exact (case-sensitive).

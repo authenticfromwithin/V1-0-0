@@ -1,0 +1,1 @@
+Place archetype-a/idle/stills files here. Keep names exact.

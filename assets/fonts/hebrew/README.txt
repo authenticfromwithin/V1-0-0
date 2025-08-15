@@ -1,0 +1,1 @@
+Place font files for the 'hebrew' set here (e.g., .woff2). Keep filenames stable.

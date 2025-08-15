@@ -1,0 +1,1 @@
+Place mountain/atmos files here. Keep folder names exact (case-sensitive).

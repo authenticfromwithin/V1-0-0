@@ -1,0 +1,1 @@
+Place archetype-a/sit_pray/stills files here. Keep names exact.

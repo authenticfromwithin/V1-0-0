@@ -1,0 +1,1 @@
+Place archetype-a/drink/stills files here. Keep names exact.

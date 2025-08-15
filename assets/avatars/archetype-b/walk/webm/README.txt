@@ -1,0 +1,1 @@
+Place archetype-b/walk/webm files here. Keep names exact.

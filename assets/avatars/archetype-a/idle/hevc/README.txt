@@ -1,0 +1,1 @@
+Place archetype-a/idle/hevc files here. Keep names exact.

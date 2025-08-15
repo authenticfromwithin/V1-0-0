@@ -1,0 +1,1 @@
+Place archetype-b/stretch/hevc files here. Keep names exact.
