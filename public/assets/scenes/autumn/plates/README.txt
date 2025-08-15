@@ -1,0 +1,1 @@
+Place autumn base plates here (AVIF/WebP).

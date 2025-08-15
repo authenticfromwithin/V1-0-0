@@ -1,0 +1,16 @@
+SCENES — FILE MAP (placement only; add real files later)
+
+Root: AFW-v1.0.0/frontend-project/AFW-v1.0.0-frontend-project/public/assets/scenes/
+
+Per theme:
+  scenes/{theme}/plates/   → Background plates (AVIF/WebP, 1x & 2x DPR)
+  scenes/{theme}/depth/    → Foreground/mid/avatar-plane/far-horizon cutouts (PNG/AVIF with alpha)
+  scenes/{theme}/atmos/    → Mist, light shafts, particles (PNG/AVIF with alpha)
+
+Manifests live in:
+  public/assets/manifests/assets.manifest.json
+
+IMPORTANT:
+- Folder and file names are CASE-SENSITIVE.
+- Do not rename 'autumn' to 'Autumn', etc.
+- Keep 'plates', 'depth', 'atmos' exactly as named.

@@ -1,0 +1,19 @@
+OCEAN SCENE — ASSET CHECKLIST (no images included)
+
+Files to place (exact names):
+
+public/assets/scenes/ocean/plates/
+  - ocean_base_dawn@1x.avif
+  - ocean_base_dawn@2x.avif
+
+public/assets/scenes/ocean/depth/  (with alpha)
+  - shoreline_fg.avif
+  - waves_mid.avif
+  - avatar_plane.avif
+  - horizon.avif
+
+public/assets/scenes/ocean/atmos/  (with alpha)
+  - sea_mist.avif
+  - light_rays.avif
+  - foam_sparkle.avif
+  - birds_soft.avif

@@ -1,0 +1,1 @@
+Place mountain atmospheric overlays here (AVIF/PNG with alpha): fog_ridge, sun_rays, snow_drift, stars_soft.

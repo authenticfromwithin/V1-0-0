@@ -1,0 +1,1 @@
+Place ocean atmospheric overlays here (AVIF/PNG with alpha): sea_mist, light_rays, foam_sparkle, birds_soft.

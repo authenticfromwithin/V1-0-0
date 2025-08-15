@@ -1,0 +1,1 @@
+Place ocean depth layers here (AVIF/PNG with alpha): shoreline_fg, waves_mid, avatar_plane, horizon.

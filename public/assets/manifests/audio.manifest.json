@@ -1,0 +1,131 @@
+{
+  "version": "1.0.0",
+  "generatedAt": "2025-08-14 04:23:34 SAST",
+  "codecFallbackOrder": [
+    "webm",
+    "m4a"
+  ],
+  "ambience": {
+    "forest": [
+      {
+        "id": "pad_rain",
+        "webm": "audio/forest/stems/pad_rain.webm",
+        "m4a": "audio/forest/stems/pad_rain.m4a",
+        "gain": 0.35,
+        "loop": true
+      },
+      {
+        "id": "wind_low",
+        "webm": "audio/forest/stems/wind_low.webm",
+        "m4a": "audio/forest/stems/wind_low.m4a",
+        "gain": 0.28,
+        "loop": true
+      },
+      {
+        "id": "creek_loop",
+        "webm": "audio/forest/stems/creek_loop.webm",
+        "m4a": "audio/forest/stems/creek_loop.m4a",
+        "gain": 0.32,
+        "loop": true
+      },
+      {
+        "id": "chimes_soft",
+        "webm": "audio/forest/stems/chimes_soft.webm",
+        "m4a": "audio/forest/stems/chimes_soft.m4a",
+        "gain": 0.18,
+        "loop": true
+      }
+    ],
+    "ocean": [
+      {
+        "id": "surf_gentle",
+        "webm": "audio/ocean/stems/surf_gentle.webm",
+        "m4a": "audio/ocean/stems/surf_gentle.m4a",
+        "gain": 0.34,
+        "loop": true
+      },
+      {
+        "id": "wind_coast",
+        "webm": "audio/ocean/stems/wind_coast.webm",
+        "m4a": "audio/ocean/stems/wind_coast.m4a",
+        "gain": 0.26,
+        "loop": true
+      },
+      {
+        "id": "gulls_far",
+        "webm": "audio/ocean/stems/gulls_far.webm",
+        "m4a": "audio/ocean/stems/gulls_far.m4a",
+        "gain": 0.15,
+        "loop": true
+      },
+      {
+        "id": "swells_slow",
+        "webm": "audio/ocean/stems/swells_slow.webm",
+        "m4a": "audio/ocean/stems/swells_slow.m4a",
+        "gain": 0.3,
+        "loop": true
+      }
+    ],
+    "mountain": [
+      {
+        "id": "wind_high",
+        "webm": "audio/mountain/stems/wind_high.webm",
+        "m4a": "audio/mountain/stems/wind_high.m4a",
+        "gain": 0.3,
+        "loop": true
+      },
+      {
+        "id": "crickets_peak",
+        "webm": "audio/mountain/stems/crickets_peak.webm",
+        "m4a": "audio/mountain/stems/crickets_peak.m4a",
+        "gain": 0.16,
+        "loop": true
+      },
+      {
+        "id": "stream_rocky",
+        "webm": "audio/mountain/stems/stream_rocky.webm",
+        "m4a": "audio/mountain/stems/stream_rocky.m4a",
+        "gain": 0.28,
+        "loop": true
+      },
+      {
+        "id": "campfire_low",
+        "webm": "audio/mountain/stems/campfire_low.webm",
+        "m4a": "audio/mountain/stems/campfire_low.m4a",
+        "gain": 0.14,
+        "loop": true
+      }
+    ],
+    "autumn": [
+      {
+        "id": "leaf_rustle",
+        "webm": "audio/autumn/stems/leaf_rustle.webm",
+        "m4a": "audio/autumn/stems/leaf_rustle.m4a",
+        "gain": 0.3,
+        "loop": true
+      },
+      {
+        "id": "wind_orchard",
+        "webm": "audio/autumn/stems/wind_orchard.webm",
+        "m4a": "audio/autumn/stems/wind_orchard.m4a",
+        "gain": 0.26,
+        "loop": true
+      },
+      {
+        "id": "birds_distant",
+        "webm": "audio/autumn/stems/birds_distant.webm",
+        "m4a": "audio/autumn/stems/birds_distant.m4a",
+        "gain": 0.14,
+        "loop": true
+      },
+      {
+        "id": "fire_crackle",
+        "webm": "audio/autumn/stems/fire_crackle.webm",
+        "m4a": "audio/autumn/stems/fire_crackle.m4a",
+        "gain": 0.12,
+        "loop": true
+      }
+    ]
+  },
+  "notes": "Provide both .webm (Opus) and .m4a (AAC) for widest browser support."
+}

@@ -1,0 +1,13 @@
+{
+  "version": "1.0.0",
+  "plan": "daily",
+  "files": {
+    "2025-08": [
+      "devotionals/2025-08/devotional-2025-08-11.json",
+      "devotionals/2025-08/devotional-2025-08-12.json",
+      "devotionals/2025-08/devotional-2025-08-13.json",
+      "devotionals/2025-08/devotional-2025-08-14.json",
+      "devotionals/2025-08/devotional-2025-08-15.json"
+    ]
+  }
+}

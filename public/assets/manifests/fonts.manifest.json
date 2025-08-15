@@ -1,0 +1,16 @@
+{
+  "version": "1.0.0",
+  "generatedAt": "2025-08-14 04:27:14 SAST",
+  "fonts": {
+    "ui": [
+      "fonts/ui/Inter-Variable.woff2"
+    ],
+    "sans": [
+      "fonts/sans/Inter-Variable.woff2"
+    ],
+    "serif": [
+      "fonts/serif/CrimsonPro-Variable.woff2"
+    ]
+  },
+  "notes": "Optional manifest for auditing fonts present. File names can be changed to your chosen license-safe fonts."
+}

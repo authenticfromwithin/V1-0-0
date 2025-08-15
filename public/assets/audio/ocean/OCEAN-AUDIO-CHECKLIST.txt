@@ -1,0 +1,10 @@
+OCEAN AMBIENCE — FILE CHECKLIST (no audio included)
+
+Provide BOTH formats for each stem (gapless loops):
+  - surf_gentle.webm, surf_gentle.m4a
+  - wind_coast.webm, wind_coast.m4a
+  - gulls_far.webm, gulls_far.m4a
+  - swells_slow.webm, swells_slow.m4a
+
+Exact target folder:
+  public/assets/audio/ocean/stems/

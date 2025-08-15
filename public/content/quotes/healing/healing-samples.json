@@ -1,0 +1,44 @@
+[
+  {
+    "id": "id-heal-001",
+    "text": "Healing is not a ladder but a landscape; you can rest and still arrive.",
+    "context": "Nonlinear recovery",
+    "reflectionPrompt": "Where might rest be progress for you?",
+    "category": "healing"
+  },
+  {
+    "id": "id-heal-002",
+    "text": "Small steady care outlives big bursts of perfection.",
+    "context": "Consistency over perfection",
+    "reflectionPrompt": "Which tiny practice can you repeat this week?",
+    "category": "healing"
+  },
+  {
+    "id": "id-heal-003",
+    "text": "The nervous system believes what you practice.",
+    "context": "Embodied rehearsal",
+    "reflectionPrompt": "What calm cue can you practice today?",
+    "category": "healing"
+  },
+  {
+    "id": "id-heal-004",
+    "text": "Grief is proof you loved; let it teach, not harden.",
+    "context": "Grief as teacher",
+    "reflectionPrompt": "What kindness can you offer the part that grieves?",
+    "category": "healing"
+  },
+  {
+    "id": "id-heal-005",
+    "text": "Boundaries are the doors that keep the sanctuary sacred.",
+    "context": "Protective boundaries",
+    "reflectionPrompt": "Where is a boundary asking to be set?",
+    "category": "healing"
+  },
+  {
+    "id": "id-heal-006",
+    "text": "You can be both tender and brave in the same breath.",
+    "context": "Both/and capacity",
+    "reflectionPrompt": "Name a moment you were both tender and brave.",
+    "category": "healing"
+  }
+]

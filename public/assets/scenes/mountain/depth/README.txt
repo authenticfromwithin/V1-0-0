@@ -1,0 +1,1 @@
+Place mountain depth layers here (AVIF/PNG with alpha): fg_rocks, mid_slopes, avatar_plane, far_peaks.

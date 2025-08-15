@@ -1,0 +1,10 @@
+SNOW AMBIENCE — FILE CHECKLIST (no audio included)
+
+Provide BOTH formats for each stem (gapless loops):
+  - snowfall_soft.webm, snowfall_soft.m4a
+  - wind_ice.webm, wind_ice.m4a
+  - aurora_low.webm, aurora_low.m4a
+  - campfire_shelter.webm, campfire_shelter.m4a
+
+Exact target folder:
+  public/assets/audio/snow/stems/

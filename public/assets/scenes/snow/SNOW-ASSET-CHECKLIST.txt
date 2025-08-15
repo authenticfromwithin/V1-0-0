@@ -1,0 +1,17 @@
+SNOW SCENE — ASSET CHECKLIST (no images included)
+
+public/assets/scenes/snow/plates/
+  - snow_base_bluehour@1x.avif
+  - snow_base_bluehour@2x.avif
+
+public/assets/scenes/snow/depth/
+  - fg_pines.avif
+  - mid_snowfield.avif
+  - avatar_plane.avif
+  - far_ridge.avif
+
+public/assets/scenes/snow/atmos/
+  - snowfall_soft.avif
+  - aurora_glow.avif
+  - breath_fog.avif
+  - stars_cold.avif

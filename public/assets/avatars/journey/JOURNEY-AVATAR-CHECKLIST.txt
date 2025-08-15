@@ -1,0 +1,27 @@
+JOURNEY AVATAR — FILE CHECKLIST (no videos included)
+
+Place with exact names (case-sensitive):
+
+public/assets/avatars/journey/idle/webm/idle_loop.webm
+public/assets/avatars/journey/idle/hevc/idle_loop.mp4
+public/assets/avatars/journey/idle/stills/idle_still.avif
+
+public/assets/avatars/journey/walk/webm/walk_loop.webm
+public/assets/avatars/journey/walk/hevc/walk_loop.mp4
+public/assets/avatars/journey/walk/stills/walk_still.avif
+
+public/assets/avatars/journey/reflect/webm/reflect_loop.webm
+public/assets/avatars/journey/reflect/hevc/reflect_loop.mp4
+public/assets/avatars/journey/reflect/stills/reflect_still.avif
+
+public/assets/avatars/journey/read_devotional/webm/read_devotional.webm
+public/assets/avatars/journey/read_devotional/hevc/read_devotional.mp4
+public/assets/avatars/journey/read_devotional/stills/read_devotional.avif
+
+public/assets/avatars/journey/pray/webm/pray_loop.webm
+public/assets/avatars/journey/pray/hevc/pray_loop.mp4
+public/assets/avatars/journey/pray/stills/pray_still.avif
+
+public/assets/avatars/journey/kneel/webm/kneel_loop.webm
+public/assets/avatars/journey/kneel/hevc/kneel_loop.mp4
+public/assets/avatars/journey/kneel/stills/kneel_still.avif

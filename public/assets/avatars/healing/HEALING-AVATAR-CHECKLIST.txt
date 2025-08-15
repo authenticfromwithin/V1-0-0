@@ -1,0 +1,27 @@
+HEALING AVATAR — FILE CHECKLIST (no videos included)
+
+Place with exact names (case-sensitive):
+
+public/assets/avatars/healing/idle/webm/idle_loop.webm
+public/assets/avatars/healing/idle/hevc/idle_loop.mp4
+public/assets/avatars/healing/idle/stills/idle_still.avif
+
+public/assets/avatars/healing/walk/webm/walk_loop.webm
+public/assets/avatars/healing/walk/hevc/walk_loop.mp4
+public/assets/avatars/healing/walk/stills/walk_still.avif
+
+public/assets/avatars/healing/sit_pray/webm/sit_pray_loop.webm
+public/assets/avatars/healing/sit_pray/hevc/sit_pray_loop.mp4
+public/assets/avatars/healing/sit_pray/stills/sit_pray_still.avif
+
+public/assets/avatars/healing/stretch/webm/stretch_loop.webm
+public/assets/avatars/healing/stretch/hevc/stretch_loop.mp4
+public/assets/avatars/healing/stretch/stills/stretch_still.avif
+
+public/assets/avatars/healing/drink_water/webm/drink_water.webm
+public/assets/avatars/healing/drink_water/hevc/drink_water.mp4
+public/assets/avatars/healing/drink_water/stills/drink_water.avif
+
+public/assets/avatars/healing/pick_eat_fruit/webm/pick_eat_fruit.webm
+public/assets/avatars/healing/pick_eat_fruit/hevc/pick_eat_fruit.mp4
+public/assets/avatars/healing/pick_eat_fruit/stills/pick_eat_fruit.avif

@@ -1,0 +1,10 @@
+AUTUMN AMBIENCE — FILE CHECKLIST (no audio included)
+
+Provide BOTH formats for each stem (gapless loops):
+  - leaf_rustle.webm, leaf_rustle.m4a
+  - wind_orchard.webm, wind_orchard.m4a
+  - birds_distant.webm, birds_distant.m4a
+  - fire_crackle.webm, fire_crackle.m4a
+
+Exact target folder:
+  public/assets/audio/autumn/stems/

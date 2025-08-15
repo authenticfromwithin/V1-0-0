@@ -1,0 +1,15 @@
+FOREST AMBIENCE — FILE CHECKLIST (no audio included)
+
+Provide BOTH formats for each stem (best quality, seamless loops):
+  - pad_rain.webm, pad_rain.m4a
+  - wind_low.webm, wind_low.m4a
+  - creek_loop.webm, creek_loop.m4a
+  - chimes_soft.webm, chimes_soft.m4a
+
+Exact target folder:
+  public/assets/audio/forest/stems/
+
+Export tips:
+- 48 kHz, -1 dBFS peak, ~-18 LUFS integrated per stem.
+- Start/end aligned for gapless looping; add 20–50 ms pre/post roll if needed.
+- No clipping; gentle low-shelf at 120 Hz to avoid rumble.

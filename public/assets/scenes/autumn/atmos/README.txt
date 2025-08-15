@@ -1,0 +1,1 @@
+Place autumn atmospheric overlays here (AVIF/PNG with alpha): leaf_fall, amber_haze, light_shafts, embers_soft.

@@ -1,0 +1,76 @@
+{
+  "version": "1.0.0",
+  "generatedAt": "2025-08-14 04:19:15 SAST",
+  "codecFallbackOrder": [
+    "webm",
+    "hevc",
+    "stills"
+  ],
+  "avatars": {
+    "healing": {
+      "idle": {
+        "webm": "avatars/healing/idle/webm/idle_loop.webm",
+        "hevc": "avatars/healing/idle/hevc/idle_loop.mp4",
+        "stills": "avatars/healing/idle/stills/idle_still.avif"
+      },
+      "walk": {
+        "webm": "avatars/healing/walk/webm/walk_loop.webm",
+        "hevc": "avatars/healing/walk/hevc/walk_loop.mp4",
+        "stills": "avatars/healing/walk/stills/walk_still.avif"
+      },
+      "sit_pray": {
+        "webm": "avatars/healing/sit_pray/webm/sit_pray_loop.webm",
+        "hevc": "avatars/healing/sit_pray/hevc/sit_pray_loop.mp4",
+        "stills": "avatars/healing/sit_pray/stills/sit_pray_still.avif"
+      },
+      "stretch": {
+        "webm": "avatars/healing/stretch/webm/stretch_loop.webm",
+        "hevc": "avatars/healing/stretch/hevc/stretch_loop.mp4",
+        "stills": "avatars/healing/stretch/stills/stretch_still.avif"
+      },
+      "drink_water": {
+        "webm": "avatars/healing/drink_water/webm/drink_water.webm",
+        "hevc": "avatars/healing/drink_water/hevc/drink_water.mp4",
+        "stills": "avatars/healing/drink_water/stills/drink_water.avif"
+      },
+      "pick_eat_fruit": {
+        "webm": "avatars/healing/pick_eat_fruit/webm/pick_eat_fruit.webm",
+        "hevc": "avatars/healing/pick_eat_fruit/hevc/pick_eat_fruit.mp4",
+        "stills": "avatars/healing/pick_eat_fruit/stills/pick_eat_fruit.avif"
+      }
+    },
+    "journey": {
+      "idle": {
+        "webm": "avatars/journey/idle/webm/idle_loop.webm",
+        "hevc": "avatars/journey/idle/hevc/idle_loop.mp4",
+        "stills": "avatars/journey/idle/stills/idle_still.avif"
+      },
+      "walk": {
+        "webm": "avatars/journey/walk/webm/walk_loop.webm",
+        "hevc": "avatars/journey/walk/hevc/walk_loop.mp4",
+        "stills": "avatars/journey/walk/stills/walk_still.avif"
+      },
+      "reflect": {
+        "webm": "avatars/journey/reflect/webm/reflect_loop.webm",
+        "hevc": "avatars/journey/reflect/hevc/reflect_loop.mp4",
+        "stills": "avatars/journey/reflect/stills/reflect_still.avif"
+      },
+      "read_devotional": {
+        "webm": "avatars/journey/read_devotional/webm/read_devotional.webm",
+        "hevc": "avatars/journey/read_devotional/hevc/read_devotional.mp4",
+        "stills": "avatars/journey/read_devotional/stills/read_devotional.avif"
+      },
+      "pray": {
+        "webm": "avatars/journey/pray/webm/pray_loop.webm",
+        "hevc": "avatars/journey/pray/hevc/pray_loop.mp4",
+        "stills": "avatars/journey/pray/stills/pray_still.avif"
+      },
+      "kneel": {
+        "webm": "avatars/journey/kneel/webm/kneel_loop.webm",
+        "hevc": "avatars/journey/kneel/hevc/kneel_loop.mp4",
+        "stills": "avatars/journey/kneel/stills/kneel_still.avif"
+      }
+    }
+  },
+  "notes": "Drop real files with the exact names above (case-sensitive)."
+}

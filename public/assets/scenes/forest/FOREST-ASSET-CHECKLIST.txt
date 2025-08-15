@@ -1,0 +1,24 @@
+FOREST SCENE — ASSET CHECKLIST (no images included)
+
+Place these files exactly as named:
+
+public/assets/scenes/forest/plates/
+  - forest_base_night@1x.avif   (min 1920×1080, ideally 3840×2160 scaled 0.5)
+  - forest_base_night@2x.avif   (min 3840×2160, 4K recommended)
+
+public/assets/scenes/forest/depth/  (with alpha)
+  - fg_branches.avif
+  - mid_trees.avif
+  - avatar_plane.avif
+  - far_horizon.avif
+
+public/assets/scenes/forest/atmos/  (with alpha)
+  - mist_soft.avif
+  - light_shafts.avif
+  - fireflies.avif
+  - dust_motes.avif
+
+NOTES
+- Use AVIF for best quality+size. If you must use PNG/WebP, keep the same filenames but extensions .png or .webp and update the manifest accordingly.
+- Keep color space consistent (sRGB). Avoid banding; prefer 10-bit sources then export to AVIF quality 70–80.
+- All filenames are case-sensitive on the server.

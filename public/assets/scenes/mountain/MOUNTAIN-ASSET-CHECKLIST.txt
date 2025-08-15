@@ -1,0 +1,17 @@
+MOUNTAIN SCENE — ASSET CHECKLIST (no images included)
+
+public/assets/scenes/mountain/plates/
+  - mountain_base_dusk@1x.avif
+  - mountain_base_dusk@2x.avif
+
+public/assets/scenes/mountain/depth/
+  - fg_rocks.avif
+  - mid_slopes.avif
+  - avatar_plane.avif
+  - far_peaks.avif
+
+public/assets/scenes/mountain/atmos/
+  - fog_ridge.avif
+  - sun_rays.avif
+  - snow_drift.avif
+  - stars_soft.avif

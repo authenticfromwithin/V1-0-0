@@ -1,0 +1,349 @@
+{
+  "version": "1.0.0",
+  "generatedAt": "2025-08-14 04:10:29 SAST",
+  "themes": [
+    "forest",
+    "ocean",
+    "mountain",
+    "autumn",
+    "snow"
+  ],
+  "scenes": {
+    "forest": {
+      "plates": [
+        {
+          "file": "scenes/forest/plates/forest_base_night@1x.avif",
+          "dpr": 1
+        },
+        {
+          "file": "scenes/forest/plates/forest_base_night@2x.avif",
+          "dpr": 2
+        }
+      ],
+      "depth": [
+        {
+          "id": "fg_branches",
+          "file": "scenes/forest/depth/fg_branches.avif"
+        },
+        {
+          "id": "mid_trees",
+          "file": "scenes/forest/depth/mid_trees.avif"
+        },
+        {
+          "id": "avatar_plane",
+          "file": "scenes/forest/depth/avatar_plane.avif"
+        },
+        {
+          "id": "far_horizon",
+          "file": "scenes/forest/depth/far_horizon.avif"
+        }
+      ],
+      "atmos": [
+        {
+          "id": "mist_soft",
+          "file": "scenes/forest/atmos/mist_soft.avif",
+          "blend": "screen",
+          "opacity": 0.4
+        },
+        {
+          "id": "light_shafts",
+          "file": "scenes/forest/atmos/light_shafts.avif",
+          "blend": "screen",
+          "opacity": 0.35
+        },
+        {
+          "id": "fireflies",
+          "file": "scenes/forest/atmos/fireflies.avif",
+          "blend": "lighten",
+          "opacity": 0.6
+        },
+        {
+          "id": "dust_motes",
+          "file": "scenes/forest/atmos/dust_motes.avif",
+          "blend": "screen",
+          "opacity": 0.2
+        }
+      ],
+      "parallax": {
+        "fg_branches": 0.35,
+        "mid_trees": 0.2,
+        "avatar_plane": 0.12,
+        "far_horizon": 0.05
+      },
+      "lighting": {
+        "grade": "night",
+        "vignette": 0.12,
+        "fog": 0.25
+      }
+    },
+    "ocean": {
+      "plates": [
+        {
+          "file": "scenes/ocean/plates/ocean_base_dawn@1x.avif",
+          "dpr": 1
+        },
+        {
+          "file": "scenes/ocean/plates/ocean_base_dawn@2x.avif",
+          "dpr": 2
+        }
+      ],
+      "depth": [
+        {
+          "id": "shoreline_fg",
+          "file": "scenes/ocean/depth/shoreline_fg.avif"
+        },
+        {
+          "id": "waves_mid",
+          "file": "scenes/ocean/depth/waves_mid.avif"
+        },
+        {
+          "id": "avatar_plane",
+          "file": "scenes/ocean/depth/avatar_plane.avif"
+        },
+        {
+          "id": "horizon",
+          "file": "scenes/ocean/depth/horizon.avif"
+        }
+      ],
+      "atmos": [
+        {
+          "id": "sea_mist",
+          "file": "scenes/ocean/atmos/sea_mist.avif",
+          "blend": "screen",
+          "opacity": 0.35
+        },
+        {
+          "id": "light_rays",
+          "file": "scenes/ocean/atmos/light_rays.avif",
+          "blend": "screen",
+          "opacity": 0.3
+        },
+        {
+          "id": "foam_sparkle",
+          "file": "scenes/ocean/atmos/foam_sparkle.avif",
+          "blend": "lighten",
+          "opacity": 0.55
+        },
+        {
+          "id": "birds_soft",
+          "file": "scenes/ocean/atmos/birds_soft.avif",
+          "blend": "normal",
+          "opacity": 0.4
+        }
+      ],
+      "parallax": {
+        "shoreline_fg": 0.33,
+        "waves_mid": 0.18,
+        "avatar_plane": 0.1,
+        "horizon": 0.04
+      },
+      "lighting": {
+        "grade": "dawn",
+        "vignette": 0.08,
+        "fog": 0.18
+      }
+    },
+    "mountain": {
+      "plates": [
+        {
+          "file": "scenes/mountain/plates/mountain_base_dusk@1x.avif",
+          "dpr": 1
+        },
+        {
+          "file": "scenes/mountain/plates/mountain_base_dusk@2x.avif",
+          "dpr": 2
+        }
+      ],
+      "depth": [
+        {
+          "id": "fg_rocks",
+          "file": "scenes/mountain/depth/fg_rocks.avif"
+        },
+        {
+          "id": "mid_slopes",
+          "file": "scenes/mountain/depth/mid_slopes.avif"
+        },
+        {
+          "id": "avatar_plane",
+          "file": "scenes/mountain/depth/avatar_plane.avif"
+        },
+        {
+          "id": "far_peaks",
+          "file": "scenes/mountain/depth/far_peaks.avif"
+        }
+      ],
+      "atmos": [
+        {
+          "id": "fog_ridge",
+          "file": "scenes/mountain/atmos/fog_ridge.avif",
+          "blend": "screen",
+          "opacity": 0.28
+        },
+        {
+          "id": "sun_rays",
+          "file": "scenes/mountain/atmos/sun_rays.avif",
+          "blend": "screen",
+          "opacity": 0.34
+        },
+        {
+          "id": "snow_drift",
+          "file": "scenes/mountain/atmos/snow_drift.avif",
+          "blend": "screen",
+          "opacity": 0.22
+        },
+        {
+          "id": "stars_soft",
+          "file": "scenes/mountain/atmos/stars_soft.avif",
+          "blend": "lighten",
+          "opacity": 0.25
+        }
+      ],
+      "parallax": {
+        "fg_rocks": 0.32,
+        "mid_slopes": 0.19,
+        "avatar_plane": 0.11,
+        "far_peaks": 0.05
+      },
+      "lighting": {
+        "grade": "dusk",
+        "vignette": 0.1,
+        "fog": 0.2
+      }
+    },
+    "autumn": {
+      "plates": [
+        {
+          "file": "scenes/autumn/plates/autumn_base_golden@1x.avif",
+          "dpr": 1
+        },
+        {
+          "file": "scenes/autumn/plates/autumn_base_golden@2x.avif",
+          "dpr": 2
+        }
+      ],
+      "depth": [
+        {
+          "id": "fg_leaves",
+          "file": "scenes/autumn/depth/fg_leaves.avif"
+        },
+        {
+          "id": "mid_trees",
+          "file": "scenes/autumn/depth/mid_trees.avif"
+        },
+        {
+          "id": "avatar_plane",
+          "file": "scenes/autumn/depth/avatar_plane.avif"
+        },
+        {
+          "id": "far_hills",
+          "file": "scenes/autumn/depth/far_hills.avif"
+        }
+      ],
+      "atmos": [
+        {
+          "id": "leaf_fall",
+          "file": "scenes/autumn/atmos/leaf_fall.avif",
+          "blend": "normal",
+          "opacity": 0.55
+        },
+        {
+          "id": "amber_haze",
+          "file": "scenes/autumn/atmos/amber_haze.avif",
+          "blend": "screen",
+          "opacity": 0.3
+        },
+        {
+          "id": "light_shafts",
+          "file": "scenes/autumn/atmos/light_shafts.avif",
+          "blend": "screen",
+          "opacity": 0.28
+        },
+        {
+          "id": "embers_soft",
+          "file": "scenes/autumn/atmos/embers_soft.avif",
+          "blend": "lighten",
+          "opacity": 0.22
+        }
+      ],
+      "parallax": {
+        "fg_leaves": 0.34,
+        "mid_trees": 0.2,
+        "avatar_plane": 0.12,
+        "far_hills": 0.05
+      },
+      "lighting": {
+        "grade": "golden_hour",
+        "vignette": 0.08,
+        "fog": 0.15
+      }
+    },
+    "snow": {
+      "plates": [
+        {
+          "file": "scenes/snow/plates/snow_base_bluehour@1x.avif",
+          "dpr": 1
+        },
+        {
+          "file": "scenes/snow/plates/snow_base_bluehour@2x.avif",
+          "dpr": 2
+        }
+      ],
+      "depth": [
+        {
+          "id": "fg_pines",
+          "file": "scenes/snow/depth/fg_pines.avif"
+        },
+        {
+          "id": "mid_snowfield",
+          "file": "scenes/snow/depth/mid_snowfield.avif"
+        },
+        {
+          "id": "avatar_plane",
+          "file": "scenes/snow/depth/avatar_plane.avif"
+        },
+        {
+          "id": "far_ridge",
+          "file": "scenes/snow/depth/far_ridge.avif"
+        }
+      ],
+      "atmos": [
+        {
+          "id": "snowfall_soft",
+          "file": "scenes/snow/atmos/snowfall_soft.avif",
+          "blend": "screen",
+          "opacity": 0.5
+        },
+        {
+          "id": "aurora_glow",
+          "file": "scenes/snow/atmos/aurora_glow.avif",
+          "blend": "screen",
+          "opacity": 0.3
+        },
+        {
+          "id": "breath_fog",
+          "file": "scenes/snow/atmos/breath_fog.avif",
+          "blend": "normal",
+          "opacity": 0.4
+        },
+        {
+          "id": "stars_cold",
+          "file": "scenes/snow/atmos/stars_cold.avif",
+          "blend": "lighten",
+          "opacity": 0.25
+        }
+      ],
+      "parallax": {
+        "fg_pines": 0.34,
+        "mid_snowfield": 0.18,
+        "avatar_plane": 0.11,
+        "far_ridge": 0.045
+      },
+      "lighting": {
+        "grade": "blue_hour",
+        "vignette": 0.12,
+        "fog": 0.22
+      }
+    }
+  },
+  "notes": "Place real media with exact filenames. Case-sensitive."
+}

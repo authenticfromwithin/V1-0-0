@@ -1,0 +1,1 @@
+Place snow depth layers here (AVIF/PNG with alpha): fg_pines, mid_snowfield, avatar_plane, far_ridge.

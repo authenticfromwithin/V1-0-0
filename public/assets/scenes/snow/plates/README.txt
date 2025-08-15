@@ -1,0 +1,1 @@
+Place snow base plates here (AVIF/WebP).

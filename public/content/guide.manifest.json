@@ -1,0 +1,12 @@
+{
+  "version": "1.0.0",
+  "files": [
+    "guide/sections/00-introduction.md",
+    "guide/sections/01-quotes.md",
+    "guide/sections/02-healing.md",
+    "guide/sections/03-journey.md",
+    "guide/sections/04-devotionals.md",
+    "guide/sections/05-privacy.md",
+    "guide/sections/06-themes.md"
+  ]
+}

@@ -1,0 +1,1 @@
+Place ocean base plates here (AVIF/WebP). Use the checklist for exact filenames.

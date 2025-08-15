@@ -1,0 +1,2 @@
+# Welcome to Authentic From Within
+This is your quiet digital sanctuary. Every module reflects you back to yourself with care and dignity. Nothing here is gamified. Everything is designed for presence, privacy, and growth.

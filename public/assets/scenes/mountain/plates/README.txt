@@ -1,0 +1,1 @@
+Place mountain base plates here (AVIF/WebP).

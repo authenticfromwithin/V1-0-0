@@ -1,0 +1,44 @@
+[
+  {
+    "id": "id-faith-001",
+    "text": "Faith is the courage to move while the way is still dim.",
+    "context": "Courage in twilight",
+    "reflectionPrompt": "Where can you take one faithful step?",
+    "category": "faith"
+  },
+  {
+    "id": "id-faith-002",
+    "text": "Trust matures in the ordinary, not only the miraculous.",
+    "context": "Ordinary trust",
+    "reflectionPrompt": "Which routine can become a quiet prayer today?",
+    "category": "faith"
+  },
+  {
+    "id": "id-faith-003",
+    "text": "Surrender is not defeat; it is consent to deeper care.",
+    "context": "Consent to care",
+    "reflectionPrompt": "What would surrender look like for you right now?",
+    "category": "faith"
+  },
+  {
+    "id": "id-faith-004",
+    "text": "Hope asks for a seat even at a small table.",
+    "context": "Hospitality to hope",
+    "reflectionPrompt": "How can you make a little room for hope today?",
+    "category": "faith"
+  },
+  {
+    "id": "id-faith-005",
+    "text": "Waiting is active: it shapes the heart that receives.",
+    "context": "Formed in waiting",
+    "reflectionPrompt": "What practice helps you wait well?",
+    "category": "faith"
+  },
+  {
+    "id": "id-faith-006",
+    "text": "Mercy is strength choosing gentleness.",
+    "context": "Merciful strength",
+    "reflectionPrompt": "Where can gentleness be your strongest move?",
+    "category": "faith"
+  }
+]

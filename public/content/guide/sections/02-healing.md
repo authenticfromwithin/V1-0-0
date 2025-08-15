@@ -1,0 +1,2 @@
+# Healing From Within
+Choose a body system or concern. The Healing Avatar models gentle, real-life practices: posture, breath, hydration, nutrition. If no issue is selected, it demonstrates a healthy baseline.

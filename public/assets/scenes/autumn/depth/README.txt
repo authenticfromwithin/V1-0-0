@@ -1,0 +1,1 @@
+Place autumn depth layers here (AVIF/PNG with alpha): fg_leaves, mid_trees, avatar_plane, far_hills.

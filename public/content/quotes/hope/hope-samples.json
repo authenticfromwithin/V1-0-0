@@ -1,0 +1,44 @@
+[
+  {
+    "id": "id-hope-001",
+    "text": "Hope is memory of future light.",
+    "context": "Future memory",
+    "reflectionPrompt": "What light have you seen before that you need to remember?",
+    "category": "hope"
+  },
+  {
+    "id": "id-hope-002",
+    "text": "When fear narrates, hope edits.",
+    "context": "Rewriting fear",
+    "reflectionPrompt": "Which sentence of fear can you edit today?",
+    "category": "hope"
+  },
+  {
+    "id": "id-hope-003",
+    "text": "Joy is a quiet rebellion against despair.",
+    "context": "Rebellious joy",
+    "reflectionPrompt": "What small joy can you schedule on purpose?",
+    "category": "hope"
+  },
+  {
+    "id": "id-hope-004",
+    "text": "Begin where your feet are; the way appears along the way.",
+    "context": "Start small",
+    "reflectionPrompt": "What is the next right tiny step?",
+    "category": "hope"
+  },
+  {
+    "id": "id-hope-005",
+    "text": "Tenderness is how hope speaks.",
+    "context": "Tone of hope",
+    "reflectionPrompt": "How can tenderness shape your tone today?",
+    "category": "hope"
+  },
+  {
+    "id": "id-hope-006",
+    "text": "Morning is a promise dressed in ordinary clothes.",
+    "context": "Everyday promise",
+    "reflectionPrompt": "Where do you see a small promise today?",
+    "category": "hope"
+  }
+]

@@ -1,0 +1,10 @@
+MOUNTAIN AMBIENCE — FILE CHECKLIST (no audio included)
+
+Provide BOTH formats for each stem (gapless loops):
+  - wind_high.webm, wind_high.m4a
+  - crickets_peak.webm, crickets_peak.m4a
+  - stream_rocky.webm, stream_rocky.m4a
+  - campfire_low.webm, campfire_low.m4a
+
+Exact target folder:
+  public/assets/audio/mountain/stems/

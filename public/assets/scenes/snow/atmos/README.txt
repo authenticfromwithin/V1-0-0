@@ -1,0 +1,1 @@
+Place snow atmospheric overlays here (AVIF/PNG with alpha): snowfall_soft, aurora_glow, breath_fog, stars_cold.

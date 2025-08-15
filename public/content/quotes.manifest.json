@@ -1,0 +1,23 @@
+{
+  "version": "1.0.0",
+  "categories": [
+    "identity",
+    "faith",
+    "healing",
+    "hope"
+  ],
+  "files": {
+    "identity": [
+      "quotes/identity/identity-samples.json"
+    ],
+    "faith": [
+      "quotes/faith/faith-samples.json"
+    ],
+    "healing": [
+      "quotes/healing/healing-samples.json"
+    ],
+    "hope": [
+      "quotes/hope/hope-samples.json"
+    ]
+  }
+}

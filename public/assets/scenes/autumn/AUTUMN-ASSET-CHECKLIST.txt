@@ -1,0 +1,17 @@
+AUTUMN SCENE — ASSET CHECKLIST (no images included)
+
+public/assets/scenes/autumn/plates/
+  - autumn_base_golden@1x.avif
+  - autumn_base_golden@2x.avif
+
+public/assets/scenes/autumn/depth/
+  - fg_leaves.avif
+  - mid_trees.avif
+  - avatar_plane.avif
+  - far_hills.avif
+
+public/assets/scenes/autumn/atmos/
+  - leaf_fall.avif
+  - amber_haze.avif
+  - light_shafts.avif
+  - embers_soft.avif

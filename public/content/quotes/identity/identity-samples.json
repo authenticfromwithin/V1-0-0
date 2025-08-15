@@ -1,0 +1,44 @@
+[
+  {
+    "id": "id-iden-001",
+    "text": "You are not your symptom; you are the one who notices it.",
+    "context": "Detach from labels",
+    "reflectionPrompt": "Where in your day can you practice noticing without judging?",
+    "category": "identity"
+  },
+  {
+    "id": "id-iden-002",
+    "text": "Wholeness is not the absence of pain but the honesty that holds it.",
+    "context": "Gentle self-truth",
+    "reflectionPrompt": "What small truth needs your voice today?",
+    "category": "identity"
+  },
+  {
+    "id": "id-iden-003",
+    "text": "The truest self is quiet; meet it where you can hear.",
+    "context": "Inner stillness",
+    "reflectionPrompt": "When did you last feel inward quiet?",
+    "category": "identity"
+  },
+  {
+    "id": "id-iden-004",
+    "text": "Your body is a messenger; listen before it shouts.",
+    "context": "Somatic wisdom",
+    "reflectionPrompt": "What message might your body be carrying now?",
+    "category": "identity"
+  },
+  {
+    "id": "id-iden-005",
+    "text": "Identity grows where attention is kind.",
+    "context": "Compassionate attention",
+    "reflectionPrompt": "How can you direct kinder attention to yourself?",
+    "category": "identity"
+  },
+  {
+    "id": "id-iden-006",
+    "text": "You belong in your own life.",
+    "context": "Self-belonging",
+    "reflectionPrompt": "Which daily choice reclaims your belonging?",
+    "category": "identity"
+  }
+]
