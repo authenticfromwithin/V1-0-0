@@ -1,0 +1,9 @@
+/* Minimal custom audio UI host (if used) */
+.afw-audio {
+  display: flex; gap: 10px; align-items: center;
+  background: rgba(16,23,34,.6);
+  border: 1px solid rgba(255,255,255,.06);
+  border-radius: 12px;
+  padding: 8px 12px;
+}
+.afw-audio .meters { height: 8px; flex: 1; background: rgba(255,255,255,.08); border-radius: 4px; }

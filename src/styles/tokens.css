@@ -1,0 +1,54 @@
+:root {
+  /* Core palette (base night) */
+  --afw-bg: #0b0f14;
+  --afw-bg-elev: #101722;
+  --afw-text: #e6edf3;
+  --afw-muted: #b6c2cf;
+  --afw-accent: #7bb4ff;
+  --afw-accent-2: #8ce0d3;
+  --afw-danger: #ff6b6b;
+  --afw-ok: #69db7c;
+
+  /* Motion & depth */
+  --afw-shadow-1: 0 6px 20px rgba(0,0,0,.35);
+  --afw-radius: 16px;
+  --afw-vignette: 0.18;
+  --afw-fog: 0.22;
+
+  /* Scene theme tokens (overrides apply via [data-theme=...] on <html> or <body>) */
+}
+/* Forest */
+[data-theme='forest'] {
+  --afw-accent: #7bb4ff;
+  --afw-accent-2: #8ce0d3;
+  --afw-vignette: 0.18;
+  --afw-fog: 0.25;
+}
+/* Ocean */
+[data-theme='ocean'] {
+  --afw-accent: #7dd3fc;
+  --afw-accent-2: #a5f3fc;
+  --afw-vignette: 0.10;
+  --afw-fog: 0.18;
+}
+/* Mountain */
+[data-theme='mountain'] {
+  --afw-accent: #c4b5fd;
+  --afw-accent-2: #d8b4fe;
+  --afw-vignette: 0.12;
+  --afw-fog: 0.20;
+}
+/* Autumn */
+[data-theme='autumn'] {
+  --afw-accent: #fbbf24;
+  --afw-accent-2: #fb923c;
+  --afw-vignette: 0.08;
+  --afw-fog: 0.15;
+}
+/* Snow */
+[data-theme='snow'] {
+  --afw-accent: #93c5fd;
+  --afw-accent-2: #a7f3d0;
+  --afw-vignette: 0.14;
+  --afw-fog: 0.22;
+}
