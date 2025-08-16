@@ -1,0 +1,77 @@
+/* public/fonts.css */
+/* Path: public/fonts.css */
+
+/* UI (Regular / Medium / Bold) */
+@font-face {
+  font-family: "AFW-UI";
+  src: url("%PUBLIC_URL%/assets/fonts/ui/YourUIFont-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "AFW-UI";
+  src: url("%PUBLIC_URL%/assets/fonts/ui/YourUIFont-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "AFW-UI";
+  src: url("%PUBLIC_URL%/assets/fonts/ui/YourUIFont-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Greek (Regular / Bold) */
+@font-face {
+  font-family: "AFW-Greek";
+  src: url("%PUBLIC_URL%/assets/fonts/greek/YourGreekFont-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "AFW-Greek";
+  src: url("%PUBLIC_URL%/assets/fonts/greek/YourGreekFont-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Hebrew (Regular / Bold) */
+@font-face {
+  font-family: "AFW-Hebrew";
+  src: url("%PUBLIC_URL%/assets/fonts/hebrew/YourHebrewFont-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "AFW-Hebrew";
+  src: url("%PUBLIC_URL%/assets/fonts/hebrew/YourHebrewFont-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Latin (Regular / Bold) */
+@font-face {
+  font-family: "AFW-Latin";
+  src: url("%PUBLIC_URL%/assets/fonts/latin/YourLatinFont-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "AFW-Latin";
+  src: url("%PUBLIC_URL%/assets/fonts/latin/YourLatinFont-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Base */
+:root { --font-ui: "AFW-UI", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; }
+html, body { font-family: var(--font-ui); }
