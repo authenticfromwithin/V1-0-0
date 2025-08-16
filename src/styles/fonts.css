@@ -1,38 +1,20 @@
-/* Place .woff2 files in public/assets/fonts/{ui,latin,greek,hebrew}/
-   Then reference them here. Keep paths EXACT (case-sensitive). Example stubs below. */
-
-/* UI font */
-@font-face {
-  font-family: 'AFW-UI';
-  src: url('/assets/fonts/ui/YourUIFont.woff2') format('woff2');
-  font-weight: 400 700;
-  font-style: normal;
-  font-display: swap;
+/* src/styles/fonts.css */
+/* Safe version (no url(...), build will not try to resolve files) */
+:root {
+  --font-ui: "AFW-UI", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --font-greek: "AFW-Greek", var(--font-ui);
+  --font-hebrew: "AFW-Hebrew", var(--font-ui);
+  --font-latin: "AFW-Latin", var(--font-ui);
 }
-
-/* Greek */
-@font-face {
-  font-family: 'AFW-Greek';
-  src: url('/assets/fonts/greek/YourGreekFont.woff2') format('woff2');
-  font-weight: 400 700;
-  font-style: normal;
-  font-display: swap;
+html, body {
+  font-family: var(--font-ui);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
-
-/* Hebrew */
-@font-face {
-  font-family: 'AFW-Hebrew';
-  src: url('/assets/fonts/hebrew/YourHebrewFont.woff2') format('woff2');
-  font-weight: 400 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-/* Latin body */
-@font-face {
-  font-family: 'AFW-Latin';
-  src: url('/assets/fonts/latin/YourLatinFont.woff2') format('woff2');
-  font-weight: 400 700;
-  font-style: normal;
-  font-display: swap;
-}
+.ui-regular { font-weight: 400; }
+.ui-medium  { font-weight: 500; }
+.ui-bold    { font-weight: 700; }
+.font-greek { font-family: var(--font-greek); }
+.font-hebrew{ font-family: var(--font-hebrew); }
+.font-latin { font-family: var(--font-latin); }
