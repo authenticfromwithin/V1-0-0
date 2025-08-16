@@ -1,0 +1,94 @@
+{
+  "version": "1.0",
+  "updated": "2025-08-15",
+  "categories": ["identity", "faith", "healing", "hope"],
+  "items": [
+    {
+      "id": "q-identity-001",
+      "category": "identity",
+      "quote": "You are not the sum of your worries, but the bearer of a name known by God.",
+      "context": "Identity is received before it is achieved.",
+      "reflection": "Where have I confused my roles with my worth?"
+    },
+    {
+      "id": "q-identity-002",
+      "category": "identity",
+      "quote": "Belovedness is the ground that does not move when all else shakes.",
+      "context": "Security flows from being loved first.",
+      "reflection": "How would I act today if I truly believed I am beloved?"
+    },
+    {
+      "id": "q-identity-003",
+      "category": "identity",
+      "quote": "Your true self grows quiet enough to hear the gentle voice.",
+      "context": "Noise blurs identity; quiet restores it.",
+      "reflection": "What can I subtract to hear clearly again?"
+    },
+
+    {
+      "id": "q-faith-001",
+      "category": "faith",
+      "quote": "Faith is a lifted gaze more than a clenched fist.",
+      "context": "Trust is attention, not effort.",
+      "reflection": "Where is my attention drawn today—fear or Presence?"
+    },
+    {
+      "id": "q-faith-002",
+      "category": "faith",
+      "quote": "When you cannot see the path, walk with the One who lights the next step.",
+      "context": "Guidance is often lamp, not floodlight.",
+      "reflection": "What is my very next faithful step?"
+    },
+    {
+      "id": "q-faith-003",
+      "category": "faith",
+      "quote": "Surrender is not defeat but alignment.",
+      "context": "Yielding opens possibility.",
+      "reflection": "What small surrender would free me now?"
+    },
+
+    {
+      "id": "q-healing-001",
+      "category": "healing",
+      "quote": "The body remembers; kindness rewrites.",
+      "context": "Gentle practices re-script the nervous system.",
+      "reflection": "What kindness can I offer my body today?"
+    },
+    {
+      "id": "q-healing-002",
+      "category": "healing",
+      "quote": "Healing is rhythm: rest, nourish, move, repeat.",
+      "context": "Consistency over intensity.",
+      "reflection": "Which rhythm is missing this week?"
+    },
+    {
+      "id": "q-healing-003",
+      "category": "healing",
+      "quote": "Forgiveness unclenches the hand that grips the wound.",
+      "context": "Release creates room for repair.",
+      "reflection": "Who or what needs my gentle release?"
+    },
+
+    {
+      "id": "q-hope-001",
+      "category": "hope",
+      "quote": "Hope is remembering a larger story.",
+      "context": "Reframe: today is a page, not the book.",
+      "reflection": "What larger story holds this moment?"
+    },
+    {
+      "id": "q-hope-002",
+      "category": "hope",
+      "quote": "Even winter roots are working.",
+      "context": "Growth often happens underground.",
+      "reflection": "Where might hidden growth be occurring?"
+    },
+    {
+      "id": "q-hope-003",
+      "category": "hope",
+      "quote": "Light finds honest cracks.",
+      "context": "Authenticity invites healing presence.",
+      "reflection": "What truth can I tell gently today?"
+    }
+  ]
+}
