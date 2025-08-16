@@ -1,4 +1,3 @@
-// scripts/copy-public-assets.mjs
 import { cp, access, mkdir } from 'fs/promises';
 import { constants } from 'fs';
 import path from 'path';
