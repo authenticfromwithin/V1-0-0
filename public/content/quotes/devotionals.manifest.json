@@ -1,0 +1,52 @@
+{
+  "version": "1.0",
+  "months": {
+    "2025-08": [
+      {
+        "id": "2025-08-15",
+        "title": "Beloved Before Useful",
+        "theme": "identity",
+        "text": "Before you lift a hand, you are named beloved. Let this reorder your striving.",
+        "greek": { "word": "ἀγάπη (agápē)", "insight": "Self-giving love that originates in God, not in our merit." },
+        "hebrew": { "word": "חֶסֶד (ḥesed)", "insight": "Covenant kindness; faithful love that stays." },
+        "prompt": "How would I move through today if usefulness were not my worth?"
+      },
+      {
+        "id": "2025-08-16",
+        "title": "Lamp to the Next Step",
+        "theme": "faith",
+        "text": "Guidance often arrives as lamp-light—enough for now, not for forever.",
+        "greek": { "word": "πίστις (pístis)", "insight": "Relational trust, not mere assent." },
+        "hebrew": { "word": "אמן (’āman)", "insight": "To be firm, reliable; from this, the 'amen' of trust." },
+        "prompt": "Name the single next faithful step, and take it."
+      },
+      {
+        "id": "2025-08-17",
+        "title": "Breath as Prayer",
+        "theme": "healing",
+        "text": "Slow breath tells your body it is safe. Safety invites repair.",
+        "greek": { "word": "πνεῦμα (pneuma)", "insight": "Breath, wind, Spirit—inner and outer life." },
+        "hebrew": { "word": "רוּחַ (ruach)", "insight": "Spirit/breath; sustaining life-force." },
+        "prompt": "Practice 4-6 breathing for two minutes; notice what changes."
+      },
+      {
+        "id": "2025-08-18",
+        "title": "The Quiet Courage",
+        "theme": "hope",
+        "text": "Hope is quiet courage that refuses cynicism.",
+        "greek": { "word": "ἐλπίς (elpís)", "insight": "Confident expectation grounded in character, not circumstance." },
+        "hebrew": { "word": "תִּקְוָה (tiqvah)", "insight": "Cord/line—hope as a lifeline you hold." },
+        "prompt": "Where can I choose honest hope over easy despair?"
+      },
+      {
+        "id": "2025-08-19",
+        "title": "Gentle Strength",
+        "theme": "identity",
+        "text": "Strength without gentleness bruises; gentleness without strength withers. In you, they can meet.",
+        "greek": { "word": "πραΰτης (praütēs)", "insight": "Strength under guidance; meekness as disciplined power." },
+        "hebrew": { "word": "עָנָו (ʿanav)", "insight": "Humble, yielded—available to be led." },
+        "prompt": "Name a space to practice gentle strength today."
+      }
+    ]
+  }
+}
