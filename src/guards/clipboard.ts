@@ -1,15 +1,30 @@
 // src/guards/clipboard.ts
-// Compile-safe clipboard/context/drag guards for CRA + TypeScript.
+// Compile-safe clipboard/context/drag guards with flexible API.
+//
+// Usage supported:
+//   installClipboardGuards()                                   // default: document scope
+//   installClipboardGuards(el)                                 // HTMLElement scope
+//   installClipboardGuards({ scope: el, onBlock: t => {...} }) // options object
+//   installClipboardGuards(el, { allowCopy: true })            // scope + options
+
+export type GuardKind = 'copy' | 'cut' | 'paste' | 'contextmenu' | 'dragDrop';
 
 export type ClipboardGuardOptions = {
+  /** Allow specific actions (default: false for all). */
   allowCopy?: boolean;
   allowCut?: boolean;
   allowPaste?: boolean;
   allowContextMenu?: boolean;
   allowDragDrop?: boolean;
+  /** Optional callback when an action is blocked. */
+  onBlock?: (type: GuardKind) => void;
+  /** Optional explicit scope if passing options as a single object. */
+  scope?: Scope;
 };
 
-const defaults: ClipboardGuardOptions = {
+type Scope = Document | Window | HTMLElement;
+
+const defaults: Required<Omit<ClipboardGuardOptions, 'onBlock' | 'scope'>> = {
   allowCopy: false,
   allowCut: false,
   allowPaste: false,
@@ -17,47 +32,58 @@ const defaults: ClipboardGuardOptions = {
   allowDragDrop: false,
 };
 
-type Scope = Document | Window | HTMLElement;
+function hasAddEventListener(v: any): v is Scope {
+  return !!v && typeof v.addEventListener === 'function';
+}
 
-function block(evt: Event, allow?: boolean) {
+function block(evt: Event, type: GuardKind, allow: boolean | undefined, onBlock?: (t: GuardKind) => void) {
   if (!allow) {
     evt.preventDefault();
     evt.stopPropagation();
+    onBlock?.(type);
   }
 }
 
-/**
- * Install global guards that prevent copy/cut/paste/context menu/drag-drop
- * unless explicitly allowed via options.
- *
- * Returns an uninstall function to remove all listeners.
- */
-export function installClipboardGuards(
-  scope: Scope = document,
-  options: Partial<ClipboardGuardOptions> = {}
-) {
+// Overloads
+export function installClipboardGuards(options?: Partial<ClipboardGuardOptions>): () => void;
+export function installClipboardGuards(scope?: Scope, options?: Partial<ClipboardGuardOptions>): () => void;
+
+// Impl
+export function installClipboardGuards(a?: any, b?: any) {
+  let scope: Scope = typeof document !== 'undefined' ? document : ({} as Document);
+  let options: Partial<ClipboardGuardOptions> = {};
+
+  if (a && hasAddEventListener(a)) {
+    scope = a as Scope;
+    options = (b ?? {}) as Partial<ClipboardGuardOptions>;
+  } else if (a && typeof a === 'object') {
+    const opt = a as Partial<ClipboardGuardOptions>;
+    if (opt.scope && hasAddEventListener(opt.scope)) scope = opt.scope;
+    options = opt;
+  }
+
   const opts: ClipboardGuardOptions = { ...defaults, ...options };
 
-  const onCopy = (evt: Event) => block(evt, opts.allowCopy);
-  const onCut = (evt: Event) => block(evt, opts.allowCut);
-  const onPaste = (evt: Event) => block(evt, opts.allowPaste);
-  const onContext = (evt: Event) => block(evt, opts.allowContextMenu);
-  const onDrop = (evt: Event) => block(evt, opts.allowDragDrop);
+  const onCopy    = (evt: Event) => block(evt, 'copy',        opts.allowCopy,        opts.onBlock);
+  const onCut     = (evt: Event) => block(evt, 'cut',         opts.allowCut,         opts.onBlock);
+  const onPaste   = (evt: Event) => block(evt, 'paste',       opts.allowPaste,       opts.onBlock);
+  const onContext = (evt: Event) => block(evt, 'contextmenu', opts.allowContextMenu, opts.onBlock);
+  const onDrag    = (evt: Event) => block(evt, 'dragDrop',    opts.allowDragDrop,    opts.onBlock);
 
-  scope.addEventListener('copy', onCopy as EventListener, true);
-  scope.addEventListener('cut', onCut as EventListener, true);
-  scope.addEventListener('paste', onPaste as EventListener, true);
+  scope.addEventListener('copy',        onCopy as EventListener,    true);
+  scope.addEventListener('cut',         onCut  as EventListener,    true);
+  scope.addEventListener('paste',       onPaste as EventListener,   true);
   scope.addEventListener('contextmenu', onContext as EventListener, true);
-  scope.addEventListener('drop', onDrop as EventListener, true);
-  scope.addEventListener('dragover', onDrop as EventListener, true);
+  scope.addEventListener('drop',        onDrag as EventListener,    true);
+  scope.addEventListener('dragover',    onDrag as EventListener,    true);
 
   return () => {
-    scope.removeEventListener('copy', onCopy as EventListener, true);
-    scope.removeEventListener('cut', onCut as EventListener, true);
-    scope.removeEventListener('paste', onPaste as EventListener, true);
+    scope.removeEventListener('copy',        onCopy as EventListener,    true);
+    scope.removeEventListener('cut',         onCut  as EventListener,    true);
+    scope.removeEventListener('paste',       onPaste as EventListener,   true);
     scope.removeEventListener('contextmenu', onContext as EventListener, true);
-    scope.removeEventListener('drop', onDrop as EventListener, true);
-    scope.removeEventListener('dragover', onDrop as EventListener, true);
+    scope.removeEventListener('drop',        onDrag as EventListener,    true);
+    scope.removeEventListener('dragover',    onDrag as EventListener,    true);
   };
 }
 
