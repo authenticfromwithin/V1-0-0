@@ -1,62 +1,64 @@
-import { GUARD_MESSAGES } from '../logic/guards/messages';
+// src/guards/clipboard.ts
+// Compile-safe clipboard/context/drag guards for CRA + TypeScript.
 
-export type GuardOptions = {
-  scope?: HTMLElement | Document;
+export type ClipboardGuardOptions = {
   allowCopy?: boolean;
   allowCut?: boolean;
   allowPaste?: boolean;
-  allowContext?: boolean;
+  allowContextMenu?: boolean;
   allowDragDrop?: boolean;
-  onBlock?: (type: keyof typeof GUARD_MESSAGES) => void;
 };
 
-/** Attach listeners that prevent clipboard & context actions inside a scope */
-export function installClipboardGuards(opts: GuardOptions = {}) {
-  const scope = opts.scope ?? document;
-  const onBlock = opts.onBlock ?? ((type) => {
-    // Fire a custom event the app can listen to (for toasts etc.)
-    document.dispatchEvent(new CustomEvent('afw:guard:blocked', { detail: { type, message: GUARD_MESSAGES[type] } }));
-  });
+const defaults: ClipboardGuardOptions = {
+  allowCopy: false,
+  allowCut: false,
+  allowPaste: false,
+  allowContextMenu: false,
+  allowDragDrop: false,
+};
 
-  function block(ev: Event, type: keyof typeof GUARD_MESSAGES, allow?: boolean) {
-    if (allow) return;
-    ev.preventDefault();
-    ev.stopPropagation();
-    onBlock(type);
+type Scope = Document | Window | HTMLElement;
+
+function block(evt: Event, allow?: boolean) {
+  if (!allow) {
+    evt.preventDefault();
+    evt.stopPropagation();
   }
+}
 
-  const onCopy = (e: ClipboardEvent) => block(e, 'copy', opts.allowCopy);
-  const onCut = (e: ClipboardEvent) => block(e, 'cut', opts.allowCut);
-  const onPaste = (e: ClipboardEvent) => block(e, 'paste', opts.allowPaste);
-  const onContext = (e: MouseEvent) => block(e, 'context', opts.allowContext);
-  const onDragOver = (e: DragEvent) => block(e, 'dragDrop', opts.allowDragDrop);
-  const onDrop = (e: DragEvent) => block(e, 'dragDrop', opts.allowDragDrop);
+/**
+ * Install global guards that prevent copy/cut/paste/context menu/drag-drop
+ * unless explicitly allowed via options.
+ *
+ * Returns an uninstall function to remove all listeners.
+ */
+export function installClipboardGuards(
+  scope: Scope = document,
+  options: Partial<ClipboardGuardOptions> = {}
+) {
+  const opts: ClipboardGuardOptions = { ...defaults, ...options };
 
-  scope.addEventListener('copy', onCopy, true);
-  scope.addEventListener('cut', onCut, true);
-  scope.addEventListener('paste', onPaste, true);
-  scope.addEventListener('contextmenu', onContext, true);
-  scope.addEventListener('dragover', onDragOver, true);
-  scope.addEventListener('drop', onDrop, true);
+  const onCopy = (evt: Event) => block(evt, opts.allowCopy);
+  const onCut = (evt: Event) => block(evt, opts.allowCut);
+  const onPaste = (evt: Event) => block(evt, opts.allowPaste);
+  const onContext = (evt: Event) => block(evt, opts.allowContextMenu);
+  const onDrop = (evt: Event) => block(evt, opts.allowDragDrop);
 
-  // Keyboard combos for good measure
-  const onKeyDown = (e: KeyboardEvent) => {
-    const k = e.key.toLowerCase();
-    const meta = e.metaKey || e.ctrlKey;
-    // Block Ctrl/Cmd + C/X/V
-    if (meta && (k === 'c' || k === 'x' || k === 'v')) {
-      block(e, k === 'c' ? 'copy' : k === 'x' ? 'cut' : 'paste', (k === 'c' && opts.allowCopy) || (k === 'x' && opts.allowCut) || (k === 'v' && opts.allowPaste));
-    }
-  };
-  scope.addEventListener('keydown', onKeyDown, true);
+  scope.addEventListener('copy', onCopy as EventListener, true);
+  scope.addEventListener('cut', onCut as EventListener, true);
+  scope.addEventListener('paste', onPaste as EventListener, true);
+  scope.addEventListener('contextmenu', onContext as EventListener, true);
+  scope.addEventListener('drop', onDrop as EventListener, true);
+  scope.addEventListener('dragover', onDrop as EventListener, true);
 
   return () => {
-    scope.removeEventListener('copy', onCopy, true);
-    scope.removeEventListener('cut', onCut, true);
-    scope.removeEventListener('paste', onPaste, true);
-    scope.removeEventListener('contextmenu', onContext, true);
-    scope.removeEventListener('dragover', onDragOver, true);
-    scope.removeEventListener('drop', onDrop, true);
-    scope.removeEventListener('keydown', onKeyDown, true);
+    scope.removeEventListener('copy', onCopy as EventListener, true);
+    scope.removeEventListener('cut', onCut as EventListener, true);
+    scope.removeEventListener('paste', onPaste as EventListener, true);
+    scope.removeEventListener('contextmenu', onContext as EventListener, true);
+    scope.removeEventListener('drop', onDrop as EventListener, true);
+    scope.removeEventListener('dragover', onDrop as EventListener, true);
   };
 }
+
+export default installClipboardGuards;
