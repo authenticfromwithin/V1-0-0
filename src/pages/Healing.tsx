@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import { attachClipboardGuards } from "../components/guards/clipboard";
+import { attachClipboardGuards } from "guards/clipboard";
 
 export default function Healing() {
   const ref = useRef<HTMLDivElement>(null);
