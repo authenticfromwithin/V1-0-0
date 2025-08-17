@@ -1,29 +1,33 @@
-import { cp, access, mkdir } from 'fs/promises';
-import { constants } from 'fs';
-import path from 'path';
+import { promises as fs } from "fs";
+import path from "path";
 
-const ROOT = process.cwd();
-const BUILD = path.join(ROOT, 'build');
+const root = process.cwd();
+const pairs = [
+  [path.join(root, "assets"), path.join(root, "build", "assets")],
+  [path.join(root, "content"), path.join(root, "build", "content")]
+];
 
-async function exists(p) {
-  try { await access(p, constants.F_OK); return true; } catch { return false; }
-}
-
-async function copyDir(srcName) {
-  const src = path.join(ROOT, srcName);
-  const dst = path.join(BUILD, srcName);
-  if (!(await exists(src))) {
-    console.log(`[skip] ${srcName}/ not found at repo root`);
-    return;
+async function copyDirIfExists(src, dest) {
+  try {
+    const stat = await fs.stat(src);
+    if (!stat.isDirectory()) return;
+  } catch {
+    return; // src absent → skip
   }
-  await mkdir(dst, { recursive: true });
-  await cp(src, dst, { recursive: true, force: true });
-  console.log(`[ok] copied ${srcName}/ → build/${srcName}/`);
+  await fs.mkdir(dest, { recursive: true });
+  for (const entry of await fs.readdir(src)) {
+    const s = path.join(src, entry);
+    const d = path.join(dest, entry);
+    const st = await fs.stat(s);
+    if (st.isDirectory()) {
+      await copyDirIfExists(s, d);
+    } else {
+      await fs.copyFile(s, d);
+    }
+  }
 }
 
 (async () => {
-  console.log('=== Postbuild: copy root static folders into build ===');
-  await copyDir('assets');
-  await copyDir('content');
-  console.log('=== Done ===');
+  await Promise.all(pairs.map(([s, d]) => copyDirIfExists(s, d)));
+  console.log("[postbuild] assets/content copied (if present).");
 })();
