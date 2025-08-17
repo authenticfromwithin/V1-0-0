@@ -1,2 +1,2 @@
-// shim so imports like ../guards/clipboard work from components/journal/*
-export * from '../../guards/clipboard';
+// Re-export via absolute path so callers can import from either place safely.
+export * from "guards/clipboard";
