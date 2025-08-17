@@ -3,11 +3,13 @@ import { attachClipboardGuards } from "guards/clipboard";
 
 export default function Healing() {
   const ref = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     if (!ref.current) return;
     const guard = attachClipboardGuards(ref.current, { enableContextMenu: false });
     return () => guard.teardown();
   }, []);
+
   return (
     <main ref={ref} className="page">
       <h2>Healing From Within</h2>
