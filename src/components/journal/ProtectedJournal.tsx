@@ -1,30 +1,16 @@
-import React from 'react';
-import { installClipboardGuards } from '../guards/clipboard';
+import React, { useEffect, useRef } from "react";
+import { attachClipboardGuards } from "guards/clipboard";
 
-/** Protected journal textarea.
- *  - Blocks copy/cut/paste/context/drag&drop inside this element.
- *  - Adds data-protected-journal attr so CSS can style it (see journal.css).
- */
-type Props = React.TextareaHTMLAttributes<HTMLTextAreaElement> & {
-  onBlocked?: (message: string) => void;
-};
-export default function ProtectedJournal({ onBlocked, ...rest }: Props) {
-  const ref = React.useRef<HTMLTextAreaElement>(null);
+type Props = { children?: React.ReactNode };
 
-  React.useEffect(() => {
-    const el = ref.current!;
-    el.setAttribute('data-protected-journal', 'true');
-    const uninstall = installClipboardGuards({
-      scope: el,
-      onBlock: (_type) => {
-        const message = 'This journal is protected. Clipboard actions are disabled here.';
-        onBlocked?.(message);
-        // Basic fallback: title attribute shows native tooltip
-        el.title = message;
-      }
-    });
-    return () => uninstall();
-  }, [onBlocked]);
+export default function ProtectedJournal({ children }: Props) {
+  const container = useRef<HTMLDivElement>(null);
 
-  return <textarea ref={ref} {...rest} />;
+  useEffect(() => {
+    if (!container.current) return;
+    const guard = attachClipboardGuards(container.current, { enableContextMenu: false });
+    return () => guard.teardown();
+  }, []);
+
+  return <section ref={container} className="journal-protected">{children}</section>;
 }
