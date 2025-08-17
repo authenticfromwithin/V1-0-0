@@ -1,0 +1,214 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: AFW Patch Bot <afw@example.com>
+Date: Sun, 17 Aug 2025 21:00:00 +0200
+Subject: [PATCH] AFW replace-only pack: deploy glue + public index + TS base + routing shell
+
+---
+ scripts/copy-public-assets.mjs |  48 ++++++++++++++++++++++++++++++++
+ package.json                   |  36 ++++++++++++++++++++++++
+ vercel.json                    |   6 +++++
+ public/index.html              |  26 +++++++++++++++++
+ tsconfig.json                  |  20 +++++++++++++
+ src/index.tsx                  |  18 ++++++++++++
+ src/App.tsx                    |  37 +++++++++++++++++++++++
+ 7 files changed, 191 insertions(+)
+ create mode 100644 scripts/copy-public-assets.mjs
+ create mode 100644 package.json
+ create mode 100644 vercel.json
+ create mode 100644 public/index.html
+ create mode 100644 tsconfig.json
+ create mode 100644 src/index.tsx
+ create mode 100644 src/App.tsx
+
+diff --git a/scripts/copy-public-assets.mjs b/scripts/copy-public-assets.mjs
+new file mode 100644
+index 0000000..1111111
+--- /dev/null
++++ b/scripts/copy-public-assets.mjs
+@@ -0,0 +1,48 @@
++import { promises as fs } from "fs";
++import path from "path";
++
++const root = process.cwd();
++const pairs = [
++  [path.join(root, "assets"), path.join(root, "build", "assets")],
++  [path.join(root, "content"), path.join(root, "build", "content")]
++];
++
++async function copyDirIfExists(src, dest) {
++  try {
++    const stat = await fs.stat(src);
++    if (!stat.isDirectory()) return;
++  } catch {
++    return; // src absent → skip
++  }
++  await fs.mkdir(dest, { recursive: true });
++  for (const entry of await fs.readdir(src)) {
++    const s = path.join(src, entry);
++    const d = path.join(dest, entry);
++    const st = await fs.stat(s);
++    if (st.isDirectory()) {
++      await copyDirIfExists(s, d);
++    } else {
++      await fs.copyFile(s, d);
++    }
++  }
++}
++
++(async () => {
++  await Promise.all(pairs.map(([s, d]) => copyDirIfExists(s, d)));
++  console.log("[postbuild] assets/content copied (if present).");
++})();
+diff --git a/package.json b/package.json
+new file mode 100644
+index 0000000..1111111
+--- /dev/null
++++ b/package.json
+@@ -0,0 +1,36 @@
++{
++  "name": "afw-frontend",
++  "version": "1.0.0",
++  "private": true,
++  "engines": { "node": "20.x" },
++  "dependencies": {
++    "react": "18.2.0",
++    "react-dom": "18.2.0",
++    "react-router-dom": "6.23.1",
++    "react-scripts": "5.0.1"
++  },
++  "devDependencies": {
++    "typescript": "4.9.5",
++    "@types/react": "18.2.66",
++    "@types/react-dom": "18.2.23"
++  },
++  "scripts": {
++    "start": "react-scripts start",
++    "build": "react-scripts build",
++    "postbuild": "node scripts/copy-public-assets.mjs",
++    "test": "react-scripts test --env=jsdom",
++    "eject": "react-scripts eject"
++  },
++  "browserslist": {
++    "production": [">0.2%","not dead","not op_mini all"],
++    "development": ["last 1 chrome version","last 1 firefox version","last 1 safari version"]
++  }
++}
+diff --git a/vercel.json b/vercel.json
+new file mode 100644
+index 0000000..1111111
+--- /dev/null
++++ b/vercel.json
+@@ -0,0 +1,6 @@
++{
++  "cleanUrls": true,
++  "trailingSlash": false,
++  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
++}
+diff --git a/public/index.html b/public/index.html
+new file mode 100644
+index 0000000..1111111
+--- /dev/null
++++ b/public/index.html
+@@ -0,0 +1,26 @@
++<!doctype html>
++<html lang="en">
++  <head>
++    <meta charset="utf-8" />
++    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
++    <meta name="viewport" content="width=device-width,initial-scale=1" />
++    <meta name="theme-color" content="#0b0c10" />
++    <meta name="description" content="Authentic From Within — a digital sanctuary for reflection, healing, and quiet strength." />
++    <link rel="apple-touch-icon" href="%PUBLIC_URL%/favicon-180.png" />
++    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
++    <link rel="stylesheet" href="%PUBLIC_URL%/fonts.css" />
++    <title>Authentic From Within</title>
++  </head>
++  <body>
++    <noscript>You need to enable JavaScript to run this app.</noscript>
++    <div id="root"></div>
++  </body>
++</html>
+diff --git a/tsconfig.json b/tsconfig.json
+new file mode 100644
+index 0000000..1111111
+--- /dev/null
++++ b/tsconfig.json
+@@ -0,0 +1,20 @@
++{
++  "compilerOptions": {
++    "target": "ES2016",
++    "lib": ["DOM", "ES2020"],
++    "jsx": "react-jsx",
++    "module": "ESNext",
++    "moduleResolution": "Node",
++    "resolveJsonModule": true,
++    "isolatedModules": true,
++    "noEmit": true,
++    "skipLibCheck": true,
++    "strict": true,
++    "baseUrl": "src"
++  },
++  "include": ["src"]
++}
+diff --git a/src/index.tsx b/src/index.tsx
+new file mode 100644
+index 0000000..1111111
+--- /dev/null
++++ b/src/index.tsx
+@@ -0,0 +1,18 @@
++import React from "react";
++import { createRoot } from "react-dom/client";
++import { BrowserRouter } from "react-router-dom";
++import App from "./App";
++import "./styles/globals.css";
++import "./styles/fonts.css";
++
++const container = document.getElementById("root")!;
++createRoot(container).render(
++  <React.StrictMode>
++    <BrowserRouter>
++      <App />
++    </BrowserRouter>
++  </React.StrictMode>
++);
+diff --git a/src/App.tsx b/src/App.tsx
+new file mode 100644
+index 0000000..1111111
+--- /dev/null
++++ b/src/App.tsx
+@@ -0,0 +1,37 @@
++import React from "react";
++import { Routes, Route, Link, NavLink } from "react-router-dom";
++import Home from "./pages/Home";
++import Healing from "./pages/Healing";
++import Journey from "./pages/Journey";
++import Devotionals from "./pages/Devotionals";
++import Quotes from "./pages/Quotes";
++import NotFound from "./pages/NotFound";
++
++export default function App() {
++  return (
++    <div className="app-root">
++      <header className="nav">
++        <Link className="brand" to="/">Authentic From Within</Link>
++        <nav>
++          <NavLink to="/quotes">Quotes</NavLink>
++          <NavLink to="/devotionals">Devotionals</NavLink>
++          <NavLink to="/healing">Healing</NavLink>
++          <NavLink to="/journey">My Journey</NavLink>
++        </nav>
++      </header>
++
++      <Routes>
++        <Route path="/" element={<Home />} />
++        <Route path="/quotes" element={<Quotes />} />
++        <Route path="/devotionals" element={<Devotionals />} />
++        <Route path="/healing" element={<Healing />} />
++        <Route path="/journey" element={<Journey />} />
++        <Route path="*" element={<NotFound />} />
++      </Routes>
++    </div>
++  );
++}
+-- 
+2.43.0
