@@ -128,3 +128,4 @@ export function attachClipboardGuards(root: HTMLElement, opts: Options = {}): Gu
   enable();
   return { teardown: disable, enable, disable };
 }
+export * from "../../guards/clipboard";
