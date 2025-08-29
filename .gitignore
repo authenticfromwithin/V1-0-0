@@ -12,3 +12,4 @@ dist/
 .vercel
 
 V1-0-0/
+bin/ffmpeg.exe
