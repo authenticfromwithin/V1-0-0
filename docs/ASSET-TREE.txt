@@ -1,0 +1,14 @@
+
+AFW — Canonical Tree (Docs Snapshot)
+public/
+  content/
+    devotionals.manifest.json
+    quotes.manifest.json
+  narration/
+    tracks/{id}.mp3|.ogg
+    captions/{id}.vtt
+  assets/
+    fonts/ui/AFW-UI.woff2
+    scenes/<theme>/plates/{back.webp, mid.webp, front.webp}
+    audio/<theme>/stems/{wind,water,leaves,birds,pad}.mp3
+    avatars/<rig>/<state>/{webm/<state>.webm, mp4/<state>.mp4}

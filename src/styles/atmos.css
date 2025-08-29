@@ -1,0 +1,12 @@
+.afw-mist{
+  position:absolute; inset:-4% 0 0 0;
+  background: radial-gradient(40% 20% at 50% 110%, rgba(255,255,255,.09), transparent 70%);
+  filter: blur(18px);
+  pointer-events:none;
+  animation: afw-mist-float 18s ease-in-out infinite;
+}
+@keyframes afw-mist-float{
+  0%{ transform: translate3d(0,0,0); opacity:.32; }
+  50%{ transform: translate3d(0,-6px,0); opacity:.48; }
+  100%{ transform: translate3d(0,0,0); opacity:.32; }
+}

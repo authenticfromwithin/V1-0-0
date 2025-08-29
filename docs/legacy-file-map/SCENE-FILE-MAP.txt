@@ -1,0 +1,9 @@
+
+# Legacy → Vite Path Map (Scenes)
+
+Old CRA mirrors under `/assets/**` or `/content/**` have been consolidated under `/public/**` for Vite.
+
+Examples:
+- `assets/scenes/forest/...` → `public/assets/scenes/forest/...`
+- `assets/scenes/ocean/...`  → `public/assets/scenes/ocean/...`
+(Repeat for mountain, autumn, snow)

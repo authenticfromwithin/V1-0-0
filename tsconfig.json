@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "jsx": "react-jsx",
+    "strict": false,
+    "skipLibCheck": true,
+    "baseUrl": "src",
+    "paths": {
+      "components/*": [
+        "components/*"
+      ],
+      "guards/*": [
+        "guards/*"
+      ],
+      "logic/*": [
+        "logic/*"
+      ],
+      "styles/*": [
+        "styles/*"
+      ]
+    },
+    "types": [
+      "vite/client"
+    ]
+  },
+  "include": [
+    "src"
+  ]
+}

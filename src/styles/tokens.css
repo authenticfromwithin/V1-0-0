@@ -1,0 +1,40 @@
+
+:root{
+  --focus: #9ad5ff;
+  --ring: rgba(154,213,255,.45);
+  --text: #f5f7fb;
+  --text-dim: rgba(245,247,251,.8);
+  --border: rgba(255,255,255,.14);
+  --bg-glass: rgba(18,21,28,.55);
+
+  --lut-contrast: 1.06;
+  --lut-saturate: 1.06;
+  --lut-hue: 0deg;
+  --lut-brightness: 1.00;
+  --lut-filter: saturate(var(--lut-saturate)) contrast(var(--lut-contrast)) hue-rotate(var(--lut-hue)) brightness(var(--lut-brightness));
+}
+
+html[data-theme="ocean"]{
+  --lut-contrast: 1.05;
+  --lut-saturate: 1.05;
+  --lut-hue: -8deg;
+  --lut-brightness: 1.02;
+}
+html[data-theme="mountain"]{
+  --lut-contrast: 1.05;
+  --lut-saturate: 1.02;
+  --lut-hue: -4deg;
+  --lut-brightness: 1.01;
+}
+html[data-theme="autumn"]{
+  --lut-contrast: 1.06;
+  --lut-saturate: 1.10;
+  --lut-hue: 12deg;
+  --lut-brightness: 1.02;
+}
+html[data-theme="snow"]{
+  --lut-contrast: 1.02;
+  --lut-saturate: 0.98;
+  --lut-hue: 0deg;
+  --lut-brightness: 1.05;
+}

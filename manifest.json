@@ -1,0 +1,23 @@
+{
+  "license_notes": {
+    "ocean-sea-sounds": "CC0 1.0 Universal",
+    "Red_Library_Nature_Wind": "CC0 1.0 Universal",
+    "various-bird-sounds": "Various CC/PD contributions; individual files commonly CC0; verify if you later swap.",
+    "hour-of-pink-noise": "CC0 1.0 Universal"
+  },
+  "stems": {
+    "water": "https://archive.org/download/ocean-sea-sounds/Gentle%20Ocean.mp3",
+    "wind": "https://archive.org/download/Red_Library_Nature_Wind/R22-11-Blustery%20Wind%20Loop.mp3",
+    "birds": "https://archive.org/download/various-bird-sounds/birds-in-the-morning-24147.mp3",
+    "leaves": "https://archive.org/download/various-bird-sounds/birds-singing-in-and-leaves-rustling-with-the-wind-14557.mp3",
+    "pad": "https://archive.org/download/hour-of-pink-noise/01-pink_noise.mp3"
+  },
+  "themes": [
+    "forest",
+    "ocean",
+    "mountain",
+    "autumn",
+    "snow"
+  ],
+  "install_root_hint": "Run scripts from your project root (the folder containing package.json)."
+}

@@ -1,0 +1,13 @@
+*{box-sizing:border-box}body{margin:0;background:#0a0a0a;color:#fff;font-family:system-ui,Segoe UI,Inter,Roboto,Arial,sans-serif}
+header{display:flex;gap:10px;align-items:center;justify-content:space-between;padding:12px 16px;border-bottom:1px solid rgba(255,255,255,.08);position:sticky;top:0;background:rgba(10,10,10,.8);backdrop-filter:blur(6px)}
+nav a{color:inherit;text-decoration:none;opacity:.9;padding:8px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.12);margin-right:8px}
+nav a.active{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.18)}
+.container{padding:16px}
+.card{border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:12px;background:rgba(255,255,255,.05)}
+.table{width:100%;border-collapse:collapse}
+.table th,.table td{border-bottom:1px solid rgba(255,255,255,.12);padding:8px;text-align:left;font-size:14px}
+.controls{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+input,select,button,textarea{background:rgba(255,255,255,.08);color:inherit;border:1px solid rgba(255,255,255,.16);border-radius:8px;padding:8px}
+button{cursor:pointer;font-weight:600}
+.bad{color:#ffb4b4}
+.good{color:#b4ffca}

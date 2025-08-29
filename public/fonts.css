@@ -1,0 +1,58 @@
+/* AFW fonts.css — system/local fallback (no /assets URLs)
+   Purpose: stop QA failures by removing hard file dependencies.
+   You can restore self-hosted .woff2 later without touching the rest of the app. */
+
+@font-face {
+  font-family: "InterVariable";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: local("Inter Variable"), local("InterVar"), local("Inter");
+}
+
+@font-face {
+  font-family: "InterVariable";
+  font-style: italic;
+  font-weight: 100 900;
+  font-display: swap;
+  src: local("Inter Variable Italic"), local("Inter Italic"), local("Inter");
+}
+
+@font-face {
+  font-family: "NotoSerifVariable";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: local("Noto Serif Variable"), local("Noto Serif"), local("Georgia");
+}
+
+@font-face {
+  font-family: "NotoSansGreekVariable";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: local("Noto Sans Variable"), local("Noto Sans"), local("Segoe UI"), local("Arial");
+  /* Greek Unicode blocks */
+  unicode-range: U+0370-03FF, U+1F00-1FFF;
+}
+
+@font-face {
+  font-family: "NotoSansHebrewVariable";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: local("Noto Sans Hebrew Variable"), local("Noto Sans Hebrew"), local("Segoe UI"), local("Arial");
+  /* Hebrew block */
+  unicode-range: U+0590-05FF;
+}
+
+/* Global stacks – keep variable-friendly names used in the app */
+:root {
+  --font-ui: "InterVariable", system-ui, "Segoe UI", Roboto, Arial, sans-serif;
+  --font-serif: "NotoSerifVariable", Georgia, "Times New Roman", serif;
+  --font-greek: "NotoSansGreekVariable", var(--font-ui);
+  --font-hebrew: "NotoSansHebrewVariable", var(--font-ui);
+}
+
+/* Default application font */
+html, body { font-family: var(--font-ui); }

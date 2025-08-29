@@ -1,0 +1,15 @@
+.reader {
+  line-height: 1.75;
+}
+.reader h2, .reader h3 { margin: 0 0 8px; }
+.reader .meta {
+  font-size: 0.9rem;
+  opacity: .85;
+  margin-bottom: 8px;
+}
+.reader .passage {
+  padding: 8px 10px;
+  border: 1px solid var(--afw-border);
+  border-radius: var(--afw-radius);
+  background: var(--afw-card);
+}

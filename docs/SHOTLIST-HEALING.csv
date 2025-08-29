@@ -1,0 +1,8 @@
+# HEALING SHOTLIST (per state) — durations are guidelines for loops; actions may be shorter.
+state,duration_sec,loop,label,notes
+idle,8,true,Still presence,Subtle breathing, occasional micro-shift.
+walk,6,true,Contemplative walk,Natural cadence, neutral gaze.
+stretch,4,false,Stretch,Controlled motion; returns to neutral.
+drink,4,false,Drink water,Raised bottle/cup; gentle tilt; end on still.
+sit_pray,8,true,Prayer seated,Slow breaths; closed/soft eyes.
+pick_eat_fruit,4,false,Pick and eat,Hand reaches, small bite, settle.

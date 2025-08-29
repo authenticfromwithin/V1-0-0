@@ -1,0 +1,34 @@
+{
+  "title": "AFW Guide",
+  "version": "1.0",
+  "sections": [
+    {
+      "id": "00-introduction",
+      "title": "Introduction"
+    },
+    {
+      "id": "01-quotes",
+      "title": "Quotes"
+    },
+    {
+      "id": "02-healing",
+      "title": "Healing"
+    },
+    {
+      "id": "03-journey",
+      "title": "My Journey"
+    },
+    {
+      "id": "04-devotionals",
+      "title": "Devotionals"
+    },
+    {
+      "id": "05-privacy",
+      "title": "Privacy"
+    },
+    {
+      "id": "06-themes",
+      "title": "Themes"
+    }
+  ]
+}

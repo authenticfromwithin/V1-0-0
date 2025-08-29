@@ -1,0 +1,5 @@
+.qa .qa-controls { display: flex; gap: 12px; align-items: center; margin-bottom: 8px; }
+.qa-table { width: 100%; border-collapse: collapse; }
+.qa-table th, .qa-table td { border: 1px solid rgba(255,255,255,.12); padding: 8px; text-align: left; }
+.qa-table .ok { color: #9fe59f; }
+.qa-table .miss { color: #f59; }

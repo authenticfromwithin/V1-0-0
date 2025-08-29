@@ -1,0 +1,8 @@
+# JOURNEY SHOTLIST (per state)
+state,duration_sec,loop,label,notes
+idle,8,true,Reflective stillness,Calm posture, micro-movements.
+walk,6,true,Quiet walk,Slow pace, mindful steps.
+kneel,4,false,Kneel down,Controlled descent; hands rest.
+pray,8,true,Prayer posture,Soft breathing; minimal sway.
+read_devotional,8,true,Read devotional,Occasional page shift glance.
+reflect,4,false,Reflective pause,Head/shoulder small shift; exhale.

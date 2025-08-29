@@ -1,0 +1,12 @@
+.quotes-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.quotes-controls { display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin-bottom:8px; }
+.quotes-list { list-style:none; margin:0; padding:0; display:grid; gap:12px; }
+.quote-card { border:1px solid var(--afw-border); border-radius: var(--afw-radius); background: var(--afw-card); padding:12px; }
+.quote-text { font-size:1.05rem; line-height:1.6; margin:0 0 6px; }
+.quote-meta { opacity:.85; font-size:.9rem; }
+.tag { display:inline-block; padding:2px 8px; border:1px solid var(--afw-border); border-radius:999px; font-size:.8rem; opacity:.9; }
+.tags-row { display:flex; gap:8px; flex-wrap:wrap; }
+.search { padding:6px 10px; border-radius:8px; border:1px solid var(--afw-border); background:transparent; color:inherit; }
+@media (max-width: 980px){
+  .quotes-wrap { grid-template-columns: 1fr; }
+}

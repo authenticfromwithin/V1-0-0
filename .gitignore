@@ -1,0 +1,14 @@
+﻿# builds & deps
+node_modules/
+dist/
+
+# vercel local
+.vercel/
+
+# env files (keep secrets out of git)
+.env
+.env.*
+!.env.example
+.vercel
+
+V1-0-0/

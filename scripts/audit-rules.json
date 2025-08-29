@@ -1,0 +1,53 @@
+{
+  "themes": [
+    "forest",
+    "ocean",
+    "mountain",
+    "autumn",
+    "snow"
+  ],
+  "healing_required_loops": [
+    "idle",
+    "walk",
+    "sit_pray"
+  ],
+  "healing_actions_next": [
+    "stretch",
+    "drink",
+    "pick_eat_fruit"
+  ],
+  "journey_required_loops": [
+    "idle",
+    "walk",
+    "pray"
+  ],
+  "journey_next": [
+    "kneel",
+    "read_devotional",
+    "reflect"
+  ],
+  "stems": [
+    "wind",
+    "water",
+    "leaves",
+    "birds",
+    "pad"
+  ],
+  "pages": [
+    "Home",
+    "Healing",
+    "Journey",
+    "Devotionals",
+    "Quotes",
+    "NotFound"
+  ],
+  "components": [
+    "components/SceneParallax/Parallax.tsx",
+    "components/PolicyBanner.tsx",
+    "components/AudioMixer/Controls.tsx",
+    "components/MoodWheel/MoodWheel.tsx",
+    "components/ui/Button.tsx",
+    "components/ui/ThemeToggle.tsx",
+    "components/AvatarPlayer/Player.tsx"
+  ]
+}

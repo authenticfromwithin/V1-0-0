@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "stats": {
+    "devotionals": {
+      "count": 0,
+      "byMonth": {}
+    },
+    "quotes": {
+      "count": 0
+    }
+  },
+  "missing": [],
+  "errors": []
+}

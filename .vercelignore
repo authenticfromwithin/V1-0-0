@@ -1,0 +1,13 @@
+﻿node_modules/
+dist/
+*.zip
+*.7z
+*.rar
+*.tar
+*.gz
+.vscode/
+.DS_Store
+Thumbs.db
+npm-debug.log*
+yarn-error.log*
+pnpm-debug.log*

@@ -1,0 +1,7 @@
+
+# Legacy → Vite Path Map (Audio)
+
+- `assets/audio/<theme>/stems/*.mp3` → `public/assets/audio/<theme>/stems/*.mp3`
+- Narration was under various roots; now standardized to:
+  - Tracks:   `public/narration/tracks/{id}.mp3|.ogg`
+  - Captions: `public/narration/captions/{id}.vtt`

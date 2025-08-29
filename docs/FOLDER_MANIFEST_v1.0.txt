@@ -1,0 +1,17 @@
+AFW Folder Manifest (v1.0) — 2025-08-27
+
+root/
+  src/ ... (Website SPA: pages, components, logic)
+  admin/ ... (Admin SPA: hash-routed tabs: Events, Progress, Profiles, Notifications, Feedback)
+  docs/
+    SQL_Full_Integration.txt
+    SQL_Nav_Support.txt
+    FOLDER_MANIFEST_v1.0.txt
+  scripts/qa/
+    expect-nav-support.mjs
+    expect-admin.mjs (this pack)
+
+Notes
+- Website requires Vercel env: VITE_SUPABASE_URL, VITE_SUPABASE_ANON_KEY
+- Admin requires same env (separate project is recommended)
+- Journals remain local-only (no DB writes)

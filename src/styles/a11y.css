@@ -1,0 +1,43 @@
+/* Accessible focus rings and skip link */
+:root{
+  --focus-ring: 2px solid rgba(180,220,255,.9);
+  --focus-radius: 10px;
+}
+
+:where(a, button, input, select, textarea, summary, [tabindex]){:focus{outline: none;}}
+:where(a, button, input, select, textarea, summary, [tabindex]){:focus-visible{
+  outline: var(--focus-ring);
+  outline-offset: 2px;
+  border-radius: var(--focus-radius);
+}}
+
+/* Skip link */
+.skip-link{
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.skip-link:focus, .skip-link:focus-visible{
+  left: 12px;
+  top: 12px;
+  width: auto;
+  height: auto;
+  padding: 8px 12px;
+  background: rgba(10,12,16,.95);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,.2);
+  border-radius: 10px;
+  z-index: 1000;
+}
+
+/* Reduced motion helpers */
+@media (prefers-reduced-motion: reduce){
+  *{
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}

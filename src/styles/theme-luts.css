@@ -1,0 +1,77 @@
+/* Theme LUT Overlays — subtle, filmic color grade per theme.
+   Applies by default. To disable globally, set <html data-grade="off">.
+   Strength: <html data-grade-strength="low|med|high"> (default med)
+*/
+
+html::before{
+  content:"";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1; /* sits above scenes, below UI due to blending & low opacity */
+  opacity: var(--grade-opacity, 0.16);
+  mix-blend-mode: soft-light;
+  background: transparent;
+}
+
+/* Strength controls */
+html[data-grade="off"]::before { opacity: 0 !important; }
+html[data-grade-strength="low"] { --grade-opacity: 0.10; }
+html[data-grade-strength="high"] { --grade-opacity: 0.22; }
+/* default (med) comes from variable default */
+
+:root{
+  --grade-backdrop: radial-gradient(60% 60% at 50% 50%, rgba(0,0,0,.06), transparent);
+}
+
+/* Default / Forest */
+html:not([data-theme])::before,
+html[data-theme=""]::before,
+html[data-theme="forest"]::before{
+  background:
+    var(--grade-backdrop),
+    linear-gradient(180deg, hsla(140, 18%, 24%, .18), transparent 50%),
+    linear-gradient(0deg, hsla(210, 22%, 8%, .10), transparent 60%);
+  filter: saturate(1.04) contrast(1.02);
+}
+
+/* Ocean */
+html[data-theme="ocean"]::before{
+  background:
+    var(--grade-backdrop),
+    radial-gradient(80% 70% at 50% 45%, hsla(205, 45%, 22%, .18), transparent),
+    linear-gradient(0deg, hsla(210, 40%, 14%, .12), transparent 60%);
+  filter: saturate(1.06) contrast(1.01);
+}
+
+/* Mountain */
+html[data-theme="mountain"]::before{
+  background:
+    var(--grade-backdrop),
+    linear-gradient(180deg, hsla(220, 16%, 24%, .16), transparent 55%),
+    linear-gradient(0deg, hsla(230, 18%, 10%, .10), transparent 60%);
+  filter: saturate(1.03) contrast(1.03);
+}
+
+/* Autumn */
+html[data-theme="autumn"]::before{
+  background:
+    var(--grade-backdrop),
+    radial-gradient(70% 60% at 50% 55%, hsla(20, 55%, 24%, .18), transparent),
+    linear-gradient(0deg, hsla(30, 50%, 12%, .10), transparent 60%);
+  filter: saturate(1.07) contrast(1.02);
+}
+
+/* Snow */
+html[data-theme="snow"]::before{
+  background:
+    var(--grade-backdrop),
+    linear-gradient(180deg, hsla(210, 12%, 96%, .12), transparent 60%),
+    linear-gradient(0deg, hsla(220, 16%, 20%, .10), transparent 70%);
+  filter: saturate(1.02) contrast(1.02) brightness(1.02);
+}
+
+/* Respect reduced motion: no animated LUTs here, only static overlays. */
+@media (prefers-reduced-motion: reduce){
+  html::before{ transition: none !important; }
+}

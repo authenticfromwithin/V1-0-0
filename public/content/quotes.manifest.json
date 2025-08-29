@@ -1,0 +1,22 @@
+[
+  {
+    "id": "faith",
+    "title": "Faith",
+    "file": "/content/quotes/faith.json"
+  },
+  {
+    "id": "hope",
+    "title": "Hope",
+    "file": "/content/quotes/hope.json"
+  },
+  {
+    "id": "identity",
+    "title": "Identity",
+    "file": "/content/quotes/identity.json"
+  },
+  {
+    "id": "healing",
+    "title": "Healing",
+    "file": "/content/quotes/healing.json"
+  }
+]

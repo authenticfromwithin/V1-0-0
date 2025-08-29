@@ -1,0 +1,12 @@
+
+# Legacy → Vite Path Map (Avatars)
+
+Old:
+- `public/avatars/healing/idle/webm/idle.webm` (varied)
+
+Now canonical:
+- `public/assets/avatars/<rig>/<state>/webm/<state>.webm`
+- `public/assets/avatars/<rig>/<state>/mp4/<state>.mp4`
+
+Rigs: `healing`, `journey`
+States documented in `/docs/checklists/AVATAR-CLIP-MATRIX.md`.

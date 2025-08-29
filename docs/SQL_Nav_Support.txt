@@ -1,0 +1,28 @@
+AFW — Navigation + Support (Notifications + Feedback)
+Date: 2025-08-27
+
+create table if not exists public.notifications_public (
+  id bigserial primary key,
+  audience text not null default 'all',
+  title text not null,
+  body text,
+  created_at timestamptz not null default now()
+);
+alter table public.notifications_public enable row level security;
+create policy if not exists "everyone read notifications" on public.notifications_public
+for select to anon using (true);
+create policy if not exists "admins manage notifications" on public.notifications_public
+for all to authenticated using (exists (select 1 from public.admins a where a.user_id = auth.uid())) with check (exists (select 1 from public.admins a where a.user_id = auth.uid()));
+
+create table if not exists public.feedback (
+  id bigserial primary key,
+  t bigint not null,
+  user_id uuid,
+  subject text,
+  message text
+);
+alter table public.feedback enable row level security;
+create policy if not exists "admins read feedback" on public.feedback
+for select to authenticated using (exists (select 1 from public.admins a where a.user_id = auth.uid()));
+create policy if not exists "anyone insert feedback" on public.feedback
+for insert to anon with check (true);

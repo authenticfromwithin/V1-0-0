@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <rect width="1600" height="900" fill="#f7f8fa"/>
+  <g fill="none" stroke="rgba(0,0,0,0.08)">
+    <circle cx="800" cy="460" r="360"/>
+    <circle cx="800" cy="460" r="520"/>
+  </g>
+  <g>
+    <text x="50%" y="48%" text-anchor="middle" font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto" font-size="64" fill="#0b0f14">AUTHENTIC</text>
+    <text x="50%" y="58%" text-anchor="middle" font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto" font-size="64" fill="#0b0f14">FROM WITHIN</text>
+  </g>
+</svg>

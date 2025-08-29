@@ -1,0 +1,54 @@
+AFW v2.0 — Deploy Guide (Vercel via GitHub)
+===========================================
+Date: 2025-08-26
+
+Scope
+-----
+Production deploy for Authentic From Within (AFW) — Vite + React SPA.
+This guide assumes `npm run build` succeeded locally and `vercel.json` SPA rewrite is present.
+
+1) Commit & Push (GitHub → Vercel)
+----------------------------------
+git add -A
+git commit -m "AFW v2.0 live: build OK + aliases + ProtectedJournal + fonts resolved"
+git push origin main
+
+2) Vercel Project Settings (one-time)
+-------------------------------------
+- Connect GitHub repo (Import Project).
+- Framework Preset: “Vite” (or “Other” is fine).
+- Build Command: npm run build
+- Output Directory: dist
+- Install Command: npm ci
+- Node.js Version: 22.x  (Project Settings → General → Node.js Version)
+- SPA rewrite: vercel.json already in repo (QA passed). No changes needed.
+
+3) Trigger Deploy
+-----------------
+- Push to `main` triggers automatic build and deploy.
+- On Vercel dashboard, confirm the build completes; open Preview → then Promote to Production (or auto if set).
+
+4) Smoke Test (Production URL)
+------------------------------
+- `/` (Home): parallax plates, reduced-motion compliant, ThemeToggle.
+- `/healing`: avatar player (idle/walk/sit_pray), Intent controls, **ProtectedJournal** loads, clipboard/drag/context blocked inside journal.
+- `/journey`: avatar states + Mood Wheel adjusts atmos “EQ tilt”.
+- `/devotionals`: list renders from manifest; captions show; audio optional.
+- `/quotes`: curated lists render from manifest.
+- Refresh deep links: open `/healing` directly → should load (SPA rewrite verified).
+- Audio: stems mix correctly; ducking on actions.
+- A11y quick pass: focus outlines visible, skip link present, captions on.
+
+5) Post-Launch (optional polish)
+--------------------------------
+- Audio size pass: re-encode stems (CBR→VBR) to shave MB without quality loss.
+- Wardrobe tiles grid: ship variant thumbnails (already wired) and LUT tune set.
+- CSP tightening: apply strict Content-Security-Policy after first live verification.
+- Monitoring: add simple client-side error reporter (console → local ring buffer).
+
+Notes
+-----
+- Journaling is **browser-only** (IndexedDB) and never leaves the device.
+- No uploads/copy/paste inside protected spaces by design.
+- fonts.css now resolves cleanly; Greek/Hebrew captions display.
+

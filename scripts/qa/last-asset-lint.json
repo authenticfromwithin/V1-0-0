@@ -1,0 +1,44 @@
+{
+  "findings": [
+    {
+      "type": "WARN",
+      "msg": "large asset (>8MB): C:\\Users\\FAMSA\\Documents\\AFW-Offline-Build-Node22-Vite\\public\\assets\\audio\\autumn\\stems\\pad.mp3 (10 MB)"
+    },
+    {
+      "type": "WARN",
+      "msg": "large asset (>8MB): C:\\Users\\FAMSA\\Documents\\AFW-Offline-Build-Node22-Vite\\public\\assets\\audio\\autumn\\stems\\water.mp3 (14 MB)"
+    },
+    {
+      "type": "WARN",
+      "msg": "large asset (>8MB): C:\\Users\\FAMSA\\Documents\\AFW-Offline-Build-Node22-Vite\\public\\assets\\audio\\forest\\stems\\pad.mp3 (10 MB)"
+    },
+    {
+      "type": "WARN",
+      "msg": "large asset (>8MB): C:\\Users\\FAMSA\\Documents\\AFW-Offline-Build-Node22-Vite\\public\\assets\\audio\\forest\\stems\\water.mp3 (14 MB)"
+    },
+    {
+      "type": "WARN",
+      "msg": "large asset (>8MB): C:\\Users\\FAMSA\\Documents\\AFW-Offline-Build-Node22-Vite\\public\\assets\\audio\\mountain\\stems\\pad.mp3 (10 MB)"
+    },
+    {
+      "type": "WARN",
+      "msg": "large asset (>8MB): C:\\Users\\FAMSA\\Documents\\AFW-Offline-Build-Node22-Vite\\public\\assets\\audio\\mountain\\stems\\water.mp3 (14 MB)"
+    },
+    {
+      "type": "WARN",
+      "msg": "large asset (>8MB): C:\\Users\\FAMSA\\Documents\\AFW-Offline-Build-Node22-Vite\\public\\assets\\audio\\ocean\\stems\\pad.mp3 (10 MB)"
+    },
+    {
+      "type": "WARN",
+      "msg": "large asset (>8MB): C:\\Users\\FAMSA\\Documents\\AFW-Offline-Build-Node22-Vite\\public\\assets\\audio\\ocean\\stems\\water.mp3 (14 MB)"
+    },
+    {
+      "type": "WARN",
+      "msg": "large asset (>8MB): C:\\Users\\FAMSA\\Documents\\AFW-Offline-Build-Node22-Vite\\public\\assets\\audio\\snow\\stems\\pad.mp3 (10 MB)"
+    },
+    {
+      "type": "WARN",
+      "msg": "large asset (>8MB): C:\\Users\\FAMSA\\Documents\\AFW-Offline-Build-Node22-Vite\\public\\assets\\audio\\snow\\stems\\water.mp3 (14 MB)"
+    }
+  ]
+}

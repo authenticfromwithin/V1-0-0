@@ -1,0 +1,421 @@
+{
+  "ok": true,
+  "findings": [
+    {
+      "ok": true,
+      "area": "core",
+      "message": "OK: package.json"
+    },
+    {
+      "ok": true,
+      "area": "core",
+      "message": "OK: vite.config.ts"
+    },
+    {
+      "ok": true,
+      "area": "core",
+      "message": "OK: tsconfig.json"
+    },
+    {
+      "ok": true,
+      "area": "core",
+      "message": "OK: index.html"
+    },
+    {
+      "ok": true,
+      "area": "pages",
+      "message": "OK: src/pages/Home.tsx"
+    },
+    {
+      "ok": true,
+      "area": "pages",
+      "message": "OK: src/pages/Healing.tsx"
+    },
+    {
+      "ok": true,
+      "area": "pages",
+      "message": "OK: src/pages/Journey.tsx"
+    },
+    {
+      "ok": true,
+      "area": "pages",
+      "message": "OK: src/pages/Devotionals.tsx"
+    },
+    {
+      "ok": true,
+      "area": "pages",
+      "message": "OK: src/pages/Quotes.tsx"
+    },
+    {
+      "ok": true,
+      "area": "pages",
+      "message": "OK: src/pages/NotFound.tsx"
+    },
+    {
+      "ok": true,
+      "area": "components",
+      "message": "OK: src/components/SceneParallax/Parallax.tsx"
+    },
+    {
+      "ok": true,
+      "area": "components",
+      "message": "OK: src/components/PolicyBanner.tsx"
+    },
+    {
+      "ok": true,
+      "area": "components",
+      "message": "OK: src/components/AudioMixer/Controls.tsx"
+    },
+    {
+      "ok": true,
+      "area": "components",
+      "message": "OK: src/components/MoodWheel/MoodWheel.tsx"
+    },
+    {
+      "ok": true,
+      "area": "components",
+      "message": "OK: src/components/ui/Button.tsx"
+    },
+    {
+      "ok": true,
+      "area": "components",
+      "message": "OK: src/components/ui/ThemeToggle.tsx"
+    },
+    {
+      "ok": true,
+      "area": "components",
+      "message": "OK: src/components/AvatarPlayer/Player.tsx"
+    },
+    {
+      "ok": true,
+      "area": "styles",
+      "message": "OK: src/styles/index.ts"
+    },
+    {
+      "ok": true,
+      "area": "guards",
+      "message": "OK: src/guards/clipboard.ts"
+    },
+    {
+      "ok": true,
+      "area": "scenes:forest",
+      "message": "OK: public/assets/scenes/forest/plates/back.webp"
+    },
+    {
+      "ok": true,
+      "area": "scenes:forest",
+      "message": "OK: public/assets/scenes/forest/plates/mid.webp"
+    },
+    {
+      "ok": true,
+      "area": "scenes:forest",
+      "message": "OK: public/assets/scenes/forest/plates/front.webp"
+    },
+    {
+      "ok": true,
+      "area": "scenes:ocean",
+      "message": "OK: public/assets/scenes/ocean/plates/back.webp"
+    },
+    {
+      "ok": true,
+      "area": "scenes:ocean",
+      "message": "OK: public/assets/scenes/ocean/plates/mid.webp"
+    },
+    {
+      "ok": true,
+      "area": "scenes:ocean",
+      "message": "OK: public/assets/scenes/ocean/plates/front.webp"
+    },
+    {
+      "ok": true,
+      "area": "scenes:mountain",
+      "message": "OK: public/assets/scenes/mountain/plates/back.webp"
+    },
+    {
+      "ok": true,
+      "area": "scenes:mountain",
+      "message": "OK: public/assets/scenes/mountain/plates/mid.webp"
+    },
+    {
+      "ok": true,
+      "area": "scenes:mountain",
+      "message": "OK: public/assets/scenes/mountain/plates/front.webp"
+    },
+    {
+      "ok": true,
+      "area": "scenes:autumn",
+      "message": "OK: public/assets/scenes/autumn/plates/back.webp"
+    },
+    {
+      "ok": true,
+      "area": "scenes:autumn",
+      "message": "OK: public/assets/scenes/autumn/plates/mid.webp"
+    },
+    {
+      "ok": true,
+      "area": "scenes:autumn",
+      "message": "OK: public/assets/scenes/autumn/plates/front.webp"
+    },
+    {
+      "ok": true,
+      "area": "scenes:snow",
+      "message": "OK: public/assets/scenes/snow/plates/back.webp"
+    },
+    {
+      "ok": true,
+      "area": "scenes:snow",
+      "message": "OK: public/assets/scenes/snow/plates/mid.webp"
+    },
+    {
+      "ok": true,
+      "area": "scenes:snow",
+      "message": "OK: public/assets/scenes/snow/plates/front.webp"
+    },
+    {
+      "ok": true,
+      "area": "stems:forest",
+      "message": "OK: any-of present → public/assets/audio/forest/stems/wind.mp3"
+    },
+    {
+      "ok": true,
+      "area": "stems:forest",
+      "message": "OK: any-of present → public/assets/audio/forest/stems/water.mp3"
+    },
+    {
+      "ok": true,
+      "area": "stems:forest",
+      "message": "OK: any-of present → public/assets/audio/forest/stems/leaves.mp3"
+    },
+    {
+      "ok": true,
+      "area": "stems:forest",
+      "message": "OK: any-of present → public/assets/audio/forest/stems/birds.mp3"
+    },
+    {
+      "ok": true,
+      "area": "stems:forest",
+      "message": "OK: any-of present → public/assets/audio/forest/stems/pad.mp3"
+    },
+    {
+      "ok": true,
+      "area": "stems:ocean",
+      "message": "OK: any-of present → public/assets/audio/ocean/stems/wind.mp3"
+    },
+    {
+      "ok": true,
+      "area": "stems:ocean",
+      "message": "OK: any-of present → public/assets/audio/ocean/stems/water.mp3"
+    },
+    {
+      "ok": true,
+      "area": "stems:ocean",
+      "message": "OK: any-of present → public/assets/audio/ocean/stems/leaves.mp3"
+    },
+    {
+      "ok": true,
+      "area": "stems:ocean",
+      "message": "OK: any-of present → public/assets/audio/ocean/stems/birds.mp3"
+    },
+    {
+      "ok": true,
+      "area": "stems:ocean",
+      "message": "OK: any-of present → public/assets/audio/ocean/stems/pad.mp3"
+    },
+    {
+      "ok": true,
+      "area": "stems:mountain",
+      "message": "OK: any-of present → public/assets/audio/mountain/stems/wind.mp3"
+    },
+    {
+      "ok": true,
+      "area": "stems:mountain",
+      "message": "OK: any-of present → public/assets/audio/mountain/stems/water.mp3"
+    },
+    {
+      "ok": true,
+      "area": "stems:mountain",
+      "message": "OK: any-of present → public/assets/audio/mountain/stems/leaves.mp3"
+    },
+    {
+      "ok": true,
+      "area": "stems:mountain",
+      "message": "OK: any-of present → public/assets/audio/mountain/stems/birds.mp3"
+    },
+    {
+      "ok": true,
+      "area": "stems:mountain",
+      "message": "OK: any-of present → public/assets/audio/mountain/stems/pad.mp3"
+    },
+    {
+      "ok": true,
+      "area": "stems:autumn",
+      "message": "OK: any-of present → public/assets/audio/autumn/stems/wind.mp3"
+    },
+    {
+      "ok": true,
+      "area": "stems:autumn",
+      "message": "OK: any-of present → public/assets/audio/autumn/stems/water.mp3"
+    },
+    {
+      "ok": true,
+      "area": "stems:autumn",
+      "message": "OK: any-of present → public/assets/audio/autumn/stems/leaves.mp3"
+    },
+    {
+      "ok": true,
+      "area": "stems:autumn",
+      "message": "OK: any-of present → public/assets/audio/autumn/stems/birds.mp3"
+    },
+    {
+      "ok": true,
+      "area": "stems:autumn",
+      "message": "OK: any-of present → public/assets/audio/autumn/stems/pad.mp3"
+    },
+    {
+      "ok": true,
+      "area": "stems:snow",
+      "message": "OK: any-of present → public/assets/audio/snow/stems/wind.mp3"
+    },
+    {
+      "ok": true,
+      "area": "stems:snow",
+      "message": "OK: any-of present → public/assets/audio/snow/stems/water.mp3"
+    },
+    {
+      "ok": true,
+      "area": "stems:snow",
+      "message": "OK: any-of present → public/assets/audio/snow/stems/leaves.mp3"
+    },
+    {
+      "ok": true,
+      "area": "stems:snow",
+      "message": "OK: any-of present → public/assets/audio/snow/stems/birds.mp3"
+    },
+    {
+      "ok": true,
+      "area": "stems:snow",
+      "message": "OK: any-of present → public/assets/audio/snow/stems/pad.mp3"
+    },
+    {
+      "ok": true,
+      "area": "fonts",
+      "message": "OK: public/fonts.css"
+    },
+    {
+      "ok": true,
+      "area": "fonts",
+      "message": "OK: fonts ui folder present"
+    },
+    {
+      "ok": true,
+      "area": "content",
+      "message": "OK: JSON valid → public/content/quotes.manifest.json"
+    },
+    {
+      "ok": true,
+      "area": "content",
+      "message": "OK: JSON valid → public/content/devotionals.manifest.json"
+    },
+    {
+      "ok": true,
+      "area": "narration",
+      "message": "OK: public/narration/tracks"
+    },
+    {
+      "ok": true,
+      "area": "narration",
+      "message": "OK: public/narration/captions"
+    },
+    {
+      "ok": true,
+      "area": "avatars:healing:idle",
+      "message": "OK: any-of present → public/assets/avatars/healing/idle/mp4/idle.mp4"
+    },
+    {
+      "ok": true,
+      "area": "avatars:healing:idle",
+      "message": "OK: WEBM present → public/assets/avatars/healing/idle/webm/idle.webm"
+    },
+    {
+      "ok": true,
+      "area": "avatars:healing:walk",
+      "message": "OK: any-of present → public/assets/avatars/healing/walk/mp4/walk.mp4"
+    },
+    {
+      "ok": true,
+      "area": "avatars:healing:walk",
+      "message": "OK: WEBM present → public/assets/avatars/healing/walk/webm/walk.webm"
+    },
+    {
+      "ok": true,
+      "area": "avatars:healing:sit_pray",
+      "message": "OK: any-of present → public/assets/avatars/healing/sit_pray/mp4/sit_pray.mp4"
+    },
+    {
+      "ok": true,
+      "area": "avatars:healing:sit_pray",
+      "message": "OK: WEBM present → public/assets/avatars/healing/sit_pray/webm/sit_pray.webm"
+    },
+    {
+      "ok": true,
+      "area": "avatars:journey:idle",
+      "message": "OK: any-of present → public/assets/avatars/journey/idle/mp4/idle.mp4"
+    },
+    {
+      "ok": true,
+      "area": "avatars:journey:idle",
+      "message": "OK: WEBM present → public/assets/avatars/journey/idle/webm/idle.webm"
+    },
+    {
+      "ok": true,
+      "area": "avatars:journey:walk",
+      "message": "OK: any-of present → public/assets/avatars/journey/walk/mp4/walk.mp4"
+    },
+    {
+      "ok": true,
+      "area": "avatars:journey:walk",
+      "message": "OK: WEBM present → public/assets/avatars/journey/walk/webm/walk.webm"
+    },
+    {
+      "ok": true,
+      "area": "avatars:journey:pray",
+      "message": "OK: any-of present → public/assets/avatars/journey/pray/mp4/pray.mp4"
+    },
+    {
+      "ok": true,
+      "area": "avatars:journey:pray",
+      "message": "OK: WEBM present → public/assets/avatars/journey/pray/webm/pray.webm"
+    },
+    {
+      "ok": true,
+      "area": "avatars:healing:next",
+      "message": "OK (optional now): public/assets/avatars/healing/stretch/mp4/stretch.mp4"
+    },
+    {
+      "ok": true,
+      "area": "avatars:healing:next",
+      "message": "OK (optional now): public/assets/avatars/healing/drink/mp4/drink.mp4"
+    },
+    {
+      "ok": true,
+      "area": "avatars:healing:next",
+      "message": "OK (optional now): public/assets/avatars/healing/pick_eat_fruit/mp4/pick_eat_fruit.mp4"
+    },
+    {
+      "ok": true,
+      "area": "avatars:journey:next",
+      "message": "OK (optional now): public/assets/avatars/journey/kneel/mp4/kneel.mp4"
+    },
+    {
+      "ok": true,
+      "area": "avatars:journey:next",
+      "message": "OK (optional now): public/assets/avatars/journey/read_devotional/mp4/read_devotional.mp4"
+    },
+    {
+      "ok": true,
+      "area": "avatars:journey:next",
+      "message": "OK (optional now): public/assets/avatars/journey/reflect/mp4/reflect.mp4"
+    }
+  ],
+  "ts": "2025-08-26T04:11:28.624Z"
+}

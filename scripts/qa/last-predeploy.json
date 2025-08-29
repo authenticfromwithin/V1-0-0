@@ -1,0 +1,64 @@
+{
+  "summary": {
+    "ok": 45,
+    "warn": 0,
+    "fail": 0,
+    "counts": {
+      "captions": 365
+    }
+  },
+  "report": {
+    "ok": [
+      "core: package.json",
+      "core: vite.config.ts",
+      "core: tsconfig.json",
+      "core: index.html",
+      "core: vercel.json",
+      "page: src/pages/Home.tsx",
+      "page: src/pages/Healing.tsx",
+      "page: src/pages/Journey.tsx",
+      "page: src/pages/Devotionals.tsx",
+      "page: src/pages/Quotes.tsx",
+      "page: src/pages/NotFound.tsx",
+      "component: src/components/SceneParallax/Parallax.tsx",
+      "component: src/components/PolicyBanner.tsx",
+      "component: src/components/AudioMixer/Controls.tsx",
+      "component: src/components/MoodWheel/MoodWheel.tsx",
+      "component: src/components/ui/Button.tsx",
+      "component: src/components/ui/ThemeToggle.tsx",
+      "component: src/components/AvatarPlayer/Player.tsx",
+      "style: src/styles/index.ts",
+      "style: src/styles/tokens.css",
+      "style: src/styles/scene.css",
+      "style: src/styles/globals.css",
+      "scene plates OK: forest",
+      "scene plates OK: ocean",
+      "scene plates OK: mountain",
+      "scene plates OK: autumn",
+      "scene plates OK: snow",
+      "stems OK (mp3): forest",
+      "stems OK (mp3): ocean",
+      "stems OK (mp3): mountain",
+      "stems OK (mp3): autumn",
+      "stems OK (mp3): snow",
+      "content: quotes.manifest.json",
+      "content: devotionals.manifest.json",
+      "narration: captions folder",
+      "narration: tracks folder",
+      "captions present: 365",
+      "fonts.css present",
+      "all font files referenced by fonts.css are present",
+      "avatar ok: healing/idle",
+      "avatar ok: healing/walk",
+      "avatar ok: healing/sit_pray",
+      "avatar ok: journey/idle",
+      "avatar ok: journey/walk",
+      "avatar ok: journey/pray"
+    ],
+    "warn": [],
+    "fail": [],
+    "counts": {
+      "captions": 365
+    }
+  }
+}

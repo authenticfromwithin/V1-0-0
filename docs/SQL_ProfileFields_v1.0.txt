@@ -1,0 +1,8 @@
+AFW — Profile fields update (first/last name) — 2025-08-27
+
+alter table public.profiles_public
+  add column if not exists first_name text,
+  add column if not exists last_name text;
+
+-- Optional unique pair to discourage duplicates:
+-- create unique index if not exists profiles_name_unique on public.profiles_public (first_name, last_name);

@@ -1,0 +1,7 @@
+/
+/healing
+/journey
+/devotionals
+/quotes
+/guide
+/qa
