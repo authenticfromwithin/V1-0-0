@@ -16,3 +16,5 @@ bin/ffmpeg.exe
 
 *.shrink.mp4
 *.shrunk.mp4
+
+README-DROP-IN.txt
