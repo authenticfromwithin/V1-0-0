@@ -1,5 +1,5 @@
-﻿import React, { useEffect, useState } from 'react'
-import Parallax from 'components/SceneParallax/Parallax'
+import React, { useEffect, useState } from 'react'
+import Parallax from '@/components/SceneParallax/Parallax'
 import LogoFire from 'components/ui/LogoFire'
 import SignInUpModal from 'components/Auth/SignInUp'
 import SupportPanel from 'components/Support/SupportPanel'
@@ -41,5 +41,6 @@ const btn: React.CSSProperties = { padding:'10px 14px', borderRadius:12, border:
 const btnPrimary: React.CSSProperties = { ...btn, background:'rgba(255,255,255,0.18)', borderColor:'rgba(255,255,255,0.28)' } as any
 const btnGhost: React.CSSProperties = { ...btn, background:'transparent' } as any
 const fineprint: React.CSSProperties = { textAlign:'center', opacity:.7, fontSize:12, marginTop:12 }
+
 
 
