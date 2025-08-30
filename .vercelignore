@@ -1,13 +1,9 @@
-﻿node_modules/
-dist/
-*.zip
-*.7z
-*.rar
-*.tar
-*.gz
-.vscode/
+# Keep uploads lean
+.git
+.gitignore
+.vscode
+node_modules
+*.map
+*.tsbuildinfo
+*.log
 .DS_Store
-Thumbs.db
-npm-debug.log*
-yarn-error.log*
-pnpm-debug.log*
