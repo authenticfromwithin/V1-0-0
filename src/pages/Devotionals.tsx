@@ -1,5 +1,5 @@
 import React from 'react'
-import RequireAuth from 'guards/RequireAuth'
+import RequireAuth from '@/guards/RequireAuth'
 type Dev = { id:string; title:string; date?:string; path?:string }
 export default function Devotionals(){
   const [list,setList]=React.useState<Dev[]>([])
@@ -21,3 +21,4 @@ export default function Devotionals(){
   </RequireAuth>)
 }
 const card:React.CSSProperties={border:'1px solid rgba(255,255,255,0.15)',borderRadius:12,padding:12,background:'rgba(255,255,255,0.06)'}
+

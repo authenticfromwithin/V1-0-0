@@ -10,6 +10,7 @@ export default defineConfig({
       "components": path.resolve(__dirname, "src/components"),
       "styles": path.resolve(__dirname, "src/styles"),
       "logic": path.resolve(__dirname, "src/logic"),
+      "guards": path.resolve(__dirname, "src/guards"),
     },
   },
   build: {

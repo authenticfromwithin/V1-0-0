@@ -12,7 +12,7 @@ import { auth } from '@/logic/auth/provider';
 import type { User } from '@/logic/auth/auth'
 import Player from 'components/AvatarPlayer/Player'
 import ProtectedJournal from 'components/Journal/ProtectedJournal'
-import RequireAuth from 'guards/RequireAuth'
+import RequireAuth from '@/guards/RequireAuth'
 
 export default function Healing(){
   const [user,setUser]=useState<User|null>(null)
@@ -51,6 +51,7 @@ export default function Healing(){
     </div>
   </RequireAuth>)
 }
+
 
 
 

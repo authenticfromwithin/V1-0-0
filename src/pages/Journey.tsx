@@ -11,7 +11,7 @@ import NavTabs from 'components/ui/NavTabs'
 import { auth } from '@/logic/auth/provider';
 import type { User } from '@/logic/auth/auth'
 import MoodWheel from 'components/MoodWheel/MoodWheel'
-import RequireAuth from 'guards/RequireAuth'
+import RequireAuth from '@/guards/RequireAuth'
 
 export default function Journey(){
   const [user,setUser]=useState<User|null>(null)
@@ -49,6 +49,7 @@ export default function Journey(){
     </div>
   </RequireAuth>)
 }
+
 
 
 
