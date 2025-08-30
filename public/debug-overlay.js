@@ -1,64 +1,30 @@
 (function () {
-  var params = new URLSearchParams(location.search);
-  var enabled = params.has('afwdebug') || sessionStorage.getItem('AFW_DEBUG') === '1';
-  if (enabled) {
-    window.__AFW_DEBUG = true;
-    sessionStorage.setItem('AFW_DEBUG', '1');
-  }
-  var queue = [];
-  function escapeHtml(s) {
-    return String(s).replace(/[&<>"']/g, function (m) {
-      return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]);
+  try {
+    var qs = new URLSearchParams(location.search);
+    if (!qs.has('afwdebug')) return;
+    var el = document.createElement('div');
+    el.id = 'afw-debug-overlay';
+    el.style.position = 'fixed';
+    el.style.right = '12px';
+    el.style.bottom = '12px';
+    el.style.maxWidth = '38rem';
+    el.style.zIndex = '99999';
+    el.style.background = 'rgba(0,0,0,.85)';
+    el.style.color = '#fff';
+    el.style.font = '12px/1.4 system-ui,-apple-system,Segoe UI,Roboto,sans-serif';
+    el.style.padding = '10px 12px';
+    el.style.borderRadius = '10px';
+    el.style.boxShadow = '0 8px 20px rgba(0,0,0,.35)';
+    el.innerHTML = '<strong>AFW Debug:</strong> open DevTools console for full stack traces. <button id="afwdbg-close" style="margin-left:8px;padding:2px 6px;">hide</button>';
+    document.documentElement.appendChild(el);
+    document.getElementById('afwdbg-close').onclick = function(){ el.remove(); };
+    window.addEventListener('error', function (e) {
+      console.error('[AFW DEBUG] Window error:', e.error || e.message || e);
     });
+    window.addEventListener('unhandledrejection', function (e) {
+      console.error('[AFW DEBUG] Unhandled promise rejection:', e.reason || e);
+    });
+  } catch (e) {
+    console.warn('[AFW DEBUG] overlay init failed:', e);
   }
-  function render() {
-    if (!enabled) return;
-    var id = 'afw-debug-overlay';
-    var el = document.getElementById(id);
-    if (!el) {
-      el = document.createElement('div');
-      el.id = id;
-      el.style.position = 'fixed';
-      el.style.inset = '1rem';
-      el.style.background = 'rgba(0,0,0,0.85)';
-      el.style.color = '#fff';
-      el.style.zIndex = '2147483647';
-      el.style.padding = '1rem';
-      el.style.overflow = 'auto';
-      el.style.borderRadius = '12px';
-      el.style.font = '14px/1.4 system-ui,Segoe UI,Roboto,Helvetica,Arial';
-      document.body.appendChild(el);
-    }
-    var html = '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">'
-      + '<strong>AFW Debug Overlay</strong>'
-      + '<button id="afw-close" style="background:#333;border:1px solid #666;color:#fff;border-radius:6px;padding:4px 8px;cursor:pointer">Close</button>'
-      + '</div>';
-    html += queue.map(function (it, i) {
-      return '<div style="margin:8px 0;padding:8px;border:1px solid #555;border-radius:8px;background:#111">'
-        + '<div style="color:#f88;font-weight:600">#' + (i+1) + ' ' + escapeHtml(it.err) + '</div>'
-        + '<pre style="white-space:pre-wrap;margin:6px 0 0;opacity:.9">'
-        + escapeHtml((it.stack || '') + '\n' + (it.info || ''))
-        + '</pre></div>';
-    }).join('');
-    el.innerHTML = html;
-    var close = document.getElementById('afw-close');
-    if (close) close.onclick = function () { el.remove(); };
-  }
-  window.__AFW_PUSH_ERROR = function (err, info) {
-    if (!enabled) return;
-    try {
-      queue.push({
-        err: String(err && err.message || err || 'Unknown error'),
-        stack: (err && err.stack) || '',
-        info: (info && info.componentStack) || ''
-      });
-      render();
-    } catch (e) {}
-  };
-  window.addEventListener('error', function (e) {
-    window.__AFW_PUSH_ERROR(e.error || e.message || 'Unknown error');
-  });
-  window.addEventListener('unhandledrejection', function (e) {
-    window.__AFW_PUSH_ERROR(e.reason || 'Unhandled promise rejection');
-  });
 })();
