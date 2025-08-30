@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { getMixer, type ThemeName } from 'logic/audio/mixer';
+import { getMixer, type ThemeName } from '@/logic/audio/mixer';
 
 export default function AudioControls(){
   const [, bump] = React.useState(0);
@@ -53,3 +53,4 @@ export default function AudioControls(){
     </section>
   );
 }
+

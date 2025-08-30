@@ -1,6 +1,6 @@
 import React from 'react';
-import { getMixer } from 'logic/audio/mixer';
-import { getPref, setPref } from 'logic/prefs';
+import { getMixer } from '@/logic/audio/mixer';
+import { getPref, setPref } from '@/logic/prefs';
 
 export default function MasterVolume(){
   const [v, setV] = React.useState<number>(() => getPref('afw:sound:master', 0.6));
@@ -12,3 +12,4 @@ export default function MasterVolume(){
     </label>
   );
 }
+

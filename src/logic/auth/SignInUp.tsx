@@ -1,8 +1,8 @@
 import React, { useEffect, useMemo, useState } from 'react'
-import { LocalAuth } from 'logic/auth/localAuth'
-import { SupabaseAuth } from 'logic/auth/supabaseAuth'
-import { hasSupabaseEnv, type User, type AuthProvider } from 'logic/auth/auth'
-import { saveEncryptedProfile, loadEncryptedProfile } from 'logic/auth/secureProfile'
+import { LocalAuth } from '@/logic/auth/localAuth'
+import { SupabaseAuth } from '@/logic/auth/supabaseAuth'
+import { hasSupabaseEnv, type User, type AuthProvider } from '@/logic/auth/auth'
+import { saveEncryptedProfile, loadEncryptedProfile } from '@/logic/auth/secureProfile'
 
 type Mode = 'signin' | 'signup'
 type Props = { open: boolean; onClose(): void; onAuth(u: User | null): void }
@@ -126,3 +126,4 @@ const link: React.CSSProperties = { cursor:'pointer', textDecoration:'underline'
 const pill: React.CSSProperties = { fontSize:11, opacity:.85, border:'1px solid rgba(255,255,255,0.18)', padding:'3px 8px', borderRadius:999 }
 
 export default SignInUpModal
+

@@ -1,6 +1,6 @@
 import React from 'react';
-import type { Appearance, Archetype, Variant } from 'logic/avatars/appearance';
-import { useAppearance } from 'logic/avatars/appearance';
+import type { Appearance, Archetype, Variant } from '@/logic/avatars/appearance';
+import { useAppearance } from '@/logic/avatars/appearance';
 
 export default function AppearanceSelector({ kind, syncBoth=false }:{ kind:'healing'|'journey'; syncBoth?: boolean }){
   const [ap, setAp] = useAppearance(kind);
@@ -40,3 +40,4 @@ export default function AppearanceSelector({ kind, syncBoth=false }:{ kind:'heal
     </div>
   );
 }
+

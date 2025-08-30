@@ -1,5 +1,5 @@
 import React from 'react';
-import { getVariant, setVariant } from 'logic/prefs';
+import { getVariant, setVariant } from '@/logic/prefs';
 
 type Props = { rig: 'healing'|'journey'; variants?: string[] };
 
@@ -81,3 +81,4 @@ export default function WardrobeTiles({ rig, variants = ['variant-01','variant-0
     </div>
   );
 }
+

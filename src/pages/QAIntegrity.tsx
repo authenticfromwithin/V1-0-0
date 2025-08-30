@@ -1,5 +1,5 @@
 import React from 'react';
-import { runAll } from 'logic/verify/manifestValidator';
+import { runAll } from '@/logic/verify/manifestValidator';
 
 export default function QAIntegrity(){
   const [busy, setBusy] = React.useState(false);
@@ -31,3 +31,4 @@ export default function QAIntegrity(){
     </main>
   );
 }
+

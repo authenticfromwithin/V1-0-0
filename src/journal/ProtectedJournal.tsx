@@ -1,6 +1,6 @@
 import React from 'react';
 import { attachClipboardGuards } from 'guards/clipboard';
-import { getEphemeralPassphrase } from 'logic/auth/store';
+import { getEphemeralPassphrase } from '@/logic/auth/store';
 
 type Props = { storageKey?: string };
 
@@ -111,3 +111,4 @@ export default function ProtectedJournal({ storageKey = 'afw:journal' }: Props){
     </div>
   );
 }
+

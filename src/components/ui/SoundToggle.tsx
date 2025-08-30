@@ -1,5 +1,5 @@
 import React from 'react';
-import { getMixer, type ThemeName } from 'logic/audio/mixer';
+import { getMixer, type ThemeName } from '@/logic/audio/mixer';
 
 export default function SoundToggle(){
   const [muted, setMuted] = React.useState(()=> localStorage.getItem('afw:sound:muted') === '1');
@@ -22,3 +22,4 @@ export default function SoundToggle(){
     </button>
   );
 }
+

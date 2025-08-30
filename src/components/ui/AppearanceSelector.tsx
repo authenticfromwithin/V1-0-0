@@ -1,5 +1,5 @@
 import React from 'react';
-import { getVariant, setVariant } from 'logic/prefs';
+import { getVariant, setVariant } from '@/logic/prefs';
 
 type Props = { rig: 'healing'|'journey'; options?: string[] };
 
@@ -21,3 +21,4 @@ export default function AppearanceSelector({ rig, options = ['variant-01','varia
     </label>
   );
 }
+

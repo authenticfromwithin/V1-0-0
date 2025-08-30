@@ -1,5 +1,5 @@
 import React from 'react';
-import { getVariant } from 'logic/prefs';
+import { getVariant } from '@/logic/prefs';
 
 type Props = {
   rig: 'healing'|'journey';
@@ -72,3 +72,4 @@ export default function StateTiles({ rig, states, onSelect }: Props){
     </div>
   );
 }
+

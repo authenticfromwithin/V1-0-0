@@ -1,5 +1,5 @@
 import React from 'react';
-import { getMixer } from 'logic/audio/mixer';
+import { getMixer } from '@/logic/audio/mixer';
 import { awardDove } from 'components/DovesCounter/Counter';
 
 type Props = { state: 'idle'|'walk'|'sit_pray'|'stretch'|'drink'|'pick_eat_fruit' };
@@ -43,3 +43,4 @@ export default function JourneyMicroPrompts({ state }: Props){
     </div>
   );
 }
+

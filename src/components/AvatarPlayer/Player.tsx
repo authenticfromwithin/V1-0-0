@@ -1,6 +1,6 @@
 import React from 'react';
 import type { AvatarRig, AvatarClip } from 'types/avatar';
-import { getVariant } from 'logic/prefs';
+import { getVariant } from '@/logic/prefs';
 
 type Props = {
   rig: AvatarRig;
@@ -76,3 +76,4 @@ export default function Player({ rig, state, crossfadeMs = 800 }: Props){
     </div>
   );
 }
+

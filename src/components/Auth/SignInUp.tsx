@@ -1,8 +1,8 @@
-﻿import React, { useEffect, useState } from 'react'
-import { auth } from 'logic/auth/provider';
-import { upsertMyProfile } from 'logic/profile/profiles'
-import { supabase } from 'logic/auth/supabaseAuth'
-import type { User } from 'logic/auth/auth'
+import React, { useEffect, useState } from 'react'
+import { auth } from '@/logic/auth/provider';
+import { upsertMyProfile } from '@/logic/profile/profiles'
+import { supabase } from '@/logic/auth/supabaseAuth'
+import type { User } from '@/logic/auth/auth'
 type Mode='signin'|'signup'
 type Props={ open:boolean; onClose():void; onAuth(u:User|null):void }
 const SignInUpModal:React.FC<Props>=({open,onClose,onAuth})=>{
@@ -48,7 +48,7 @@ const SignInUpModal:React.FC<Props>=({open,onClose,onAuth})=>{
       </div>
       {err && <div style={bad}>{err}</div>}
       <div style={row}>
-        <button onClick={go} style={btn} disabled={loading||cantGo}>{loading?'Please waitâ€¦':(mode==='signin'?'Sign in':'Create account')}</button>
+        <button onClick={go} style={btn} disabled={loading||cantGo}>{loading?'Please wait…':(mode==='signin'?'Sign in':'Create account')}</button>
         <button onClick={onClose} style={{...btn,opacity:.7}}>Cancel</button>
       </div>
       <div style={muted}>{mode==='signin'?<>No account yet? <a onClick={()=>setMode('signup')} style={link}>Create one</a></>:<>Have an account? <a onClick={()=>setMode('signin')} style={link}>Sign in</a></>}</div>
@@ -65,5 +65,6 @@ const muted:React.CSSProperties={fontSize:12,opacity:.8}
 const bad:React.CSSProperties={fontSize:12,color:'#ffb4b4',marginBottom:8}
 const link:React.CSSProperties={cursor:'pointer',textDecoration:'underline'}
 export default SignInUpModal
+
 
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import type { AppearanceVariant } from 'types/profile';
-import { getActiveProfileData, setAppearance } from 'logic/auth/store';
+import { getActiveProfileData, setAppearance } from '@/logic/auth/store';
 
 export default function VariantTiles({ kind }:{ kind:'healing'|'journey' }){
   const prof = getActiveProfileData();
@@ -31,3 +31,4 @@ export default function VariantTiles({ kind }:{ kind:'healing'|'journey' }){
     </div>
   );
 }
+

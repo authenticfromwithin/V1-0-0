@@ -1,5 +1,5 @@
 import React from 'react';
-import { getMixer } from 'logic/audio/mixer';
+import { getMixer } from '@/logic/audio/mixer';
 import { awardDove } from 'components/DovesCounter/Counter';
 
 type Props = { hydrationOn: boolean; mode: 'reflect'|'move'|'pray' };
@@ -57,3 +57,4 @@ export default function MicroPrompts({ hydrationOn, mode }: Props){
     </div>
   );
 }
+

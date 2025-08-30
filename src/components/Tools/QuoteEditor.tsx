@@ -1,5 +1,5 @@
 import React from 'react';
-import { saveJSON } from 'logic/tools/file';
+import { saveJSON } from '@/logic/tools/file';
 
 type Quote = { text: string; author?: string };
 
@@ -67,3 +67,4 @@ export default function QuoteEditor(){
     </section>
   );
 }
+

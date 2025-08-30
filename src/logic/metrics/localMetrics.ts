@@ -1,4 +1,4 @@
-import { getActiveProfile, getProfileMeta } from 'logic/auth/store';
+import { getActiveProfile, getProfileMeta } from '@/logic/auth/store';
 
 type Counters = {
   visits: Record<string, number>;       // route -> count
@@ -43,3 +43,4 @@ export const Metrics = {
     localStorage.removeItem(key(active.id));
   }
 };
+

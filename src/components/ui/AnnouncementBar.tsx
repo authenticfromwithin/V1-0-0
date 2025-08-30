@@ -1,5 +1,5 @@
 import React from 'react';
-import { fetchAnnouncements, markSeen, getSeen, type Announcement } from 'logic/announcements/store';
+import { fetchAnnouncements, markSeen, getSeen, type Announcement } from '@/logic/announcements/store';
 
 export default function AnnouncementBar(){
   const [item, setItem] = React.useState<Announcement|null>(null);
@@ -32,3 +32,4 @@ export default function AnnouncementBar(){
     </aside>
   );
 }
+

@@ -1,6 +1,6 @@
 import React from 'react'
-import { getMyProfile, upsertMyProfile, type PublicProfile } from 'logic/profile/profiles'
-import { setTheme } from 'logic/prefs/prefs'
+import { getMyProfile, upsertMyProfile, type PublicProfile } from '@/logic/profile/profiles'
+import { setTheme } from '@/logic/prefs/prefs'
 type Props = { open: boolean; onClose(): void }
 export default function ProfilePanel({ open, onClose }: Props) {
   const [displayName, setDisplayName] = React.useState('')
@@ -39,3 +39,4 @@ const lbl: React.CSSProperties = { fontSize:12, opacity:.85 }
 const input: React.CSSProperties = { padding:'10px 12px', borderRadius:10, border:'1px solid rgba(255,255,255,0.12)', background:'rgba(255,255,255,0.06)', color:'inherit' }
 const btn: React.CSSProperties = { padding:'8px 12px', borderRadius:10, border:'1px solid rgba(255,255,255,0.2)', background:'rgba(255,255,255,0.1)', color:'inherit', cursor:'pointer' }
 const bad: React.CSSProperties = { color:'#ffb4b4', fontSize:12, marginBottom:8 }
+

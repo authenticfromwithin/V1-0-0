@@ -1,5 +1,5 @@
 import React from 'react';
-import { getActiveProfileData } from 'logic/auth/store';
+import { getActiveProfileData } from '@/logic/auth/store';
 
 function speak(text: string, rate=1, pitch=1, voiceURI?: string){
   const s = new SpeechSynthesisUtterance(text);
@@ -44,3 +44,4 @@ export default function TTSNarration({ id, title }:{ id:string; title:string }){
     </div>
   );
 }
+

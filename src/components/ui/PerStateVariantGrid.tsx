@@ -1,5 +1,5 @@
 import React from 'react';
-import { getVariant, setVariant } from 'logic/prefs';
+import { getVariant, setVariant } from '@/logic/prefs';
 
 type GridState = { key: string; label: string };
 type Props = {
@@ -106,3 +106,4 @@ export default function PerStateVariantGrid({ rig, states, variants = ['variant-
     </div>
   );
 }
+

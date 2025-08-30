@@ -1,5 +1,5 @@
 import React from 'react';
-import { listProfiles, createProfile, unlockProfile, getActiveProfile, removeProfile, lockProfile } from 'logic/auth/store';
+import { listProfiles, createProfile, unlockProfile, getActiveProfile, removeProfile, lockProfile } from '@/logic/auth/store';
 
 export default function AuthPanel(){
   const [profiles, setProfiles] = React.useState(()=>listProfiles());
@@ -125,3 +125,4 @@ export default function AuthPanel(){
     </section>
   );
 }
+

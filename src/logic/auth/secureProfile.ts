@@ -1,5 +1,5 @@
-import { supabase } from 'logic/auth/supabaseAuth'
-import { encryptJSON, decryptJSON, type EncryptedBundle } from 'logic/crypto/e2ee'
+import { supabase } from '@/logic/auth/supabaseAuth'
+import { encryptJSON, decryptJSON, type EncryptedBundle } from '@/logic/crypto/e2ee'
 
 export type SecureProfile = {
   email: string
@@ -33,3 +33,4 @@ export async function loadEncryptedProfile(userId: string, passphrase: string): 
   const bundle = data as EncryptedBundle
   return await decryptJSON(bundle, passphrase)
 }
+

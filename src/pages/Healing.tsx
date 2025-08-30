@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Parallax from 'components/SceneParallax/Parallax'
 import ThemeToggle from 'components/ui/ThemeToggle'
 import ProfileMenu from 'components/ui/ProfileMenu'
@@ -8,8 +8,8 @@ import NotificationsPanel from 'components/Notifications/NotificationsPanel'
 import FeedbackPanel from 'components/Feedback/FeedbackPanel'
 import SupportPanel from 'components/Support/SupportPanel'
 import NavTabs from 'components/ui/NavTabs'
-import { auth } from 'logic/auth/provider';
-import type { User } from 'logic/auth/auth'
+import { auth } from '@/logic/auth/provider';
+import type { User } from '@/logic/auth/auth'
 import Player from 'components/AvatarPlayer/Player'
 import ProtectedJournal from 'components/Journal/ProtectedJournal'
 import RequireAuth from 'guards/RequireAuth'
@@ -51,5 +51,6 @@ export default function Healing(){
     </div>
   </RequireAuth>)
 }
+
 
 

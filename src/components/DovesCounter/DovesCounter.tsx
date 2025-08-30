@@ -1,5 +1,5 @@
 import React from 'react';
-import { Metrics } from 'logic/metrics/localMetrics';
+import { Metrics } from '@/logic/metrics/localMetrics';
 
 const Dove = ({filled}:{filled:boolean}) => (
   <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" style={{opacity: filled?1:.35}}>
@@ -23,3 +23,4 @@ export default function DovesCounter(){
     </div>
   );
 }
+

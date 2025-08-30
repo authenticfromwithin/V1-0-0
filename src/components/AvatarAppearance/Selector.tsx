@@ -1,5 +1,5 @@
 import React from 'react';
-import { getProfile, setProfile, type AvatarProfile, type Archetype, type Variant } from 'logic/avatars/profile';
+import { getProfile, setProfile, type AvatarProfile, type Archetype, type Variant } from '@/logic/avatars/profile';
 
 const archetypes: { value: Archetype; label: string }[] = [
   { value: 'archetype-a', label: 'Masculine (A)' },
@@ -45,3 +45,4 @@ export default function AppearanceSelector(){
     </section>
   );
 }
+

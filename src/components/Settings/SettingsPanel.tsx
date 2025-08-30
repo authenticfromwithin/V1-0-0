@@ -1,6 +1,6 @@
 import React from 'react'
-import { loadPrefs, savePrefs, setTheme } from 'logic/prefs/prefs'
-import { exportLocal } from 'logic/analytics/analytics'
+import { loadPrefs, savePrefs, setTheme } from '@/logic/prefs/prefs'
+import { exportLocal } from '@/logic/analytics/analytics'
 type Props = { open: boolean; onClose(): void }
 export default function SettingsPanel({ open, onClose }: Props) {
   const [reduceMotion, setRM] = React.useState(false)
@@ -16,3 +16,4 @@ const card: React.CSSProperties = { width:'min(520px,92vw)', padding:16, borderR
 const rowTop: React.CSSProperties = { display:'flex', justifyContent:'space-between', alignItems:'center', marginBottom:10 }
 const row: React.CSSProperties = { display:'grid', gap:6, margin:'8px 0' }
 const btn: React.CSSProperties = { padding:'8px 12px', borderRadius:10, border:'1px solid rgba(255,255,255,0.2)', background:'rgba(255,255,255,0.1)', color:'inherit', cursor:'pointer' }
+

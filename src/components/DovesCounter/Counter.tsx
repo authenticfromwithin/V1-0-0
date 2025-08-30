@@ -1,5 +1,5 @@
 import React from 'react';
-import { getPref, setPref } from 'logic/prefs';
+import { getPref, setPref } from '@/logic/prefs';
 
 const KEY = 'progress:doves';
 
@@ -20,3 +20,4 @@ export default function DovesCounter(){
     </div>
   );
 }
+

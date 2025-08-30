@@ -1,5 +1,5 @@
 import React from 'react';
-import { getVoices, getOpts, setOpts, speak, stop, pause, resume } from 'logic/narration/tts';
+import { getVoices, getOpts, setOpts, speak, stop, pause, resume } from '@/logic/narration/tts';
 
 export default function TTSPlayer({ text }:{ text: string }){
   const [voices, setVoices] = React.useState<SpeechSynthesisVoice[]>([]);
@@ -49,3 +49,4 @@ export default function TTSPlayer({ text }:{ text: string }){
     </div>
   );
 }
+

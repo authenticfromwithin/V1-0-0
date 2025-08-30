@@ -1,5 +1,5 @@
 import React from 'react';
-import { fetchAnnouncements, unseenCount, markSeen, type Announcement } from 'logic/announcements/store';
+import { fetchAnnouncements, unseenCount, markSeen, type Announcement } from '@/logic/announcements/store';
 
 export default function NotificationBell(){
   const [items, setItems] = React.useState<Announcement[]>([]);
@@ -45,3 +45,4 @@ export default function NotificationBell(){
     </div>
   );
 }
+

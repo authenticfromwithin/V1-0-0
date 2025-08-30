@@ -1,5 +1,5 @@
 import React from 'react'
-import { auth } from 'logic/auth/provider'
+import { auth } from '@/logic/auth/provider'
 
 type Props = { children: React.ReactNode }
 
@@ -12,3 +12,4 @@ export default function RequireAuth({ children }: Props) {
   // if (!auth.user) return <div>Please sign in</div>
   return <>{children}</>
 }
+

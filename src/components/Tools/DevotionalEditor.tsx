@@ -1,5 +1,5 @@
 import React from 'react';
-import { saveJSON } from 'logic/tools/file';
+import { saveJSON } from '@/logic/tools/file';
 
 type Devo = { id: string; title: string; date: string; passage?: string; body?: string };
 
@@ -63,3 +63,4 @@ export default function DevotionalEditor(){
     </section>
   );
 }
+
