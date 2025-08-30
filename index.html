@@ -2,60 +2,12 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>AFW</title>
-    <!-- AFW_RUNTIME_GUARD: prevents crash from invalid selectors like '*,:x' -->
-    <script>
-      window.AFW_RUNTIME_GUARD = true;
-      (function () {
-        function emptyNodeList(){ return document.createDocumentFragment().childNodes; }
-        // Wrap querySelectorAll on Document
-        Document.prototype.querySelectorAll = new Proxy(Document.prototype.querySelectorAll, {
-          apply(target, thisArg, args) {
-            try { return Reflect.apply(target, thisArg, args); }
-            catch (e) {
-              if (e && /not a valid selector/i.test(String(e.message))) {
-                console.warn('[AFW guard] Document.qsa invalid selector:', args[0]);
-                return emptyNodeList();
-              }
-              throw e;
-            }
-          }
-        });
-        // Wrap querySelectorAll on Element
-        Element.prototype.querySelectorAll = new Proxy(Element.prototype.querySelectorAll, {
-          apply(target, thisArg, args) {
-            try { return Reflect.apply(target, thisArg, args); }
-            catch (e) {
-              if (e && /not a valid selector/i.test(String(e.message))) {
-                console.warn('[AFW guard] Element.qsa invalid selector:', args[0]);
-                return emptyNodeList();
-              }
-              throw e;
-            }
-          }
-        });
-        // Last‑resort suppressor
-        const _onerror = window.onerror;
-        window.onerror = function (msg, src, line, col, err) {
-          if (String(msg).includes('not a valid selector')) {
-            console.warn('[AFW guard] Suppressed selector error:', msg);
-            return true; // swallow
-          }
-          return _onerror ? _onerror.apply(this, arguments) : false;
-        };
-      })();
-    </script>
   </head>
   <body>
-    <div id="app"></div>
-    <!-- Load the app after the guard -->
-    <script type="module">
-      import '/src/main.tsx';
-    </script>
-    <noscript>Please enable JavaScript to use AFW.</noscript>
+    <div id="root"></div>
+    <!-- Keep this AFTER the root div so React mounts correctly -->
+    <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
-
-
-
