@@ -1,3 +1,3 @@
 :root { --brand: #222; }
-html, body, #root { height: 100%; margin: 0; padding: 0; }
+html, body, #root { height: 100%; margin: 0; }
 *, *::before, *::after { box-sizing: border-box; }

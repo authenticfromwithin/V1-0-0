@@ -1,41 +1,36 @@
-import React from "react";
+import React from 'react';
 
 type Props = { children: React.ReactNode };
-type State = { error?: Error };
+type State = { hasError: boolean; message?: string; stack?: string };
 
 export default class ErrorBoundary extends React.Component<Props, State> {
-  state: State = {};
+  state: State = { hasError: false };
 
-  static getDerivedStateFromError(error: Error) {
-    return { error };
+  static getDerivedStateFromError(error: any) {
+    return { hasError: true, message: String(error?.message ?? error), stack: error?.stack };
   }
 
-  componentDidCatch(error: Error, info: React.ErrorInfo) {
-    // Surface in logs for Vercel
-    console.error("App crashed:", error, info);
+  componentDidCatch(error: any, info: any) {
+    // Always log to console
+    console.error('AFW ErrorBoundary caught an error:', error, info);
+    // Push into overlay if enabled
+    (window as any).__AFW_PUSH_ERROR?.(error, info);
   }
 
   render() {
-    if (this.state.error) {
+    if (this.state.hasError) {
       return (
-        <div style={{ padding: 24, maxWidth: 800, margin: "40px auto" }}>
-          <h1 style={{ margin: 0, fontSize: 28 }}>Something went wrong.</h1>
-          <p style={{ opacity: 0.8 }}>
-            The app hit a runtime error. Check the browser Console for details.
-          </p>
-          <pre style={{
-            whiteSpace: "pre-wrap",
-            background: "#111827",
-            color: "#f9fafb",
-            padding: 16,
-            borderRadius: 8,
-            overflowX: "auto"
-          }}>
-            {String(this.state.error.stack || this.state.error.message)}
-          </pre>
+        <div style={{ padding: '2rem', fontFamily: 'system-ui,Segoe UI,Roboto,Helvetica,Arial', lineHeight: 1.5 }}>
+          <h1 style={{ margin: 0, fontSize: '1.25rem' }}>Something went wrong</h1>
+          <p style={{ opacity: 0.85 }}>The page failed to render. Please refresh the page.</p>
+          {(window as any).__AFW_DEBUG && (
+            <pre style={{ whiteSpace: 'pre-wrap', opacity: 0.8 }}>
+              {(this.state.message ?? '') + '\n' + (this.state.stack ?? '')}
+            </pre>
+          )}
         </div>
       );
     }
-    return this.props.children;
+    return this.props.children as any;
   }
 }

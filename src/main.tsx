@@ -1,15 +1,18 @@
-import React from 'react';
-import { createRoot } from 'react-dom/client';
-import App from './App';
 import './styles/globals.css';
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import ErrorBoundary from './components/system/ErrorBoundary';
+import App from './App'; // adjust if your entry component has a different path/name
 
-const container = document.getElementById('root');
-if (!container) {
-  throw new Error('Root container #root not found in index.html');
+const rootEl = document.getElementById('root');
+if (!rootEl) {
+  throw new Error('Root element #root not found');
 }
-const root = createRoot(container);
-root.render(
+
+ReactDOM.createRoot(rootEl).render(
   <React.StrictMode>
-    <App />
+    <ErrorBoundary>
+      <App />
+    </ErrorBoundary>
   </React.StrictMode>
 );
