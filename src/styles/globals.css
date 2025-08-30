@@ -1,12 +1,4 @@
-/* Minimal global styles so blank pages are less likely */
-html, body, #root {
-  height: 100%;
-}
-body {
-  margin: 0;
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-  background: #fff;
-  color: #111;
-}
-a { color: #2563eb; text-decoration: none; }
-a:hover { text-decoration: underline; }
+/* minimal global stylesheet to unblock build */
+:root { --brand: #222; }
+html,body,#root{height:100%}
+*,:before,:after{box-sizing:border-box}
