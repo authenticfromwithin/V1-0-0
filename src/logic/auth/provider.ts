@@ -1,16 +1,8 @@
-export type User = {
-  id: string
-  email?: string
-} | null
+export type User = { id: string; email?: string } | null;
 
-/**
- * Temporary stub. Replace with your real Supabase auth client when ready.
- * This keeps your app compiling and rendering while you finish wiring auth.
- */
-export const auth: { user: User } = {
-  user: null
-}
-
-
-
-
+export const auth = {
+  async current(): Promise<User> {
+    // Replace with your real auth provider call; must resolve to null | user
+    return null;
+  },
+};
