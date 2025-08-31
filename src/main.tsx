@@ -1,22 +1,14 @@
-import './styles/globals.css';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import ErrorBoundary from './components/System/ErrorBoundary';
-import App from './App'; // adjust if your entry component has a different path/name
+import { BrowserRouter } from 'react-router-dom';
+import App from '@/App';
+import '@/../styles/base-safe.css'; // viewport + safe background
+import '@/../styles/home-safe.css'; // from Step 09
 
-const rootEl = document.getElementById('root');
-if (!rootEl) {
-  throw new Error('Root element #root not found');
-}
-
-ReactDOM.createRoot(rootEl).render(
+ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <ErrorBoundary>
+    <BrowserRouter>
       <App />
-    </ErrorBoundary>
+    </BrowserRouter>
   </React.StrictMode>
 );
-
-
-
-
