@@ -8,7 +8,7 @@ import { auth } from '@/logic/auth/provider';
 export default function Home(){
   const [showAuth, setShowAuth] = useState(false)
   const [showSupport, setShowSupport] = useState(false)
-  useEffect(() => { (async () => { const u = await (typeof auth.current==="function" && auth.current)(); if (u) { window.location.href = '/quotes' } })() }, [])
+  useEffect(() => { (async () => { const cur = auth?.current; const u = typeof cur === 'function' ? await cur() : null; if (u) { window.location.href = '/quotes' } })() }, [])
   return (
     <div style={wrap}>
       <div style={scene}><Parallax/><div style={fireGradient} aria-hidden="true"/></div>
