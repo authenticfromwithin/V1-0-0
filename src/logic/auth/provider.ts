@@ -1,7 +1,11 @@
-// Null-safe auth shim so imports never break builds.
-// Replace with real provider when backend is live.
-export type User = { id?: string|null; name?: string|null };
+// null-safe auth provider with a stable API
+export type Session = { userId: string, displayName?: string|null } | null;
 
-export async function current(): Promise<User|null> { return null; }
-export async function signIn(): Promise<void> { /* no-op */ }
-export async function signOut(): Promise<void> { /* no-op */ }
+export async function current(): Promise<Session> {
+  try {
+    // TODO: wire to real auth; keep null-safe
+    return null;
+  } catch {
+    return null;
+  }
+}

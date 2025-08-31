@@ -1,11 +1,12 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom';
-import App from '@/App';
-import '@/../styles/base-safe.css'; // viewport + safe background
-import '@/../styles/home-safe.css'; // from Step 09
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { BrowserRouter } from "react-router-dom";
+import App from "@/App";
+import "styles/base-safe.css";
+import "styles/home-safe.css";
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
+const root = document.getElementById("root")!;
+ReactDOM.createRoot(root).render(
   <React.StrictMode>
     <BrowserRouter>
       <App />
