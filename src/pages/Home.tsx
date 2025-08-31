@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Parallax from "@/components/SceneParallax/Parallax";
 import { auth } from "@/logic/auth/provider";
 import "@/../styles/campfire.css";
+import "@/../styles/home-guard.css"; // ensures no avatar/background bleed on Home
 
 type MaybeFn = (() => void) | null;
 type MaybeEl = HTMLElement | null;
@@ -10,6 +11,17 @@ type MaybeEl = HTMLElement | null;
 export default function Home() {
   const navigate = useNavigate();
   const onReadyRef = useRef<MaybeFn | MaybeEl>(null);
+
+  // Tag the document so CSS can scope to the Home page only
+  useEffect(() => {
+    const root = document.documentElement;
+    const prev = root.getAttribute("data-page");
+    root.setAttribute("data-page", "home");
+    return () => {
+      if (prev) root.setAttribute("data-page", prev);
+      else root.removeAttribute("data-page");
+    };
+  }, []);
 
   useEffect(() => {
     const maybe = onReadyRef.current;

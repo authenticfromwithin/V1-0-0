@@ -1,0 +1,6 @@
+Keep Heavenly Express hidden from header/nav:
+- Do NOT include { href: '/heavenly' } in any header/menu.
+- Route can exist in <Routes> only.
+
+Donations:
+- You MAY include { href: '/donate', label: 'Donations' } when ready.

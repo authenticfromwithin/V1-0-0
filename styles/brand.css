@@ -1,0 +1,8 @@
+.afw-logo{image-rendering:-webkit-optimize-contrast;filter:drop-shadow(0 0 18px rgba(0,220,255,.08));}
+:root[data-theme="forest"] .afw-logo{filter:drop-shadow(0 0 24px rgba(255,140,60,.14));}
+:root[data-theme="ocean"] .afw-logo{filter:drop-shadow(0 0 24px rgba(80,190,255,.14));}
+:root[data-theme="mountain"] .afw-logo{filter:drop-shadow(0 0 24px rgba(160,190,210,.12));}
+:root[data-theme="autumn"] .afw-logo{filter:drop-shadow(0 0 24px rgba(255,120,70,.15));}
+:root[data-theme="snow"] .afw-logo{filter:drop-shadow(0 0 24px rgba(220,240,255,.14));}
+.afw-logo.brand-light{filter:brightness(1.15) drop-shadow(0 0 24px rgba(255,255,255,.12));}
+.afw-logo.brand-dark{filter:brightness(.9) drop-shadow(0 0 24px rgba(0,0,0,.25));}
