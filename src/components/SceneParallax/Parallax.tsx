@@ -1,126 +1,84 @@
-import React, { useEffect, useRef } from "react";
-
-type BlendMode = React.CSSProperties["mixBlendMode"];
+import React from "react";
 
 type Layer = {
-  key?: string;
+  src: string;
   speed?: number;
-  src?: string;
   className?: string;
-  style?: React.CSSProperties;
-  blendMode?: BlendMode;
-  type?: "image" | "video" | "auto";
-  dataset?: Record<string, string>; // NEW: pass custom data-* attributes
+  blendMode?: React.CSSProperties["mixBlendMode"];
+  type?: "image" | "video";
 };
 
-export type ParallaxProps = {
+type Props = {
   layers?: Layer[];
-  children?: React.ReactNode;
   interactive?: boolean;
+  children?: React.ReactNode;
 };
 
-const isVideo = (src?: string) => {
-  if (!src) return false;
-  const s = src.toLowerCase();
-  return s.endsWith(".webm") || s.endsWith(".mp4") || s.endsWith(".ogg");
-};
-
-export default function Parallax({ layers = [], children, interactive = true }: ParallaxProps) {
-  const rootRef = useRef<HTMLDivElement | null>(null);
-  const layerRefs = useRef<Array<HTMLElement | null>>([]);
-  const rafRef = useRef<number | null>(null);
-  const target = useRef({ x: 0, y: 0 });
-  const current = useRef({ x: 0, y: 0 });
-
-  layerRefs.current = (Array.isArray(layers) ? layers : []).map((_, i) => layerRefs.current[i] ?? null);
-
-  useEffect(() => {
-    const root = rootRef.current;
-    if (!root) return;
-
-    const onPointerMove = (e: PointerEvent) => {
-      if (!interactive) return;
-      const rect = root.getBoundingClientRect();
-      const cx = rect.left + rect.width / 2;
-      const cy = rect.top + rect.height / 2;
-      target.current.x = Math.max(-1, Math.min(1, (e.clientX - cx) / (rect.width / 2)));
-      target.current.y = Math.max(-1, Math.min(1, (e.clientY - cy) / (rect.height / 2)));
-    };
-
-    root.addEventListener("pointermove", onPointerMove, { passive: true });
-
-    const animate = () => {
-      current.current.x += (target.current.x - current.current.x) * 0.06;
-      current.current.y += (target.current.y - current.current.y) * 0.06;
-
-      const safe = Array.isArray(layers) ? layers : [];
-      for (let i = 0; i < safe.length; i++) {
-        const el = layerRefs.current[i];
-        if (!el) continue;
-        const speed = Number.isFinite(safe[i]?.speed as number) ? (safe[i]?.speed as number) : 0;
-        const tx = current.current.x * 10 * speed;
-        const ty = current.current.y * 10 * speed;
-        el.style.transform = `translate3d(${tx.toFixed(2)}px, ${ty.toFixed(2)}px, 0)`;
-      }
-
-      rafRef.current = requestAnimationFrame(animate);
-    };
-
-    rafRef.current = requestAnimationFrame(animate);
-
-    return () => {
-      root.removeEventListener("pointermove", onPointerMove);
-      if (rafRef.current != null) {
-        cancelAnimationFrame(rafRef.current);
-        rafRef.current = null;
-      }
-    };
-  }, [layers, interactive]);
+export default function Parallax({ layers = [], interactive = false, children }: Props) {
+  const containerRef = React.useRef<HTMLDivElement | null>(null);
+  const rafRef = React.useRef<number | null>(null);
 
   const safeLayers = Array.isArray(layers) ? layers.filter(Boolean) : [];
 
-  return (
-    <div ref={rootRef} className="parallax-root relative w-full h-full overflow-hidden">
-      {safeLayers.map((layer, idx) => {
-        const { src, className, style, blendMode, key, type, dataset } = layer || {};
-        const useVideo = type === "video" || (type !== "image" && isVideo(src));
+  React.useEffect(() => {
+    const el = containerRef.current;
+    if (!el || !interactive) return;
 
+    let running = true;
+    const onScroll = () => {
+      if (rafRef.current != null) return;
+      rafRef.current = requestAnimationFrame(() => {
+        rafRef.current = null;
+        if (!running || !el) return;
+        const y = window.scrollY || 0;
+        const nodes = Array.from(el.querySelectorAll<HTMLElement>("[data-parallax-speed]"));
+        for (const n of nodes) {
+          const sp = parseFloat(n.dataset.parallaxSpeed || "0");
+          n.style.transform = `translate3d(0, ${Math.round(y * sp)}px, 0)`;
+        }
+      });
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    return () => {
+      running = false;
+      window.removeEventListener("scroll", onScroll);
+      if (rafRef.current != null) cancelAnimationFrame(rafRef.current);
+      rafRef.current = null;
+    };
+  }, [interactive]);
+
+  return (
+    <div ref={containerRef} style={{ position: "relative", overflow: "hidden" }}>
+      {safeLayers.map((l, i) => {
+        const sp = typeof l.speed === "number" ? l.speed : 0;
+        const style: React.CSSProperties = {
+          position: "fixed",
+          inset: 0,
+          objectFit: "cover",
+          width: "100%",
+          height: "100%",
+          mixBlendMode: l.blendMode,
+          zIndex: 0 + i,
+          transform: "translateZ(0)",
+        };
         const commonProps = {
-          ref: (el: HTMLElement | null) => (layerRefs.current[idx] = el),
-          className: ["parallax-layer pointer-events-none absolute inset-0 will-change-transform", className || ""].filter(Boolean).join(" "),
-          style: { ...(style || {}), mixBlendMode: blendMode, zIndex: (style?.zIndex as number | undefined) ?? 0 } as React.CSSProperties,
-          "data-layer-index": idx,
+          key: i,
+          "data-parallax-speed": sp.toString(),
+          className: l.className || "",
+          style,
         } as any;
 
-        if (!src) return <div {...commonProps} key={key ?? idx} />;
-
-        if (useVideo) {
+        if (l.type === "video" || l.src.endsWith(".webm") || l.src.endsWith(".mp4") || l.src.endsWith(".ogg")) {
           return (
-            <div {...commonProps} key={key ?? idx}>
-              <video
-                className="w-full h-full object-cover"
-                autoPlay
-                muted
-                playsInline
-                loop
-                preload="auto"
-                {...(dataset && Object.fromEntries(Object.entries(dataset).map(([k,v]) => [`data-${k.replace(/([A-Z])/g,'-$1').toLowerCase()}`, v])))}
-              >
-                <source src={src} />
-              </video>
-            </div>
+            <video {...commonProps} autoPlay muted loop playsInline preload="auto">
+              <source src={l.src} />
+            </video>
           );
         }
-
-        return (
-          <div
-            {...commonProps}
-            key={key ?? idx}
-            style={{ ...(commonProps.style as React.CSSProperties), backgroundImage: `url("${src}")`, backgroundSize: "cover", backgroundPosition: "center" }}
-          />
-        );
+        return <img {...commonProps} src={l.src} alt="" />;
       })}
-      {children ? <div className="relative z-10">{children}</div> : null}
+      <div style={{ position: "relative", zIndex: 1000 }}>{children}</div>
     </div>
   );
 }

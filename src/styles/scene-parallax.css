@@ -1,3 +1,10 @@
+/* Cinematic forest + fire compositing without layout changes */
 .parallax-foreground { position: relative; z-index: 10; }
-.fire-layer, .fire-layer video { mix-blend-mode: screen; opacity: .92; pointer-events: none; will-change: transform, opacity; filter: saturate(1.05) contrast(1.03); }
+.fire-layer, .fire-layer video {
+  mix-blend-mode: screen;
+  opacity: .92;
+  pointer-events: none;
+  will-change: transform, opacity;
+  filter: saturate(1.05) contrast(1.03);
+}
 .auth-panel-wrap { position: relative; z-index: 20; }
