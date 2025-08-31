@@ -1,0 +1,12 @@
+/* Surgical: ensure fire layer is visible behind panels without altering layout */
+.parallax-root { position: relative; }
+.parallax-layer { position: absolute; inset: 0; }
+
+/* If you pass className="fire-layer" to the fire layer, this ensures subtle punch-through */
+.fire-layer { mix-blend-mode: screen; opacity: 0.9; }
+
+/* Typical stacking: background < fire < UI panel */
+.parallax-layer.bg      { z-index: 0; }
+.parallax-layer.fire    { z-index: 1; }
+.parallax-layer.smoke   { z-index: 2; }
+.parallax-foreground    { z-index: 3; }
