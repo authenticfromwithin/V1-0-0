@@ -1,11 +1,11 @@
-import React from "react";
+import * as React from 'react';
 
 type Layer = {
   src: string;
-  speed?: number;
+  speed?: number;       // parallax multiplier
   className?: string;
-  blendMode?: React.CSSProperties["mixBlendMode"];
-  type?: "image" | "video";
+  blendMode?: React.CSSProperties['mixBlendMode'];
+  type?: 'img' | 'video';
 };
 
 type Props = {
@@ -14,71 +14,89 @@ type Props = {
   children?: React.ReactNode;
 };
 
-export default function Parallax({ layers = [], interactive = false, children }: Props) {
-  const containerRef = React.useRef<HTMLDivElement | null>(null);
+function isVideo(src: string) {
+  return src.endsWith('.webm') || src.endsWith('.mp4') || src.endsWith('.ogg');
+}
+
+export default function Parallax({ layers = [], interactive = true, children }: Props) {
+  const rootRef = React.useRef<HTMLDivElement | null>(null);
   const rafRef = React.useRef<number | null>(null);
+  const mouse = React.useRef({ x: 0, y: 0 });
 
   const safeLayers = Array.isArray(layers) ? layers.filter(Boolean) : [];
 
   React.useEffect(() => {
-    const el = containerRef.current;
-    if (!el || !interactive) return;
+    const root = rootRef.current;
+    if (!root) return;
 
-    let running = true;
-    const onScroll = () => {
-      if (rafRef.current != null) return;
-      rafRef.current = requestAnimationFrame(() => {
-        rafRef.current = null;
-        if (!running || !el) return;
-        const y = window.scrollY || 0;
-        const nodes = Array.from(el.querySelectorAll<HTMLElement>("[data-parallax-speed]"));
-        for (const n of nodes) {
-          const sp = parseFloat(n.dataset.parallaxSpeed || "0");
-          n.style.transform = `translate3d(0, ${Math.round(y * sp)}px, 0)`;
-        }
-      });
+    const onMouse = (e: MouseEvent) => {
+      const rect = root.getBoundingClientRect();
+      mouse.current.x = (e.clientX - rect.left) / rect.width - 0.5;
+      mouse.current.y = (e.clientY - rect.top) / rect.height - 0.5;
     };
-    window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
+
+    if (interactive) {
+      root.addEventListener('mousemove', onMouse);
+    }
+
+    const tick = () => {
+      const mx = mouse.current.x, my = mouse.current.y;
+      Array.from(root.querySelectorAll<HTMLElement>('[data-parallax]')).forEach(el => {
+        const s = Number(el.dataset.speed || '0');
+        if (!Number.isFinite(s)) return;
+        const tx = (mx * s * 20);
+        const ty = (my * s * 12);
+        el.style.transform = `translate3d(${tx}px, ${ty}px, 0)`;
+      });
+      rafRef.current = window.requestAnimationFrame(tick);
+    };
+
+    rafRef.current = window.requestAnimationFrame(tick);
     return () => {
-      running = false;
-      window.removeEventListener("scroll", onScroll);
-      if (rafRef.current != null) cancelAnimationFrame(rafRef.current);
+      if (interactive) root.removeEventListener('mousemove', onMouse);
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
       rafRef.current = null;
     };
   }, [interactive]);
 
   return (
-    <div ref={containerRef} style={{ position: "relative", overflow: "hidden" }}>
-      {safeLayers.map((l, i) => {
-        const sp = typeof l.speed === "number" ? l.speed : 0;
-        const style: React.CSSProperties = {
-          position: "fixed",
-          inset: 0,
-          objectFit: "cover",
-          width: "100%",
-          height: "100%",
-          mixBlendMode: l.blendMode,
-          zIndex: 0 + i,
-          transform: "translateZ(0)",
-        };
-        const commonProps = {
-          key: i,
-          "data-parallax-speed": sp.toString(),
-          className: l.className || "",
-          style,
-        } as any;
-
-        if (l.type === "video" || l.src.endsWith(".webm") || l.src.endsWith(".mp4") || l.src.endsWith(".ogg")) {
-          return (
-            <video {...commonProps} autoPlay muted loop playsInline preload="auto">
-              <source src={l.src} />
-            </video>
+    <div ref={rootRef} className="parallax-root">
+      <div className="parallax-layers">
+        {safeLayers.map((L, i) => {
+          const speed = L.speed ?? 0;
+          const style: React.CSSProperties = {
+            mixBlendMode: L.blendMode,
+          };
+          const common = (
+            <div
+              key={i}
+              data-parallax
+              data-speed={String(speed)}
+              className={['parallax-layer', L.className].filter(Boolean).join(' ')}
+              style={style}
+            >
+              {(() => {
+                const t = L.type ?? (isVideo(L.src) ? 'video' : 'img');
+                if (t === 'video') {
+                  return (
+                    <video
+                      src={L.src}
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      className="parallax-media"
+                    />
+                  );
+                }
+                return <img src={L.src} alt="" className="parallax-media" decoding="async" />;
+              })()}
+            </div>
           );
-        }
-        return <img {...commonProps} src={l.src} alt="" />;
-      })}
-      <div style={{ position: "relative", zIndex: 1000 }}>{children}</div>
+          return common;
+        })}
+      </div>
+      <div className="parallax-children">{children}</div>
     </div>
   );
 }

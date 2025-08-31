@@ -1,28 +1,33 @@
-// src/logic/auth/current-shim.ts
-// Provides a single stable API: getCurrentSafe()
-// It adapts to different provider export shapes without breaking builds.
-export async function getCurrentSafe(): Promise<any | null> {
+/**
+ * Stable wrapper around whatever your auth provider exports.
+ * Usage: const me = await getCurrentSafe(); // null-safe
+ */
+export async function getCurrentSafe<T = any>(): Promise<T | null> {
   try {
-    const mod: any = await import("./provider");
+    // Alias path as agreed in repo config
+    const mod: any = await import('@/logic/auth/provider');
+
+    // Try the common shapes in order
     const candidates = [
-      "current",
-      "getCurrent",
-      "getUser",
-      "getSession",
-      "me",
-      "user",
-      "currentUser",
+      mod?.current,
+      mod?.getCurrent,
+      mod?.default,
+      mod?.auth?.current,
     ];
-    for (const key of candidates) {
-      const fn = mod?.[key];
-      if (typeof fn === "function") {
-        try { return await fn(); } catch {}
+
+    for (const c of candidates) {
+      if (typeof c === 'function') {
+        try { return await c(); } catch { /* fallthrough */ }
+      } else if (c && typeof c.then === 'function') {
+        try { return await c; } catch { /* fallthrough */ }
+      } else if (c !== undefined) {
+        return c as T;
       }
     }
-    // default export might be a function returning the user/session
-    if (typeof mod?.default === "function") {
-      try { return await mod.default(); } catch {}
-    }
-  } catch {}
-  return null;
+    return null;
+  } catch {
+    return null;
+  }
 }
+
+export default getCurrentSafe;

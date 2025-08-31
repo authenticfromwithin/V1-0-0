@@ -1,38 +1,36 @@
-import React from "react";
-import Parallax from "@/components/SceneParallax/Parallax";
-import { useNavigate } from "react-router-dom";
-import "@/styles/scene-parallax.css";
-import AuthPanel from "@/components/AuthPanel";
-import { getCurrentSafe } from "@/logic/auth/current-shim";
-
-// Forest plates + campfire composite (no UI redesign)
-const layers = [
-  { src: "/assets/scenes/forest/plates/back.webp",  speed: 0.02, className: "bg" },
-  { src: "/assets/scenes/forest/fire/fire.webm",     speed: 0.00, className: "fire fire-layer", blendMode: "screen", type: "video" as const },
-  { src: "/assets/scenes/forest/plates/mid.webp",   speed: 0.04 },
-  { src: "/assets/scenes/forest/plates/front.webp", speed: 0.07 }
-] as const;
+import * as React from 'react';
+import { useNavigate } from 'react-router-dom';
+import Parallax from '@/components/SceneParallax/Parallax';
+import AuthPanel from '@/components/AuthPanel';
+import { getCurrentSafe } from '@/logic/auth/current-shim';
+import '@/styles/scene-parallax.css';
 
 export default function Home() {
-  const navigate = useNavigate();
-  const stay = React.useMemo(() => new URLSearchParams(window.location.search).has("stay"), []);
+  const nav = useNavigate();
 
-  // Guarded redirect
   React.useEffect(() => {
-    let live = true;
+    let mounted = true;
     (async () => {
       const me = await getCurrentSafe();
-      if (live && me && !stay) navigate("/quotes");
+      if (mounted && me) {
+        // only redirect if we truly have a current user
+        nav('/quotes', { replace: true });
+      }
     })();
-    return () => { live = false; };
-  }, [navigate, stay]);
+    return () => { mounted = false; };
+  }, [nav]);
+
+  const layers = [
+    { src: '/assets/scenes/forest/plates/back.webp',  speed: 0.02, className: 'bg' },
+    { src: '/assets/scenes/forest/fire/fire.webm',    speed: 0.00, className: 'fire fire-layer', blendMode: 'screen', type: 'video' as const },
+    { src: '/assets/scenes/forest/plates/mid.webp',   speed: 0.04, className: 'mid' },
+    { src: '/assets/scenes/forest/plates/front.webp', speed: 0.07, className: 'front' },
+  ];
 
   return (
-    <Parallax layers={Array.isArray(layers) ? (layers as any[]) : []} interactive>
-      <div className="parallax-foreground min-h-screen grid place-items-center">
-        <div className="auth-panel-wrap">
-          <AuthPanel />
-        </div>
+    <Parallax layers={layers} interactive>
+      <div className="parallax-foreground">
+        <AuthPanel />
       </div>
     </Parallax>
   );

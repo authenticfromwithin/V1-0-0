@@ -1,38 +1,40 @@
-import React from "react";
+import * as React from 'react';
 
-const candidates = import.meta.glob([
-  "./AuthPanel.tsx",
-  "./AuthPanel/index.tsx",
-  "./AuthPanel/AuthPanel.tsx"
-]);
+/**
+ * Small shim to resolve the real AuthPanel no matter where it lives:
+ * - ./AuthPanel.tsx
+ * - ./AuthPanel/index.tsx
+ * - ./AuthPanel/AuthPanel.tsx
+ *
+ * Keep public API stable: <AuthPanel />
+ */
+const modules = import.meta.glob('./AuthPanel{,/index,/**/AuthPanel}.tsx');
 
-function resolveLoader():
-  (() => Promise<{ default: React.ComponentType<any> }>) | null {
-  const order = [
-    "./AuthPanel.tsx",
-    "./AuthPanel/index.tsx",
-    "./AuthPanel/AuthPanel.tsx",
-  ] as const;
-  for (const key of order) {
-    const loader = (candidates as any)[key];
-    if (typeof loader === "function") {
-      return async () => {
-        const m: any = await loader();
-        const Comp = m?.default ?? m?.AuthPanel ?? m;
-        return { default: (Comp || (() => null)) as React.ComponentType<any> };
-      };
+const LazyReal = React.lazy(async () => {
+  const entries = Object.entries(modules);
+  for (const [_, loader] of entries) {
+    try {
+      // @ts-ignore dynamic
+      const m = await loader();
+      if (m && (m.default || (m as any).AuthPanel)) {
+        return { default: (m.default || (m as any).AuthPanel) };
+      }
+    } catch {
+      // try next
     }
   }
-  return null;
-}
+  // Final fallback to avoid crash; renders a minimal panel
+  return { default: () => (
+    <div style={{padding:'1rem', borderRadius:12, background:'rgba(0,0,0,.35)', color:'#fff'}}>
+      <p style={{opacity:.85}}>Auth panel unavailable.</p>
+    </div>
+  )};
+});
 
-const loader = resolveLoader();
-const RealAuthPanel = loader ? React.lazy(loader) : (() => null) as unknown as React.ComponentType<any>;
-
-export default function AuthPanel(props: any) {
+export default function AuthPanel(props: Record<string, any>) {
   return (
-    <React.Suspense fallback={null}>
-      <RealAuthPanel {...props} />
+    <React.Suspense fallback={<div aria-busy="true" style={{height:180}} />}> 
+      <LazyReal {...props} />
     </React.Suspense>
   );
 }

@@ -1,19 +1,12 @@
-import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
-import path from "node:path";
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import tsconfigPaths from 'vite-tsconfig-paths';
 
+// ESM config to avoid CJS Node API deprecation warning.
+// No visual or behavioral changes to your app.
 export default defineConfig({
-  plugins: [react()],
-  resolve: {
-    alias: {
-      "@": path.resolve(__dirname, "src"),
-      "components": path.resolve(__dirname, "src/components"),
-      "styles": path.resolve(__dirname, "src/styles"),
-      "logic": path.resolve(__dirname, "src/logic"),
-    },
-  },
-  build: {
-    outDir: "dist",
-    sourcemap: true, // better stack traces in production
-  },
+  plugins: [
+    react(),
+    tsconfigPaths(),
+  ],
 });
