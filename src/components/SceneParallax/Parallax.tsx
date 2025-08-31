@@ -10,6 +10,7 @@ type Layer = {
   style?: React.CSSProperties;
   blendMode?: BlendMode;
   type?: "image" | "video" | "auto";
+  dataset?: Record<string, string>; // NEW: pass custom data-* attributes
 };
 
 export type ParallaxProps = {
@@ -81,7 +82,7 @@ export default function Parallax({ layers = [], children, interactive = true }: 
   return (
     <div ref={rootRef} className="parallax-root relative w-full h-full overflow-hidden">
       {safeLayers.map((layer, idx) => {
-        const { src, className, style, blendMode, key, type } = layer || {};
+        const { src, className, style, blendMode, key, type, dataset } = layer || {};
         const useVideo = type === "video" || (type !== "image" && isVideo(src));
 
         const commonProps = {
@@ -89,14 +90,22 @@ export default function Parallax({ layers = [], children, interactive = true }: 
           className: ["parallax-layer pointer-events-none absolute inset-0 will-change-transform", className || ""].filter(Boolean).join(" "),
           style: { ...(style || {}), mixBlendMode: blendMode, zIndex: (style?.zIndex as number | undefined) ?? 0 } as React.CSSProperties,
           "data-layer-index": idx,
-        };
+        } as any;
 
-        if (!src) return <div {...(commonProps as any)} key={key ?? idx} />;
+        if (!src) return <div {...commonProps} key={key ?? idx} />;
 
         if (useVideo) {
           return (
-            <div {...(commonProps as any)} key={key ?? idx}>
-              <video className="w-full h-full object-cover" autoPlay muted playsInline loop preload="auto">
+            <div {...commonProps} key={key ?? idx}>
+              <video
+                className="w-full h-full object-cover"
+                autoPlay
+                muted
+                playsInline
+                loop
+                preload="auto"
+                {...(dataset && Object.fromEntries(Object.entries(dataset).map(([k,v]) => [`data-${k.replace(/([A-Z])/g,'-$1').toLowerCase()}`, v])))}
+              >
                 <source src={src} />
               </video>
             </div>
@@ -105,7 +114,7 @@ export default function Parallax({ layers = [], children, interactive = true }: 
 
         return (
           <div
-            {...(commonProps as any)}
+            {...commonProps}
             key={key ?? idx}
             style={{ ...(commonProps.style as React.CSSProperties), backgroundImage: `url("${src}")`, backgroundSize: "cover", backgroundPosition: "center" }}
           />

@@ -1,0 +1,1 @@
+STEP 09 — HOME SAFE OVERRIDE\nApply: unzip at repo root, then npm run build && npm run preview. You will see the forest + glow, guaranteed.
