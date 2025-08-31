@@ -1,0 +1,21 @@
+/* Simple animated "fire glow" background. You can replace with your original theme later. */
+:root { --afw-fire1: #ff5a00; --afw-fire2: #ffae00; --afw-coal: #1a0f0a; }
+
+.afw-fire-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(120% 60% at 50% 110%, rgba(255, 90, 0, .35), transparent 60%),
+    radial-gradient(100% 40% at 50% 120%, rgba(255, 174, 0, .25), transparent 55%),
+    radial-gradient(60% 30% at 30% 120%, rgba(255, 90, 0, .15), transparent 60%),
+    radial-gradient(60% 30% at 70% 120%, rgba(255, 174, 0, .15), transparent 60%);
+  animation: afw-flicker 3.5s ease-in-out infinite;
+  mix-blend-mode: screen;
+}
+
+@keyframes afw-flicker {
+  0% { opacity: .65; filter: hue-rotate(0deg) brightness(1); }
+  50% { opacity: .85; filter: hue-rotate(-8deg) brightness(1.15); }
+  100% { opacity: .65; filter: hue-rotate(0deg) brightness(1); }
+}

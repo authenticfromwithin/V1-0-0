@@ -1,18 +1,34 @@
-AFW Drop-in: ErrorBoundary + Debug Overlay
-------------------------------------------
-Place these files into your project root so they land at:
-  - src/components/system/ErrorBoundary.tsx
-  - public/debug-overlay.js
+SAFE FIXES ONLY (no design changes)
+====================================
 
-Then ensure your src/main.tsx imports the boundary with one of:
-  import ErrorBoundary from "@/components/system/ErrorBoundary";
-or
-  import ErrorBoundary from "./components/system/ErrorBoundary";
+What this does
+--------------
+- Prevents `.map(...)` from throwing when `layers` is undefined in `Parallax.tsx`
+- Guards `auth.current()` in `Home.tsx` so it won't throw if not a function
+- Normalizes ErrorBoundary *import path casing* in `main.tsx` (no UI change)
 
-...and wraps <App /> like:
-  <ErrorBoundary><App /></ErrorBoundary>
+What this does NOT do
+---------------------
+- No CSS added or changed
+- No components replaced
+- No visual overlays or theming changes
 
-(Optional) Load the overlay in index.html:
-  <script src="/debug-overlay.js" defer></script>
+How to apply
+------------
+1) Copy the `scripts/fixers/safe-fixes.mjs` into your repo (same paths as here).
+2) From your project root, run:
+   node scripts/fixers/safe-fixes.mjs
 
-Deploy, then open your site with ?afwdebug=1 to see helpful logs without a white screen.
+3) Inspect the console JSON to see which files were patched.
+4) Build locally:
+   npm run build
+
+5) Commit and deploy:
+   git add -A
+   git commit -m "chore: safe runtime guards (no design change)"
+   git push origin main
+   vercel --prod
+
+Rollback
+--------
+The script is purely textual. If you want to revert, use `git restore` on the touched files.
