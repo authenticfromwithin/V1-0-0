@@ -31,3 +31,5 @@ export function pause(){ window.speechSynthesis.pause(); }
 export function resume(){ window.speechSynthesis.resume(); }
 
 
+
+

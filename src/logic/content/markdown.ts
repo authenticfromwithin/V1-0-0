@@ -35,3 +35,5 @@ export function mdToHtml(md: string): string {
 function escapeHtml(s: string){ return s.replace(/[&<>"]/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m] as string)); }
 
 
+
+

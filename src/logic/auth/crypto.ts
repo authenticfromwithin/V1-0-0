@@ -7,3 +7,5 @@ export async function encrypt(pass: string, plain: string){ const iv = crypto.ge
 export async function decrypt(pass: string, blob: string){ const { iv, salt, data } = JSON.parse(blob); const key = await deriveKey(pass, ub64(salt)); const plain = await crypto.subtle.decrypt({name:'AES-GCM', iv: ub64(iv)}, key, ub64(data)); return dec.decode(plain); }
 
 
+
+

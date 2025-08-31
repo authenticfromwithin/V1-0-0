@@ -5,3 +5,5 @@ export function savePrefs(p: Prefs) { localStorage.setItem(KEY, JSON.stringify(p
 export function setTheme(theme: Prefs['theme']) { const p = loadPrefs(); p.theme = theme || undefined; savePrefs(p); if (theme) { document.documentElement.dataset.theme = theme } }
 
 
+
+

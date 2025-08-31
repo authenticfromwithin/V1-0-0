@@ -3,3 +3,5 @@ export type Clip = { label: string; sources: Source[]; loop: boolean; poster?: s
 export type AvatarRig = { name: string; clips: Record<string, Clip> };
 
 
+
+
