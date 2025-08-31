@@ -1,0 +1,11 @@
+// Add the following lines to your router (e.g., src/App.tsx)
+// 1) Imports:
+import HeavenlyExpress from "@/pages/HeavenlyExpress";
+import Donate from "@/pages/Donate";
+
+// 2) Inside <Routes>:
+<Route path="/heavenly" element={<HeavenlyExpress />} />
+<Route path="/donate" element={<Donate />} />
+
+// Keep /heavenly out of header/nav to stay hidden at launch.
+// You may reveal /donate in nav when ready.

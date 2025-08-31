@@ -4,8 +4,8 @@ type BlendMode = React.CSSProperties["mixBlendMode"];
 
 type Layer = {
   key?: string;
-  speed?: number; // 0..1 parallax response
-  src?: string;   // image or video
+  speed?: number;
+  src?: string;
   className?: string;
   style?: React.CSSProperties;
   blendMode?: BlendMode;
@@ -31,7 +31,6 @@ export default function Parallax({ layers = [], children, interactive = true }: 
   const target = useRef({ x: 0, y: 0 });
   const current = useRef({ x: 0, y: 0 });
 
-  // Maintain ref slots for each layer
   layerRefs.current = (Array.isArray(layers) ? layers : []).map((_, i) => layerRefs.current[i] ?? null);
 
   useEffect(() => {
@@ -50,7 +49,6 @@ export default function Parallax({ layers = [], children, interactive = true }: 
     root.addEventListener("pointermove", onPointerMove, { passive: true });
 
     const animate = () => {
-      // spring easing
       current.current.x += (target.current.x - current.current.x) * 0.06;
       current.current.y += (target.current.y - current.current.y) * 0.06;
 

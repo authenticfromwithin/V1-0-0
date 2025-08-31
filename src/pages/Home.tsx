@@ -11,13 +11,11 @@ export default function Home() {
   const navigate = useNavigate();
   const onReadyRef = useRef<MaybeFn | MaybeEl>(null);
 
-  // Guarded call only if ref.current is a function
   useEffect(() => {
     const maybe = onReadyRef.current;
     if (typeof maybe === "function") (maybe as () => void)();
   }, []);
 
-  // Auth redirect (null-safe)
   useEffect(() => {
     let mounted = true;
     (async () => {
@@ -29,7 +27,6 @@ export default function Home() {
     return () => { mounted = false; };
   }, [navigate]);
 
-  // Lazy import of your existing Auth panel
   const [AuthPanel, setAuthPanel] = useState<React.ComponentType | null>(null);
   useEffect(() => {
     import("@/components/Auth/AuthPanel")
@@ -38,9 +35,7 @@ export default function Home() {
   }, []);
 
   const layers = [
-    // Use your real forest plates; keep speeds subtle to preserve your look
     { src: "/assets/scenes/forest/plates/back.webp",  speed: 0.02, className: "bg" },
-    // Fire video for living glow; blend via CSS
     { src: "/assets/scenes/forest/fire/fire.webm",     speed: 0.00, className: "fire fire-layer", blendMode: "screen", type: "video" as const },
     { src: "/assets/scenes/forest/plates/mid.webp",   speed: 0.04 },
     { src: "/assets/scenes/forest/plates/front.webp", speed: 0.07 },

@@ -1,16 +1,19 @@
 {
   "version": 2,
-  "buildCommand": "npm run build",
-  "outputDirectory": "dist",
-  "headers": [
+  "builds": [
     {
-      "source": "/assets/(.*)\\.(js|css|woff2|webp|mp4|webm|mp3)",
-      "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
-      ]
+      "src": "index.html",
+      "use": "@vercel/static-build",
+      "config": {}
     }
   ],
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
+  "routes": [
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/"
+    }
   ]
 }
