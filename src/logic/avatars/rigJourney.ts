@@ -29,3 +29,5 @@ export const rigJourney: AvatarRig = {
     ], loop:false },
   }
 };
+
+

@@ -32,3 +32,5 @@ export default function MicroAffirmations({ mode, intervalMs = 20000 }: Props){
     </div>
   );
 }
+
+

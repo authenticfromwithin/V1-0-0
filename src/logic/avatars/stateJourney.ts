@@ -7,3 +7,5 @@ export function decideJourneyState(input: { intention?: 'reflect'|'move'|'pray';
   // reflect
   return m < -0.5 ? 'pick_eat_fruit' : 'idle';
 }
+
+

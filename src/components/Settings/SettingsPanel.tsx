@@ -17,3 +17,5 @@ const rowTop: React.CSSProperties = { display:'flex', justifyContent:'space-betw
 const row: React.CSSProperties = { display:'grid', gap:6, margin:'8px 0' }
 const btn: React.CSSProperties = { padding:'8px 12px', borderRadius:10, border:'1px solid rgba(255,255,255,0.2)', background:'rgba(255,255,255,0.1)', color:'inherit', cursor:'pointer' }
 
+
+

@@ -16,3 +16,5 @@ export const checks: Check[] = [
   { id: 'journey-idle-webm', label: 'Journey idle WEBM exists',
     run: async () => ({ ok: await head('/assets/avatars/journey/idle/variant-01/webm/idle.webm') || await head('/assets/avatars/journey/idle/webm/idle.webm') }) }
 ];
+
+

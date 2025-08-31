@@ -11,3 +11,5 @@ export default function NoUploadZone({ children }: Props){
   },[])
   return <div ref={ref}>{children}</div>
 }
+
+

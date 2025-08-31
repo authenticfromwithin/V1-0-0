@@ -20,3 +20,5 @@ export async function fetchNotices(): Promise<Notice[]>{
     return await r.json();
   } catch { return []; }
 }
+
+

@@ -77,3 +77,5 @@ export async function runAll(){
   const ok = sections.every(sec => sec.checks.every(c => c.ok));
   return { ok, sections };
 }
+
+

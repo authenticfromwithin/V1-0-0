@@ -20,3 +20,5 @@ export default function JourneyMicroAffirmations({ state, intervalMs = 20000 }: 
   const text = (LINES[state] && LINES[state][i]) || '';
   return <div aria-live="polite" style={{marginTop:8, fontSize:14, opacity:.85}}>{text}</div>;
 }
+
+

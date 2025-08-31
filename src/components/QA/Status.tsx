@@ -8,3 +8,5 @@ export default function StatusRow({label, ok, detail}:{label:string; ok:boolean;
     </div>
   );
 }
+
+

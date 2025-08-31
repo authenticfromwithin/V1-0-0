@@ -10,3 +10,5 @@ export type User = {
 export const auth: { user: User } = {
   user: null
 }
+
+

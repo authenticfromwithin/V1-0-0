@@ -29,3 +29,5 @@ export function speak(text: string, opts: TTSOptions, onEnd?: ()=>void){
 export function stop(){ window.speechSynthesis.cancel(); }
 export function pause(){ window.speechSynthesis.pause(); }
 export function resume(){ window.speechSynthesis.resume(); }
+
+

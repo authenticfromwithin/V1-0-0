@@ -14,3 +14,5 @@ export default function GlobalDropGuard({ children }: Props){
   }, []);
   return <>{children}</>;
 }
+
+

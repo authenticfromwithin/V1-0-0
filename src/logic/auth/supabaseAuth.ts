@@ -35,3 +35,5 @@ export class SupabaseAuth implements AuthProvider {
   }
   async signOut(): Promise<void> { if (supabase) await supabase.auth.signOut() }
 }
+
+

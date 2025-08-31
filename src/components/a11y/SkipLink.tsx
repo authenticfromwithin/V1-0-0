@@ -5,3 +5,5 @@ export default function SkipLink(){
     <a href="#main" className="skip-link">Skip to content</a>
   );
 }
+
+

@@ -24,3 +24,5 @@ export default function NavTabs() {
 const wrap: React.CSSProperties = { display:'flex', gap:10, alignItems:'center', padding:'6px 8px', background:'rgba(255,255,255,0.04)', borderRadius:999, border:'1px solid rgba(255,255,255,0.12)' }
 const tab: React.CSSProperties = { padding:'6px 10px', borderRadius:999, textDecoration:'none', color:'inherit', opacity:.9, border:'1px solid transparent' }
 const tabActive: React.CSSProperties = { background:'rgba(255,255,255,0.08)', borderColor:'rgba(255,255,255,0.14)' }
+
+

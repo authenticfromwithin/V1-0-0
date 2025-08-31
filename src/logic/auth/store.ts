@@ -146,3 +146,5 @@ export async function setAppearance(kind: 'healing'|'journey', variant: Appearan
   const d = { ...session.data, appearance: { ...session.data.appearance, [kind]: variant } };
   await reencryptAndPersist(d);
 }
+
+

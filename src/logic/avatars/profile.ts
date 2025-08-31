@@ -49,3 +49,5 @@ export function applyProfileToRig(rig: AvatarRig, rigName: 'healing'|'journey', 
   }
   return out;
 }
+
+

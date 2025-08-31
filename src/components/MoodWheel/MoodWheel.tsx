@@ -28,3 +28,5 @@ export default function MoodWheel({ value, onChange }:{ value:number; onChange:(
     </div>
   );
 }
+
+

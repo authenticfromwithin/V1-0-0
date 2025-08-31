@@ -12,3 +12,5 @@ export function getVariant(rig: 'healing'|'journey'): string {
 export function setVariant(rig: 'healing'|'journey', v: string){
   try { localStorage.setItem(`afw:variant:${rig}`, v); } catch {}
 }
+
+

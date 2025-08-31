@@ -12,3 +12,5 @@ export default function MicroAffirmations({ mood }:{ mood:number }){
   const idx = Math.max(0, Math.min(LINES.length-1, Math.round(((mood+1)/2)*(LINES.length-1))));
   return <p style={{opacity:.85, marginTop:8}}>{LINES[idx]}</p>;
 }
+
+

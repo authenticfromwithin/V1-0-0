@@ -58,3 +58,5 @@ export async function decryptJSON(bundle: EncryptedBundle, passphrase: string): 
   const dec = new TextDecoder()
   return JSON.parse(dec.decode(pt))
 }
+
+

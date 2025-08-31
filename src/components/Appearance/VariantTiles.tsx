@@ -32,3 +32,5 @@ export default function VariantTiles({ kind }:{ kind:'healing'|'journey' }){
   );
 }
 
+
+

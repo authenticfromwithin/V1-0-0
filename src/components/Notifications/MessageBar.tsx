@@ -11,3 +11,5 @@ export default function MessageBar({ text }: { text: string }) {
     }}>{text}</div>
   )
 }
+
+

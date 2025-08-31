@@ -15,3 +15,5 @@ export default function Button({ variant='ghost', small=false, style, ...rest }:
   };
   return <button {...rest} style={{...base, ...style}} />;
 }
+
+

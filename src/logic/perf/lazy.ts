@@ -12,3 +12,5 @@ export function useInView<T extends Element>(opts?: IntersectionObserverInit){
   }, [opts]);
   return { ref, inView: vis } as const;
 }
+
+

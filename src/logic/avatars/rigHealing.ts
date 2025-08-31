@@ -28,3 +28,5 @@ export const rigHealing: AvatarRig = {
   }
 };
 export default rigHealing;
+
+

@@ -19,3 +19,5 @@ export function markSeen(id: string){
 export function unseenCount(items: Announcement[]): number{
   const s = getSeen(); return items.filter(a => !s[a.id]).length;
 }
+
+

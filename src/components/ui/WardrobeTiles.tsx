@@ -82,3 +82,5 @@ export default function WardrobeTiles({ rig, variants = ['variant-01','variant-0
   );
 }
 
+
+

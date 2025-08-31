@@ -36,3 +36,5 @@ export default function useSeo(opts: { title?: string; description?: string; url
     if (opts.url) setOG('og:url', opts.url);
   }, [opts.title, opts.description, opts.url, opts.image]);
 }
+
+

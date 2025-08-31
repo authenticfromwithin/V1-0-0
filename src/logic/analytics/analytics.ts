@@ -12,3 +12,5 @@ export async function exportLocal(): Promise<Blob> {
   const ndjson = arr.map((o:any) => JSON.stringify(o)).join('\n')
   return new Blob([ndjson], { type: 'application/x-ndjson' })
 }
+
+

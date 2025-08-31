@@ -29,3 +29,5 @@ export function decideHealingState(input: HealingInput): HealingState {
   if (t - lastReflect > 60000 && chance(0.2)) { lastReflect = t; return 'stretch'; }
   return 'idle';
 }
+
+
