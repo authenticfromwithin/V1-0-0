@@ -1,28 +1,21 @@
-import React from "react";
+import React from "react"
 
-type Props = { children: React.ReactNode };
-type State = { hasError: boolean, message?: string };
+type Props = { children: React.ReactNode }
+type State = { hasError: boolean }
 
-export default class ErrorBoundary extends React.Component<Props, State> {
-  state: State = { hasError: false };
-  static getDerivedStateFromError(err: any) {
-    return { hasError: true, message: err?.message || String(err) };
-  }
-  componentDidCatch(error: any, info: any) {
-    if (import.meta.env.DEV) {
-      // dev overlay: log only in development, never render in prod
-      console.error("[AFW ErrorBoundary]", error, info);
+export default class ErrorBoundary extends React.Component<Props, State>{
+  state: State = { hasError: false }
+  static getDerivedStateFromError(){ return { hasError: true } }
+  componentDidCatch(err: any, info: any){
+    if (import.meta.env.DEV){
+      // Log to non-visual overlay hook if you have it; fall back to console in dev
+      console.error('[AFW:ErrorBoundary]', err, info)
     }
   }
-  render() {
-    if (this.state.hasError) {
-      return (
-        <div style={{padding:24, color:"#fff"}}>
-          <h1>Something went wrong.</h1>
-          {import.meta.env.DEV && <pre>{this.state.message}</pre>}
-        </div>
-      );
+  render(){
+    if (this.state.hasError){
+      return null
     }
-    return this.props.children;
+    return this.props.children
   }
 }

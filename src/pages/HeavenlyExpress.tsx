@@ -1,4 +1,10 @@
-import React from "react";
+import React from "react"
+
 export default function HeavenlyExpress(){
-  return <div style={{paddingTop:80, color:"#fff"}}>Heavenly Express (hidden from nav)</div>;
+  return (
+    <div className="page-wrap">
+      <h1>Heavenly Express (hidden at launch)</h1>
+      <p>Route exists for internal testing. Keep it out of header/nav.</p>
+    </div>
+  )
 }

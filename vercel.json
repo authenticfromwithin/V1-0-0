@@ -20,7 +20,7 @@
   ],
   "headers": [
     {
-      "source": "/assets/(.*)\\.(js|css|webp|png|jpg|jpeg|svg|mp4|webm|ogg|woff2)",
+      "source": "/assets/(.*)",
       "headers": [
         {
           "key": "Cache-Control",
@@ -29,11 +29,19 @@
       ]
     },
     {
-      "source": "/(sw\\.js|manifest\\.json|favicon\\.ico|apple-touch-icon\\.png|android-chrome-\\d+x\\d+\\.png|og-image\\.png)",
+      "source": "/(.*)",
       "headers": [
         {
-          "key": "Cache-Control",
-          "value": "public, max-age=3600"
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "geolocation=(), microphone=(), camera=()"
         }
       ]
     }

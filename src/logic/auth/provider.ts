@@ -1,11 +1,8 @@
-// null-safe auth provider with a stable API
-export type Session = { userId: string, displayName?: string|null } | null;
-
-export async function current(): Promise<Session> {
-  try {
-    // TODO: wire to real auth; keep null-safe
-    return null;
-  } catch {
-    return null;
+export async function current(): Promise<{ id: string } | null>{
+  try{
+    // Replace with real provider. Null-safe by contract.
+    return null
+  }catch{
+    return null
   }
 }

@@ -1,4 +1,10 @@
-import React from "react";
+import React from "react"
+
 export default function Donate(){
-  return <div style={{paddingTop:80, color:"#fff"}}>Donations (lantern pathway coming)</div>;
+  return (
+    <div className="page-wrap">
+      <h1>Donations</h1>
+      <p>Lantern pathway background is applied via CSS. Replace assets later without code changes.</p>
+    </div>
+  )
 }
