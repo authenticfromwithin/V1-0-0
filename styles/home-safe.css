@@ -1,3 +1,4 @@
-﻿/* home-safe placeholder to satisfy legacy imports; cinematic scene lives under src/styles */
-.home-safe-root{min-height:100vh;}
-.home-safe-fire{position:fixed;inset:auto;display:none;}
+/* Home scene scaffolding; keeps cinematic intent w/o layout changes */
+.home-safe-root { position: relative; min-height: 100vh; overflow: hidden; background: radial-gradient(1200px 500px at 50% 85%, rgba(255,140,60,0.12), transparent 70%), #081018; }
+.home-safe-fire { position:absolute; inset:auto 0 0 0; height: 40vh; pointer-events:none; mix-blend-mode:screen; opacity:.75; }
+.parallax-foreground { position:relative; z-index: 10; }

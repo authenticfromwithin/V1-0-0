@@ -1,4 +1,4 @@
-param([switch]$Deep)
+﻿param([switch]$Deep)
 
 Write-Host "== AFW: Repairing npm lock and modules ==" -ForegroundColor Cyan
 
@@ -14,11 +14,7 @@ if (Test-Path .\package-lock.json) {
 
 Write-Host "Running npm install to re-generate lock..." -ForegroundColor Cyan
 npm install
-
-if ($LASTEXITCODE -ne 0) {
-  Write-Error "npm install failed. Check the console for details."
-  exit 1
-}
+if ($LASTEXITCODE -ne 0) { throw "npm install failed." }
 
 Write-Host "Running npm dedupe..." -ForegroundColor Cyan
 npm dedupe

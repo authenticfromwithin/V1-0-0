@@ -1,34 +1,18 @@
-SAFE FIXES ONLY (no design changes)
-====================================
+AFW Bulletproof Kit v3 (surgical)
+---------------------------------
+Files here are minimal, safe replacements or additions.
+- vercel.json -> static build + SPA fallback
+- vite.config.ts -> pure ESM with plugin-react + tsconfig-paths
+- styles/*.css -> placeholders to satisfy imports; keep your design
+- src/logic/auth/provider.ts -> exports async current()
+- src/components/AuthPanel/AuthPanel.tsx + wrapper AuthPanel.tsx
+- src/components/auth/index.ts -> legacy import safety
+- src/components/SceneParallax/Parallax.tsx -> map/RAF guards
+- src/pages/Home.tsx -> campfire + forest plates behind AuthPanel
 
-What this does
---------------
-- Prevents `.map(...)` from throwing when `layers` is undefined in `Parallax.tsx`
-- Guards `auth.current()` in `Home.tsx` so it won't throw if not a function
-- Normalizes ErrorBoundary *import path casing* in `main.tsx` (no UI change)
-
-What this does NOT do
----------------------
-- No CSS added or changed
-- No components replaced
-- No visual overlays or theming changes
-
-How to apply
-------------
-1) Copy the `scripts/fixers/safe-fixes.mjs` into your repo (same paths as here).
-2) From your project root, run:
-   node scripts/fixers/safe-fixes.mjs
-
-3) Inspect the console JSON to see which files were patched.
-4) Build locally:
-   npm run build
-
-5) Commit and deploy:
-   git add -A
-   git commit -m "chore: safe runtime guards (no design change)"
-   git push origin main
-   vercel --prod
-
-Rollback
---------
-The script is purely textual. If you want to revert, use `git restore` on the touched files.
+Apply:
+  1) Drop zip in project root and extract (overwrite).
+  2) Ensure tsconfig paths align with tsconfig.json.hardwire-example.
+  3) npm install
+  4) npm run build && npm run preview
+  5) vercel pull && vercel build && vercel deploy --prod

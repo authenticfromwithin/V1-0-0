@@ -1,77 +1,88 @@
-import React from "react"
+import React from "react";
 
 type Layer = {
-  src: string
-  speed?: number
-  className?: string
-  blendMode?: React.CSSProperties['mixBlendMode']
-  type?: 'image' | 'video'
-}
+  src?: string;
+  speed?: number;           // 0..1 parallax factor
+  className?: string;
+  blendMode?: React.CSSProperties["mixBlendMode"];
+  type?: "image" | "video"; // default image
+};
 
 type Props = {
-  layers?: Layer[]
-  children?: React.ReactNode
-  interactive?: boolean
-}
+  layers?: Layer[];
+  interactive?: boolean;
+  children?: React.ReactNode;
+};
 
-export default function Parallax({ layers = [], children, interactive = false }: Props){
-  const rootRef = React.useRef<HTMLDivElement|null>(null)
-  const rafRef = React.useRef<number| null>(null)
-  const mouse = React.useRef({x:0,y:0})
+export default function Parallax({ layers = [], interactive = false, children }: Props){
+  const rootRef = React.useRef<HTMLDivElement|null>(null);
+  const rafRef = React.useRef<number|undefined>(undefined);
+
+  const sane = (layers || []).filter(Boolean).map(l => ({
+    src: l?.src || "",
+    speed: typeof l?.speed === "number" ? l!.speed! : 0,
+    className: ["parallax-layer", l?.className].filter(Boolean).join(" "),
+    blendMode: l?.blendMode,
+    type: l?.type || "image" as const
+  }));
 
   React.useEffect(() => {
-    const root = rootRef.current
-    if (!root) return
+    const el = rootRef.current;
+    if (!el || !interactive) return;
 
-    function onMove(e: MouseEvent){
-      if (!interactive) return
-      const r = root.getBoundingClientRect()
-      mouse.current.x = (e.clientX - r.left) / r.width - 0.5
-      mouse.current.y = (e.clientY - r.top) / r.height - 0.5
-    }
-    window.addEventListener('mousemove', onMove, { passive: true })
+    let frame = 0;
+    const onScroll = () => {
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+      rafRef.current = requestAnimationFrame(() => {
+        frame++;
+        const y = window.scrollY || 0;
+        const nodes = Array.from(el.querySelectorAll<HTMLElement>(".parallax-layer"));
+        nodes.forEach((n) => {
+          const f = Number(n.dataset.speed || "0");
+          const t = Math.round(y * f);
+          n.style.transform = `translate3d(0, ${t}px, 0)`;
+        });
+      });
+    };
 
-    function tick(){
-      const host = rootRef.current
-      if (host){
-        const els = host.querySelectorAll('[data-speed]')
-        els.forEach((el) => {
-          const speed = parseFloat((el as HTMLElement).dataset.speed || '0')
-          const x = mouse.current.x * speed * 20
-          const y = mouse.current.y * speed * 10
-          ;(el as HTMLElement).style.transform = `translate3d(${x}px, ${y}px, 0)`
-        })
-      }
-      rafRef.current = window.requestAnimationFrame(tick)
-    }
-    rafRef.current = window.requestAnimationFrame(tick)
-
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
     return () => {
-      window.removeEventListener('mousemove', onMove)
-      if (rafRef.current != null) cancelAnimationFrame(rafRef.current)
-    }
-  }, [interactive])
-
-  const safeLayers = Array.isArray(layers) ? layers.filter(l => !!l && typeof l.src === 'string') : []
+      window.removeEventListener("scroll", onScroll);
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+    };
+  }, [interactive]);
 
   return (
     <div ref={rootRef} className="parallax-root">
-      {safeLayers.map((layer, i) => {
-        const type = layer.type || (layer.src.endsWith('.webm') || layer.src.endsWith('.mp4') ? 'video' : 'image')
-        const commonProps = {
-          className: ['parallax-layer', layer.className].filter(Boolean).join(' '),
-          style: { mixBlendMode: layer.blendMode, } as React.CSSProperties,
-          'data-speed': String(layer.speed ?? 0)
-        } as any
+      {sane.map((l, i) => {
+        const style: React.CSSProperties = { mixBlendMode: l.blendMode as any };
+        if (!l.src) return null;
+        if (l.type === "video") {
+          return (
+            <video
+              key={i}
+              className={l.className}
+              data-speed={String(l.speed || 0)}
+              style={style}
+              src={l.src}
+              autoPlay
+              muted
+              loop
+              playsInline
+            />
+          );
+        }
         return (
-          <div key={i} {...commonProps}>
-            {type === 'video'
-              ? <video src={layer.src} autoPlay muted loop playsInline preload="auto" />
-              : <img src={layer.src} alt="" loading="eager" decoding="async" />}
-          </div>
-        )
+          <div
+            key={i}
+            className={l.className}
+            data-speed={String(l.speed || 0)}
+            style={{ ...style, backgroundImage: `url(${l.src})` }}
+          />
+        );
       })}
       <div className="parallax-children">{children}</div>
     </div>
-  )
+  );
 }

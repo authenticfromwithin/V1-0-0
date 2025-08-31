@@ -1,0 +1,8 @@
+/* Layering only; do not alter existing typography */
+.parallax-root { position: relative; min-height: 100vh; overflow: hidden; background:#061017; }
+.parallax-layer { position:absolute; inset:0; background-position:center; background-size:cover; will-change: transform; }
+.parallax-layer.bg { z-index: 1; }
+.parallax-layer.mid { z-index: 2; }
+.parallax-layer.front { z-index: 3; }
+.fire-layer { z-index: 4; mix-blend-mode: screen; pointer-events: none; }
+.parallax-children { position: relative; z-index: 5; }

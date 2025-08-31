@@ -1,1 +1,5 @@
-﻿/* base-safe placeholder */
+/* Minimal base to avoid ENOENT; no visual redesign */
+:root { --afw-campfire: #ff7a2a; --afw-deep: #0a1b22; }
+html, body, #root { height: 100%; }
+body { margin: 0; background: #0a1014; color: #e9eef3; }
+.afw-screen { min-height: 100vh; display: flex; align-items: center; justify-content: center; }
