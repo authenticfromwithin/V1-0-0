@@ -1,71 +1,26 @@
 import React from "react";
+import SafeAuthPanel from "components/System/SafeAuthPanel";
 
-type AnyProps = Record<string, any>;
+type AuthPanelLike = React.ComponentType<any>;
 
-function useResolvedAuthPanel() {
-  const [Comp, setComp] = React.useState<React.ComponentType<AnyProps> | null>(null);
-  const triedRef = React.useRef(false);
-
+/**
+ * Looks for a real AuthPanel injected at runtime, otherwise uses SafeAuthPanel.
+ * No dynamic imports or fragile paths, so Vite build cannot break.
+ */
+function useInjectedAuthPanel(): AuthPanelLike | null {
+  const [C, setC] = React.useState<AuthPanelLike | null>(null);
   React.useEffect(() => {
-    if (triedRef.current) return;
-    triedRef.current = true;
-
-    const loaders: Array<() => Promise<{ default: React.ComponentType<any> }>> = [
-      () => import(/* @vite-ignore */ 'components/AuthPanel/AuthPanel'),
-      () => import(/* @vite-ignore */ 'components/AuthPanel/index'),
-      () => import(/* @vite-ignore */ 'components/AuthPanel'),
-      () => import(/* @vite-ignore */ '@/components/AuthPanel/AuthPanel'),
-      () => import(/* @vite-ignore */ '@/components/AuthPanel/index'),
-      () => import(/* @vite-ignore */ '@/components/Auth/AuthPanel'),
-      () => import(/* @vite-ignore */ '@/components/auth/AuthPanel'),
-      () => import(/* @vite-ignore */ '@/components/auth/index'),
-    ];
-
-    (async () => {
-      for (const load of loaders) {
-        try {
-          const mod = await load();
-          if (mod && mod.default) { setComp(() => mod.default); return; }
-        } catch (_e) {
-          // keep trying
-        }
-      }
-      // fall back last
-      const mod = await import(/* @vite-ignore */ './System/SafeAuthPanel');
-      setComp(() => mod.default);
-    })();
+    const w = window as any;
+    // If a real panel is attached (e.g., in a feature branch), prefer it.
+    if (w && typeof w.AFW_AUTH_PANEL === "function") {
+      setC(() => w.AFW_AUTH_PANEL as AuthPanelLike);
+    }
   }, []);
-
-  return Comp;
+  return C;
 }
 
-export default function AuthPanel(props: AnyProps) {
-  // Allow manual fallback for demos: /?demoAuth=1
-  const params = new URLSearchParams(typeof window !== 'undefined' ? window.location.search : '');
-  const forceDemo = params.get('demoAuth') === '1';
-  const LazyComp = useResolvedAuthPanel();
-
-  if (forceDemo) {
-    const Demo = React.lazy(() => import('./System/SafeAuthPanel'));
-    return (
-      <React.Suspense fallback={<div style={fallbackStyle}>Loading…</div>}>
-        <Demo {...props} />
-      </React.Suspense>
-    );
-  }
-
-  if (!LazyComp) return <div style={fallbackStyle}>Auth panel unavailable.</div>;
-
-  const Render = LazyComp;
-  return <Render {...props} />;
+export default function AuthPanel(props: any) {
+  const Injected = useInjectedAuthPanel();
+  const Panel = Injected ?? SafeAuthPanel;
+  return <Panel {...props} />;
 }
-
-const fallbackStyle: React.CSSProperties = {
-  background: 'rgba(0,0,0,.45)',
-  color: '#e9eef1',
-  padding: '16px 20px',
-  borderRadius: 12,
-  fontSize: 16,
-  lineHeight: 1.35,
-  boxShadow: '0 10px 30px rgba(0,0,0,.35)',
-};
