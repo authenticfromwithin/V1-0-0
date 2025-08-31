@@ -1,7 +1,0 @@
-/* Surgical helpers for campfire compositing (no layout/typography changes) */
-.parallax-root { position: relative; }
-.parallax-layer { position: absolute; inset: 0; }
-.fire-layer { mix-blend-mode: screen; opacity: 0.9; }
-.parallax-layer.bg      { z-index: 0; }
-.parallax-layer.fire    { z-index: 1; }
-.parallax-foreground    { z-index: 3; }

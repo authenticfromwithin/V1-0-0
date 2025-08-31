@@ -1,9 +1,0 @@
-:root[data-page="home"] video[src*="/assets/avatars/"],
-:root[data-page="home"] source[src*="/assets/avatars/"],
-:root[data-page="home"] [data-avatar],
-:root[data-page="home"] .avatar-player,
-:root[data-page="home"] [class*="AvatarPlayer"],
-:root[data-page="home"] [class*="avatar"],
-:root[data-page="home"] [aria-label*="avatar" i],
-:root[data-page="home"] [role="figure"][aria-label*="avatar" i] {display:none!important;visibility:hidden!important;opacity:0!important;}
-:root[data-page="home"] body,:root[data-page="home"] .app,:root[data-page="home"] #root{background:none!important;}
