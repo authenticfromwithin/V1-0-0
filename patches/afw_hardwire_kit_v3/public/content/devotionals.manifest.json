@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "schedule": "auto-yearly",
+  "items": [
+    {
+      "id": "d1",
+      "title": "Light in the Night",
+      "ref": "Psalm 139",
+      "content": "Even the darkness is light to You."
+    }
+  ]
+}

@@ -1,131 +1,60 @@
+﻿import React, { useEffect, useState } from "react"
+import { Scene } from "./components/Scene"
+import { ThemeToggle } from "./components/ThemeToggle"
+import AuthHome from "./modules/AuthHome"
+import Quotes from "./modules/Quotes"
+import Journal from "./modules/Journal"
+import Donations from "./modules/Donations"
+import { readRoute, navTo, onRoute, Route } from "./utils/router"
+import { isAuthed, getUser, signOut } from "./utils/auth"
+import "./styles.css"
 
-import React, { useEffect, useRef, useState } from 'react'
-
-function useAnnouncements() {
-  const [banner, setBanner] = useState<string | null>(null)
-  useEffect(() => {
-    fetch('/content/announcements.json')
-      .then(r => r.json())
-      .then(data => {
-        const active = data?.announcements?.find((a:any) => a.active)
-        if (active) setBanner(active.message)
-      })
-      .catch(() => {})
-  }, [])
-  return banner
+function useRoute():[Route,(r:Route)=>void]{
+  const [route,setRoute]=useState<Route>(readRoute())
+  useEffect(()=> onRoute(()=>setRoute(readRoute())),[])
+  return [route,(r)=>{ navTo(r); setRoute(r) }]
 }
 
-// Disable copy/paste/drag/drop for authenticity
-function useLockClipboard() {
-  useEffect(() => {
-    const block = (e: Event) => { e.preventDefault() }
-    const types = ['copy','cut','paste','dragstart','drop','contextmenu']
-    types.forEach(t => document.addEventListener(t, block))
-    return () => types.forEach(t => document.removeEventListener(t, block))
-  }, [])
-}
+export default function App(){
+  const [route, nav] = useRoute()
+  const [authed, setAuthed] = useState<boolean>(()=>isAuthed())
+  const user = getUser()
 
-function FireCanvas() {
-  const ref = useRef<HTMLCanvasElement | null>(null)
-  useEffect(() => {
-    const c = ref.current!
-    const dpr = Math.min(window.devicePixelRatio||1, 2)
-    const ctx = c.getContext('2d', { alpha: false })!
-    let w = c.width = Math.floor(innerWidth * dpr)
-    let h = c.height = Math.floor(innerHeight * dpr)
+  useEffect(()=>{
+    if (!authed && route !== "home") nav("home")
+    if (authed && route === "home") nav("quotes")
+  },[authed,route])
 
-    const rnd = (n:number)=>Math.random()*n
-    let sparks = new Array(220).fill(0).map(()=>({x:rnd(w), y:h-rnd(40), vx:(rnd(1)-0.5)*0.4, vy:-rnd(1)-0.6, life:rnd(60)+20}))
-
-    const draw = () => {
-      ctx.fillStyle = '#050608'
-      ctx.fillRect(0,0,w,h)
-
-      // glow
-      const g = ctx.createRadialGradient(w/2, h*0.85, 10, w/2, h, Math.max(w,h)*0.8)
-      g.addColorStop(0, 'rgba(255,180,80,0.27)')
-      g.addColorStop(0.6,'rgba(40,24,10,0.1)')
-      g.addColorStop(1,'rgba(0,0,0,1)')
-      ctx.fillStyle = g
-      ctx.fillRect(0,0,w,h)
-
-      // embers
-      sparks.forEach(s => {
-        s.x += s.vx; s.y += s.vy; s.life -= 1
-        s.vy -= 0.005
-        if (s.life<=0 || s.y<0 || s.x<0 || s.x>w) {
-          s.x = rnd(w); s.y = h - rnd(30); s.vx = (rnd(1)-0.5)*0.35; s.vy = -rnd(1)-0.5; s.life = rnd(60)+20
-        }
-        const r = Math.max(0.5, (s.life/80)*2.2)
-        ctx.globalCompositeOperation = 'lighter'
-        ctx.fillStyle = 'rgba(255,160,60,0.18)'
-        ctx.beginPath(); ctx.arc(s.x, s.y, r*3, 0, Math.PI*2); ctx.fill()
-        ctx.fillStyle = 'rgba(255,220,150,0.8)'
-        ctx.beginPath(); ctx.arc(s.x, s.y, r, 0, Math.PI*2); ctx.fill()
-        ctx.globalCompositeOperation = 'source-over'
-      })
-      requestAnimationFrame(draw)
-    }
-    const onResize = () => {
-      w = c.width = Math.floor(innerWidth * dpr)
-      h = c.height = Math.floor(innerHeight * dpr)
-    }
-    window.addEventListener('resize', onResize)
-    draw()
-    return () => window.removeEventListener('resize', onResize)
-  }, [])
-  return <canvas className="fire" ref={ref} />
-}
-
-export default function App() {
-  const banner = useAnnouncements()
-  useLockClipboard()
-
-  const [journal, setJournal] = useState(localStorage.getItem('afw:journal')||'')
-  useEffect(() => { localStorage.setItem('afw:journal', journal) }, [journal])
-
-  const [guideOpen, setGuideOpen] = useState(false)
+  const onAuthed = () => { setAuthed(true); nav("quotes") }
+  const doSignOut = () => { signOut(); setAuthed(false); nav("home") }
 
   return (
     <div className="stage">
-      <div className="nav">
-        <div className="logo">AFW</div>
-        <div className="menu">
-          <button className="btn" onClick={()=>setGuideOpen(true)}>First‑time Guide</button>
-          <a className="btn" href="/admin" rel="noreferrer">Admin</a>
-        </div>
-      </div>
+      <div className="scene" aria-hidden="true"><Scene/></div>
 
-      <FireCanvas />
+      {!authed && route==="home" && <AuthHome onAuthed={onAuthed}/>}
 
-      <div className="copy">
-        <div>
-          <h1 className="title">Authentic From Within</h1>
-          <p className="subtitle">A sacred, cinematic, therapeutic space — nighttime forest; fire as the light.</p>
-          <div className="journal">
-            <h3>Journal (local‑only)</h3>
-            <p>Your writing never leaves your device. Copy/paste and drag‑drop are disabled by design.</p>
-            <textarea
-              value={journal}
-              onChange={(e)=>setJournal(e.target.value)}
-              placeholder="Breathe. Begin with one honest line…"
-            />
-          </div>
-        </div>
-      </div>
-
-      {banner && <div className="banner">{banner}</div>}
-
-      {guideOpen && (
-        <div style={{position:'fixed',inset:0, background:'rgba(0,0,0,0.6)', backdropFilter:'blur(6px)', display:'grid', placeItems:'center', zIndex:20}} onClick={()=>setGuideOpen(false)}>
-          <div style={{maxWidth:800, background:'rgba(20,20,24,0.95)', border:'1px solid rgba(255,255,255,0.1)', borderRadius:16, padding:20}} onClick={e=>e.stopPropagation()}>
-            <h2>First‑time Guide</h2>
-            <p>AFW protects your reflections. Nothing is uploaded; the admin can never see your journal.</p>
-            <p>Use the theme toggle (coming), gentle audio (optional), and avatars to explore healing & devotion.</p>
-            <button className="btn" onClick={()=>setGuideOpen(false)}>Close</button>
-          </div>
-        </div>
+      {authed && (
+        <header className="nav">
+          <div className="left"><div className="brand">AFW</div></div>
+          <nav className="menu">
+            <a className={"btn"+(route==="quotes"?" active":"")} href="#/quotes" onClick={(e)=>{e.preventDefault(); nav("quotes")}}>Authentic From Within</a>
+            <a className={"btn"+(route==="healing"?" active":"")} href="#/healing" onClick={(e)=>{e.preventDefault(); nav("healing")}}>Healing From Within</a>
+            <a className={"btn"+(route==="journey"?" active":"")} href="#/journey" onClick={(e)=>{e.preventDefault(); nav("journey")}}>Transfiguration From Within</a>
+            <a className={"btn"+(route==="donations"?" active":"")} href="#/donations" onClick={(e)=>{e.preventDefault(); nav("donations")}}>Donations</a>
+            <a className={"btn"+(route==="journal"?" active":"")} href="#/journal" onClick={(e)=>{e.preventDefault(); nav("journal")}}>Notebook</a>
+            <ThemeToggle/>
+            <button className="btn ghost" onClick={doSignOut} title="Sign out">Sign out{user?.firstName ? ` (${user.firstName})` : ""}</button>
+            <a className="btn" href="/admin" rel="noreferrer">Admin</a>
+          </nav>
+        </header>
       )}
+
+      {authed && route==="quotes" && <Quotes/>}
+      {authed && route==="journal" && <Journal/>}
+      {authed && route==="donations" && <Donations/>}
+      {authed && route==="healing" && <main className="copy"><div className="glass"><h2>Healing From Within</h2><p>Arriving next: avatar + breath sessions.</p></div></main>}
+      {authed && route==="journey" && <main className="copy"><div className="glass"><h2>Transfiguration From Within</h2><p>Devotional reader with Greek/Hebrew toggle incoming.</p></div></main>}
     </div>
   )
 }

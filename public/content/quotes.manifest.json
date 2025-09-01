@@ -1,16 +1,8 @@
 {
   "version": 1,
-  "categories": [
-    {
-      "id": "default",
-      "name": "Authentic From Within",
-      "items": [
-        {
-          "id": "q1",
-          "text": "To be fully known is to be fully loved.",
-          "author": "Rumique Davids"
-        }
-      ]
-    }
-  ]
+  "categories": [{ "id":"default","name":"Authentic From Within","items":[
+    { "id":"q1","text":"Begin with one honest breath.","author":"Rumique Davids" },
+    { "id":"q2","text":"Gentleness is precision without violence.","author":"Rumique Davids" },
+    { "id":"q3","text":"Wholeness is not an act; it is a remembering.","author":"Rumique Davids" }
+  ]}]
 }

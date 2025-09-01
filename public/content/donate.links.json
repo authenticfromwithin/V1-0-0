@@ -1,9 +1,1 @@
-{
-  "links": [
-    {
-      "label": "Support AFW",
-      "href": "https://example.org/donate",
-      "platform": "generic"
-    }
-  ]
-}
+{ "links": [ { "label":"Support via PayPal","href":"https://example.org/paypal","platform":"paypal" } ] }

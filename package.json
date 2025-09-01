@@ -1,30 +1,24 @@
-{
+﻿{
   "name": "afw",
   "private": true,
-  "type": "module",
   "version": "1.0.0",
-  "description": "Authentic From Within \u2014 sacred, cinematic, therapeutic SPA",
-  "engines": {
-    "node": ">=22"
-  },
-  "workspaces": [
-    "admin"
-  ],
+  "type": "module",
+  "workspaces": ["admin"],
   "scripts": {
     "dev": "vite",
     "build": "vite build && npm run build -w admin",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "dev:admin": "npm run dev -w admin"
   },
   "dependencies": {
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@types/react": "^18.3.3",
-    "@types/react-dom": "^18.3.0",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
     "@vitejs/plugin-react": "^4.3.1",
-    "typescript": "^5.5.4",
-    "vite": "^5.4.2",
-    "vite-tsconfig-paths": "^5.0.1"
+    "typescript": "^5.6.2",
+    "vite": "^5.4.19"
   }
 }

@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "categories": [
+    {
+      "id": "default",
+      "name": "Authentic From Within",
+      "items": [
+        {
+          "id": "q1",
+          "text": "To be fully known is to be fully loved.",
+          "author": "Rumique Davids"
+        }
+      ]
+    }
+  ]
+}
