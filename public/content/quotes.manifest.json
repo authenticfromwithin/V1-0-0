@@ -1,22 +1,16 @@
-[
-  {
-    "id": "faith",
-    "title": "Faith",
-    "file": "/content/quotes/faith.json"
-  },
-  {
-    "id": "hope",
-    "title": "Hope",
-    "file": "/content/quotes/hope.json"
-  },
-  {
-    "id": "identity",
-    "title": "Identity",
-    "file": "/content/quotes/identity.json"
-  },
-  {
-    "id": "healing",
-    "title": "Healing",
-    "file": "/content/quotes/healing.json"
-  }
-]
+{
+  "version": 1,
+  "categories": [
+    {
+      "id": "default",
+      "name": "Authentic From Within",
+      "items": [
+        {
+          "id": "q1",
+          "text": "To be fully known is to be fully loved.",
+          "author": "Rumique Davids"
+        }
+      ]
+    }
+  ]
+}

@@ -1,14 +1,11 @@
-[
-  {
-    "id": "welcome-1",
-    "title": "Welcome to AFW",
-    "body": "This space is private and local-only. New devotionals arrive monthly.",
-    "date": "2025-08-21"
-  },
-  {
-    "id": "update-1",
-    "title": "Atmos mixer added",
-    "body": "Load stems per theme and set your levels.",
-    "date": "2025-08-21"
-  }
-]
+{
+  "announcements": [
+    {
+      "id": "welcome-001",
+      "title": "Welcome to AFW",
+      "message": "This is a sacred, cinematic, therapeutic space. You are safe here.",
+      "severity": "info",
+      "active": true
+    }
+  ]
+}

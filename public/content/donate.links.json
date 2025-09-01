@@ -1,1 +1,9 @@
-[]
+{
+  "links": [
+    {
+      "label": "Support AFW",
+      "href": "https://example.org/donate",
+      "platform": "generic"
+    }
+  ]
+}

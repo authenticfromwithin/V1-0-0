@@ -1,0 +1,58 @@
+
+:root {
+  --bg: #0b0f12;
+  --fg: #e9eef2;
+  --accent: #f2d49b;
+}
+html, body, #root { height: 100%; margin: 0; }
+body { background: var(--bg); color: var(--fg); font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, sans-serif; }
+a { color: var(--accent); text-decoration: none; }
+.nav {
+  position: fixed; top: 0; left: 0; right: 0;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 10px 16px;
+  background: rgba(0,0,0,0.35); backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  z-index: 10;
+}
+.logo { font-weight: 700; letter-spacing: 0.06em; }
+.menu { display: flex; gap: 12px; }
+.btn {
+  border: 1px solid rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.04);
+  padding: 8px 12px; border-radius: 10px; cursor: pointer;
+}
+.stage {
+  position: relative; height: 100%; overflow: hidden;
+}
+canvas.fire {
+  position: absolute; inset: 0; z-index: 0;
+  background: radial-gradient(120% 100% at 50% 100%, #0b0f12 0%, #060709 60%, #020304 100%);
+}
+.copy {
+  position: absolute; inset: 0; display: grid; place-items: center; text-align: center; z-index: 1; padding: 12vh 10vw;
+}
+.title {
+  font-size: clamp(28px, 5vw, 64px);
+  line-height: 1.05;
+  text-shadow: 0 0 12px rgba(255, 200, 120, 0.3), 0 0 48px rgba(255, 140, 60, 0.15);
+}
+.subtitle { opacity: 0.9; margin-top: 10px; }
+.banner {
+  position: fixed; left: 50%; transform: translateX(-50%);
+  bottom: 20px; padding: 10px 14px; border-radius: 12px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+}
+.journal {
+  max-width: 900px; margin: 80px auto; padding: 16px;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+}
+textarea {
+  width: 100%; min-height: 180px; background: rgba(0,0,0,0.35);
+  color: var(--fg); border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 12px; padding: 12px; outline: none;
+}

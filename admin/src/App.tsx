@@ -1,43 +1,39 @@
-import React from 'react'
-import { supabase } from './logic/supabaseClient'
-import Events from './pages/Events'
-import Progress from './pages/Progress'
-import Profiles from './pages/Profiles'
-import Notifications from './pages/Notifications'
-import Feedback from './pages/Feedback'
 
-function useHashRoute() {
-  const [route, setRoute] = React.useState(window.location.hash.slice(1) || 'events')
-  React.useEffect(() => {
-    const fn = () => setRoute(window.location.hash.slice(1) || 'events')
-    window.addEventListener('hashchange', fn)
-    return () => window.removeEventListener('hashchange', fn)
-  }, [])
-  return [route, (r:string)=>{ window.location.hash = r }] as const
-}
+  import React, { useEffect, useState } from 'react'
 
-export default function App(){
-  const [route, go] = useHashRoute()
-  return (
-    <div>
-      <header>
-        <div style={{fontWeight:800,letterSpacing:1}}>AFW Admin</div>
-        <nav>
-          <a href="#events" className={route==='events'?'active':''}>Events</a>
-          <a href="#progress" className={route==='progress'?'active':''}>Progress</a>
-          <a href="#profiles" className={route==='profiles'?'active':''}>Profiles</a>
-          <a href="#notifications" className={route==='notifications'?'active':''}>Notifications</a>
-          <a href="#feedback" className={route==='feedback'?'active':''}>Feedback</a>
-        </nav>
-      </header>
-      <div className="container">
-        {!supabase && <div className="bad card">Supabase not configured. Add env vars and redeploy.</div>}
-        {route==='events' && <Events/>}
-        {route==='progress' && <Progress/>}
-        {route==='profiles' && <Profiles/>}
-        {route==='notifications' && <Notifications/>}
-        {route==='feedback' && <Feedback/>}
+  type Ann = { id:string; title:string; message:string; severity:'info'|'warn'|'error'; active:boolean }
+
+  export default function App() {
+    const [announcements, setAnnouncements] = useState<Ann[]>([])
+    const [msg, setMsg] = useState('')
+
+    useEffect(() => {
+      fetch('/content/announcements.json')
+        .then(r=>r.json())
+        .then(d=>setAnnouncements(d.announcements||[]))
+        .catch(()=>setAnnouncements([]))
+    }, [])
+
+    const add = () => {
+      const next:Ann = { id: `ann-${Date.now()}`, title: 'Note', message: msg, severity:'info', active: true }
+      const updated = [next, ...announcements]
+      setAnnouncements(updated)
+      // export to static file instructions
+      alert('In a full build, this would write to /public/content/announcements.json and trigger a site banner. For now, copy below JSON into that file and redeploy.')
+      console.log(JSON.stringify({ announcements: updated }, null, 2))
+    }
+
+    return (
+      <div style={{padding:20, color:'#e9eef2', background:'#0b0f12', minHeight:'100vh'}}>
+        <h1>AFW Admin</h1>
+        <p>Manages static manifests for the public site. Journals are never accessible here.</p>
+        <div style={{display:'flex', gap:8}}>
+          <input style={{flex:1, padding:8}} placeholder="Write a banner message..." value={msg} onChange={e=>setMsg(e.target.value)} />
+          <button onClick={add}>Add announcement</button>
+        </div>
+        <pre style={{whiteSpace:'pre-wrap', background:'#11171b', padding:12, marginTop:16, borderRadius:8}}>
+{JSON.stringify({ announcements }, null, 2)}
+        </pre>
       </div>
-    </div>
-  )
-}
+    )
+  }
