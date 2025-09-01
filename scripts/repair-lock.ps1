@@ -1,22 +1,12 @@
-﻿param([switch]$Deep)
+\
+  Param([switch]$Force)
 
-Write-Host "== AFW: Repairing npm lock and modules ==" -ForegroundColor Cyan
-
-if ($Deep) {
-  Write-Host "Deep mode: removing node_modules..." -ForegroundColor Yellow
+  Write-Host "🔧 Repairing lock & node_modules..." -ForegroundColor Cyan
   if (Test-Path .\node_modules) { Remove-Item -Recurse -Force .\node_modules }
-}
+  if (Test-Path .\package-lock.json) { Remove-Item -Force .\package-lock.json }
 
-if (Test-Path .\package-lock.json) {
-  Write-Host "Removing existing package-lock.json" -ForegroundColor Yellow
-  Remove-Item .\package-lock.json -Force
-}
+  # Ensure clean install with pinned versions
+  npm install
+  if ($LASTEXITCODE -ne 0) { throw "npm install failed" }
 
-Write-Host "Running npm install to re-generate lock..." -ForegroundColor Cyan
-npm install
-if ($LASTEXITCODE -ne 0) { throw "npm install failed." }
-
-Write-Host "Running npm dedupe..." -ForegroundColor Cyan
-npm dedupe
-
-Write-Host "✅ Lock repaired. Next: npm run build" -ForegroundColor Green
+  Write-Host "✅ Done. You can now run: npm run build" -ForegroundColor Green
